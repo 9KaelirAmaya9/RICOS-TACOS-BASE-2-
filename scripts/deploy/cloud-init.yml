@@ -1,0 +1,69 @@
+#cloud-config
+
+# ==============================================================================
+# Digital Ocean Cloud-Init Configuration for Base2 Deployment
+# ==============================================================================
+# INSTRUCTIONS:
+# 1. Replace YOUR_GITHUB_TOKEN with your GitHub Personal Access Token (classic)
+#    with 'repo' scope.
+# 2. Replace YOUR_REPO_URL with your repository URL (e.g., https://github.com/username/repo.git)
+#    NOTE: Use the format https://TOKEN@github.com/username/repo.git for private repos.
+# 3. Paste this entire content into the "User Data" field when creating a Droplet.
+# ==============================================================================
+
+package_update: true
+package_upgrade: true
+
+packages:
+  - git
+  - curl
+  - apt-transport-https
+  - ca-certificates
+  - software-properties-common
+  - gnupg-agent
+
+groups:
+  - docker
+
+users:
+  - name: deploy
+    groups: docker, sudo
+    shell: /bin/bash
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+
+write_files:
+  - path: /etc/sysctl.d/99-docker.conf
+    content: |
+      vm.max_map_count=262144
+
+runcmd:
+  # 1. Install Docker
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+  - add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - apt-get update
+  - apt-get install -y docker-ce docker-ce-cli containerd.io
+
+  # 2. Install Docker Compose
+  - curl -L "https://github.com/docker/compose/releases/download/v2.23.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  - chmod +x /usr/local/bin/docker-compose
+
+  # 3. Apply sysctl settings
+  - sysctl -p /etc/sysctl.d/99-docker.conf
+
+  # 4. Clone Repository and Setup
+  # REPLACE THESE VARIABLES
+  - export REPO_URL="https://github.com/9KaelirAmaya9/RICOS-TACOS-BASE-2-.git"
+  # If private, insert token: https://<TOKEN>@github.com/...
+  # For this script to be fully automated, you MUST update the URL above with the token if private.
+
+  - mkdir -p /home/deploy/app
+  - git clone $REPO_URL /home/deploy/app
+  - chown -R deploy:deploy /home/deploy/app
+
+  # 5. Run Setup Script
+  - cd /home/deploy/app
+  - chmod +x scripts/deploy/setup.sh
+  # We run setup.sh as the deploy user
+  - su - deploy -c "cd /home/deploy/app && ./scripts/deploy/setup.sh --non-interactive"
+
+final_message: "The system is finally up, after $UPTIME seconds"

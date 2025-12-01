@@ -1,0 +1,198 @@
+services:
+  # React App Service
+  react-app:
+    build:
+      context: ./services/react-app
+      dockerfile: .Dockerfile
+      args:
+        - NODE_VERSION=${REACT_APP_NODE_VERSION}
+        - REACT_APP_PORT=${REACT_APP_PORT}
+        - REACT_APP_API_URL=/api
+    container_name: ${COMPOSE_PROJECT_NAME}_react-app
+    ports:
+      - "${REACT_APP_HOST_PORT}:${REACT_APP_PORT}"
+    environment:
+      - NODE_ENV=production
+      - REACT_APP_API_URL=/api
+      - REACT_APP_STRIPE_PUBLISHABLE_KEY=${REACT_APP_STRIPE_PUBLISHABLE_KEY}
+    networks:
+      - base2_network
+    restart: always
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://localhost:${REACT_APP_PORT}', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})",
+        ]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 40s
+
+  # Backend API Service
+  backend:
+    build:
+      context: ./services/backend
+      dockerfile: .Dockerfile
+      args:
+        - NODE_VERSION=${BACKEND_NODE_VERSION}
+    container_name: ${COMPOSE_PROJECT_NAME}_backend
+    ports:
+      - "${BACKEND_HOST_PORT}:${BACKEND_PORT}"
+    environment:
+      - NODE_ENV=production
+      - PORT=${BACKEND_PORT}
+      - DB_HOST=postgres
+      - DB_PORT=${POSTGRES_PORT}
+      - DB_NAME=${POSTGRES_DB}
+      - DB_USER=${POSTGRES_USER}
+      - DB_PASSWORD=${POSTGRES_PASSWORD}
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_EXPIRE=${JWT_EXPIRE}
+      - EMAIL_HOST=${EMAIL_HOST}
+      - EMAIL_PORT=${EMAIL_PORT}
+      - EMAIL_USER=${EMAIL_USER}
+      - EMAIL_PASSWORD=${EMAIL_PASSWORD}
+      - EMAIL_FROM=${EMAIL_FROM}
+      - FRONTEND_URL=https://localhost
+      - RATE_LIMIT_WINDOW_MS=${RATE_LIMIT_WINDOW_MS}
+      - RATE_LIMIT_MAX_REQUESTS=${RATE_LIMIT_MAX_REQUESTS}
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+    volumes:
+      - ./services/backend/logs:/app/logs
+    networks:
+      - base2_network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: always
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://localhost:${BACKEND_PORT}/api/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})",
+        ]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 40s
+
+  # Traefik Reverse Proxy Service
+  traefik:
+    build:
+      context: ./services/traefik
+      dockerfile: .Dockerfile
+      args:
+        - TRAEFIK_VERSION=${TRAEFIK_VERSION}
+        - TRAEFIK_LOG_LEVEL=${TRAEFIK_LOG_LEVEL}
+        - TRAEFIK_PORT=${TRAEFIK_PORT}
+        - TRAEFIK_API_PORT=${TRAEFIK_API_PORT}
+        - TRAEFIK_API_ENTRYPOINT=${TRAEFIK_API_ENTRYPOINT}
+        - TRAEFIK_DOCKER_NETWORK=${TRAEFIK_DOCKER_NETWORK}
+        - TRAEFIK_EXPOSED_BY_DEFAULT=${TRAEFIK_EXPOSED_BY_DEFAULT}
+    container_name: ${COMPOSE_PROJECT_NAME}_traefik
+    ports:
+      - "${TRAEFIK_HOST_PORT}:${TRAEFIK_PORT}"
+      - "${TRAEFIK_API_PORT}:${TRAEFIK_API_PORT}"
+    environment:
+      - TRAEFIK_LOG_LEVEL=${TRAEFIK_LOG_LEVEL}
+      - TRAEFIK_PORT=${TRAEFIK_PORT}
+      - TRAEFIK_API_PORT=${TRAEFIK_API_PORT}
+      - TRAEFIK_API_ENTRYPOINT=${TRAEFIK_API_ENTRYPOINT}
+      - TRAEFIK_DOCKER_NETWORK=${TRAEFIK_DOCKER_NETWORK}
+      - TRAEFIK_EXPOSED_BY_DEFAULT=${TRAEFIK_EXPOSED_BY_DEFAULT}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - traefik_logs:/var/log/traefik
+    networks:
+      - base2_network
+    restart: always
+    healthcheck:
+      test: ["CMD", "traefik", "healthcheck", "--ping"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+  # Nginx Web Server Service
+  nginx:
+    build:
+      context: ./services/nginx
+      dockerfile: .Dockerfile
+      args:
+        - NGINX_VERSION=${NGINX_VERSION}
+        - NGINX_WORKER_PROCESSES=${NGINX_WORKER_PROCESSES}
+        - NGINX_WORKER_CONNECTIONS=${NGINX_WORKER_CONNECTIONS}
+        - NGINX_PORT=${NGINX_PORT}
+    container_name: ${COMPOSE_PROJECT_NAME}_nginx
+    ports:
+      - "${NGINX_HOST_PORT}:${NGINX_PORT}"
+      - "443:443"
+    environment:
+      - NGINX_WORKER_PROCESSES=${NGINX_WORKER_PROCESSES}
+      - NGINX_WORKER_CONNECTIONS=${NGINX_WORKER_CONNECTIONS}
+      - NGINX_PORT=${NGINX_PORT}
+    volumes:
+      - ./services/nginx/certs:/etc/nginx/certs:ro
+    networks:
+      - base2_network
+    restart: always
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:${NGINX_PORT}/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    depends_on:
+      - backend
+      - react-app
+
+  # PostgreSQL Database Service
+  postgres:
+    build:
+      context: ./services/postgres
+      dockerfile: .Dockerfile
+      args:
+        - POSTGRES_VERSION=${POSTGRES_VERSION}
+        - POSTGRES_USER=${POSTGRES_USER}
+        - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+        - POSTGRES_DB=${POSTGRES_DB}
+    container_name: ${COMPOSE_PROJECT_NAME}_postgres
+    ports:
+      - "${POSTGRES_HOST_PORT}:${POSTGRES_PORT}"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - base2_network
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+# Networks Configuration
+networks:
+  base2_network:
+    name: ${NETWORK_NAME}
+    driver: bridge
+
+# Volumes Configuration
+volumes:
+  postgres_data:
+    name: ${COMPOSE_PROJECT_NAME}_postgres_data
+    driver: local
+
+  traefik_logs:
+    name: ${COMPOSE_PROJECT_NAME}_traefik_logs
+    driver: local

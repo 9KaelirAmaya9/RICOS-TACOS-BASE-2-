@@ -1,0 +1,90 @@
+
+> base2-react-app@1.0.0 test
+> react-scripts test --coverage --watchAll=false --coverage --watchAll=false src/__tests__/pages/KitchenDashboard.test.js
+
+PASS src/__tests__/pages/KitchenDashboard.test.js
+  KitchenDashboard Page
+    ✓ renders dashboard and fetches active orders (79 ms)
+    ✓ displays order details correctly (44 ms)
+    ✓ shows urgent badge for old new orders (20 ms)
+    ✓ updates order status to IN_PROGRESS (23 ms)
+    ✓ updates order status to READY (21 ms)
+    ✓ polls for updates (14 ms)
+    ✓ handles fetch error (7 ms)
+    ✓ handles update status error (38 ms)
+    ✓ renders empty state when no orders (4 ms)
+
+-----------------------|---------|----------|---------|---------|-------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------|---------|----------|---------|---------|-------------------
+All files              |    9.34 |     9.23 |    9.67 |    8.47 |                   
+ src                   |       0 |        0 |       0 |       0 |                   
+  App.js               |       0 |        0 |       0 |       0 | 26-37             
+  index.js             |       0 |      100 |     100 |       0 | 6-7               
+ src/components        |       0 |        0 |       0 |       0 |                   
+  CheckoutForm.js      |       0 |        0 |       0 |       0 | 4-66              
+  Navigation.js        |       0 |        0 |       0 |       0 | 6-116             
+  ProtectedRoute.js    |       0 |        0 |       0 |       0 | 5-21              
+ src/contexts          |       0 |        0 |       0 |       0 |                   
+  AuthContext.js       |       0 |        0 |       0 |       0 | 4-191             
+  CartContext.js       |       0 |        0 |       0 |       0 | 3-109             
+ src/pages             |   13.09 |    12.97 |   14.42 |    11.8 |                   
+  AdminDashboard.js    |       0 |        0 |       0 |       0 | 4-411             
+  Cart.js              |       0 |        0 |       0 |       0 | 10-298            
+  Dashboard.js         |       0 |      100 |       0 |       0 | 5-102             
+  ForgotPassword.js    |       0 |        0 |       0 |       0 | 5-94              
+  Home.js              |       0 |      100 |       0 |       0 | 6-7               
+  KitchenDashboard.js  |   96.66 |    94.44 |     100 |   98.07 | 51                
+  Location.js          |       0 |      100 |       0 |       0 | 3-65              
+  Login.js             |       0 |        0 |       0 |       0 | 6-123             
+  Menu.js              |       0 |        0 |       0 |       0 | 8-152             
+  OrderConfirmation.js |       0 |        0 |       0 |       0 | 5-197             
+  ResetPassword.js     |       0 |        0 |       0 |       0 | 5-156             
+  UserSettings.js      |       0 |        0 |       0 |       0 | 5-172             
+  VerifyEmail.js       |       0 |        0 |       0 |       0 | 5-133             
+ src/services          |   15.62 |    16.66 |       0 |   15.62 |                   
+  api.js               |   15.62 |    16.66 |       0 |   15.62 | 16-23,29-37,45-88 
+-----------------------|---------|----------|---------|---------|-------------------
+Jest: "global" coverage threshold for statements (40%) not met: 24.26%
+Jest: "global" coverage threshold for branches (30%) not met: 20.35%
+Jest: "global" coverage threshold for lines (40%) not met: 22.27%
+Jest: "global" coverage threshold for functions (40%) not met: 30%
+Jest: "src/components" coverage threshold for statements (98%) not met: 0%
+Jest: "src/components" coverage threshold for branches (90%) not met: 0%
+Jest: "src/components" coverage threshold for lines (98%) not met: 0%
+Jest: "src/components" coverage threshold for functions (98%) not met: 0%
+Jest: "src/contexts" coverage threshold for statements (98%) not met: 0%
+Jest: "src/contexts" coverage threshold for branches (75%) not met: 0%
+Jest: "src/contexts" coverage threshold for lines (98%) not met: 0%
+Jest: "src/contexts" coverage threshold for functions (98%) not met: 0%
+Jest: "src/services" coverage threshold for statements (98%) not met: 15.62%
+Jest: "src/services" coverage threshold for branches (80%) not met: 16.66%
+Jest: "src/services" coverage threshold for lines (98%) not met: 15.62%
+Jest: "src/services" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Home.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Home.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Home.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for branches (90%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for branches (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Cart.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Cart.js" coverage threshold for branches (98%) not met: 0%
+Jest: "src/pages/Cart.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Cart.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Dashboard.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Dashboard.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Dashboard.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/AdminDashboard.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/AdminDashboard.js" coverage threshold for branches (85%) not met: 0%
+Jest: "src/pages/AdminDashboard.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/AdminDashboard.js" coverage threshold for functions (98%) not met: 0%
+Test Suites: 1 passed, 1 total
+Tests:       9 passed, 9 total
+Snapshots:   0 total
+Time:        6.157 s
+Ran all test suites matching /src\/__tests__\/pages\/KitchenDashboard.test.js/i.

@@ -34,7 +34,23 @@ fi
 
 # Load .env file
 echo "📖 Loading environment variables..."
-export $(grep -v '^#' .env | grep -v '^$' | sed 's/ *#.*//' | xargs)
+while IFS= read -r line || [[ -n "$line" ]]; do
+    # Skip comments and empty lines
+    if [[ "$line" =~ ^# ]] || [[ -z "$line" ]]; then
+        continue
+    fi
+    # Remove inline comments (be careful not to remove # inside quotes if possible, but simple sed is what was there)
+    # The original script used sed 's/ *#.*//' which removes everything after a space followed by #
+    clean_line=$(echo "$line" | sed 's/ *#.*//')
+    
+    # Skip if empty after cleaning
+    if [[ -z "$clean_line" ]]; then
+        continue
+    fi
+    
+    # Export the variable safely
+    export "$clean_line"
+done < .env
 
 # Validate required variables
 if [ -z "$NETWORK_NAME" ]; then

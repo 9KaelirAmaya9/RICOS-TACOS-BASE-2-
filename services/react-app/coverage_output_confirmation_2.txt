@@ -1,0 +1,196 @@
+
+> base2-react-app@1.0.0 test
+> react-scripts test --coverage --watchAll=false --coverage --watchAll=false src/__tests__/pages/OrderConfirmation.test.js
+
+  console.warn
+    ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+
+    [0m [90m 67 |[39m         api[33m.[39m[36mget[39m[33m.[39mmockImplementation(() [33m=>[39m [36mnew[39m [33mPromise[39m(resolve [33m=>[39m setTimeout(() [33m=>[39m resolve({ data[33m:[39m { data[33m:[39m mockOrder } })[33m,[39m [35m100[39m)))[33m;[39m
+     [90m 68 |[39m
+    [31m[1m>[22m[39m[90m 69 |[39m         render(
+     [90m    |[39m               [31m[1m^[22m[39m
+     [90m 70 |[39m             [33m<[39m[33mMemoryRouter[39m initialEntries[33m=[39m{[[32m'/order/123'[39m]}[33m>[39m
+     [90m 71 |[39m                 [33m<[39m[33mRoutes[39m[33m>[39m
+     [90m 72 |[39m                     [33m<[39m[33mRoute[39m path[33m=[39m[32m"/order/:orderId"[39m element[33m=[39m{[33m<[39m[33mOrderConfirmation[39m [35m/>} /[39m[33m>[39m[0m
+
+      at warnOnce (node_modules/react-router/lib/deprecations.ts:9:13)
+      at logDeprecation (node_modules/react-router/lib/deprecations.ts:14:3)
+      at logV6DeprecationWarnings (node_modules/react-router/lib/deprecations.ts:26:5)
+      at create (node_modules/react-router/lib/components.tsx:257:25)
+      at commitHookEffectListMount (node_modules/react-dom/cjs/react-dom.development.js:23189:26)
+      at commitPassiveMountOnFiber (node_modules/react-dom/cjs/react-dom.development.js:24970:11)
+      at commitPassiveMountEffects_complete (node_modules/react-dom/cjs/react-dom.development.js:24930:9)
+      at commitPassiveMountEffects_begin (node_modules/react-dom/cjs/react-dom.development.js:24917:7)
+      at commitPassiveMountEffects (node_modules/react-dom/cjs/react-dom.development.js:24905:3)
+      at flushPassiveEffectsImpl (node_modules/react-dom/cjs/react-dom.development.js:27078:3)
+      at flushPassiveEffects (node_modules/react-dom/cjs/react-dom.development.js:27023:14)
+      at callback (node_modules/react-dom/cjs/react-dom.development.js:26808:9)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at actImplementation (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:47:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:180:25)
+      at render (node_modules/@testing-library/react/dist/pure.js:271:10)
+      at Object.<anonymous> (src/__tests__/pages/OrderConfirmation.test.js:69:15)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+  console.warn
+    ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+    [0m [90m 67 |[39m         api[33m.[39m[36mget[39m[33m.[39mmockImplementation(() [33m=>[39m [36mnew[39m [33mPromise[39m(resolve [33m=>[39m setTimeout(() [33m=>[39m resolve({ data[33m:[39m { data[33m:[39m mockOrder } })[33m,[39m [35m100[39m)))[33m;[39m
+     [90m 68 |[39m
+    [31m[1m>[22m[39m[90m 69 |[39m         render(
+     [90m    |[39m               [31m[1m^[22m[39m
+     [90m 70 |[39m             [33m<[39m[33mMemoryRouter[39m initialEntries[33m=[39m{[[32m'/order/123'[39m]}[33m>[39m
+     [90m 71 |[39m                 [33m<[39m[33mRoutes[39m[33m>[39m
+     [90m 72 |[39m                     [33m<[39m[33mRoute[39m path[33m=[39m[32m"/order/:orderId"[39m element[33m=[39m{[33m<[39m[33mOrderConfirmation[39m [35m/>} /[39m[33m>[39m[0m
+
+      at warnOnce (node_modules/react-router/lib/deprecations.ts:9:13)
+      at logDeprecation (node_modules/react-router/lib/deprecations.ts:14:3)
+      at logV6DeprecationWarnings (node_modules/react-router/lib/deprecations.ts:37:5)
+      at create (node_modules/react-router/lib/components.tsx:257:25)
+      at commitHookEffectListMount (node_modules/react-dom/cjs/react-dom.development.js:23189:26)
+      at commitPassiveMountOnFiber (node_modules/react-dom/cjs/react-dom.development.js:24970:11)
+      at commitPassiveMountEffects_complete (node_modules/react-dom/cjs/react-dom.development.js:24930:9)
+      at commitPassiveMountEffects_begin (node_modules/react-dom/cjs/react-dom.development.js:24917:7)
+      at commitPassiveMountEffects (node_modules/react-dom/cjs/react-dom.development.js:24905:3)
+      at flushPassiveEffectsImpl (node_modules/react-dom/cjs/react-dom.development.js:27078:3)
+      at flushPassiveEffects (node_modules/react-dom/cjs/react-dom.development.js:27023:14)
+      at callback (node_modules/react-dom/cjs/react-dom.development.js:26808:9)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at actImplementation (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:47:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:180:25)
+      at render (node_modules/@testing-library/react/dist/pure.js:271:10)
+      at Object.<anonymous> (src/__tests__/pages/OrderConfirmation.test.js:69:15)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+  console.error
+    Error fetching order: Error: API Error
+        at Object.<anonymous> (/Users/jancarlosinc/Desktop/base2/services/react-app/src/__tests__/pages/OrderConfirmation.test.js:146:35)
+        at Promise.then.completed (/Users/jancarlosinc/Desktop/base2/services/react-app/node_modules/jest-circus/build/utils.js:391:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (/Users/jancarlosinc/Desktop/base2/services/react-app/node_modules/jest-circus/build/utils.js:316:10)
+        at _callCircusTest (/Users/jancarlosinc/Desktop/base2/services/react-app/node_modules/jest-circus/build/run.js:218:40)
+        at _runTest (/Users/jancarlosinc/Desktop/base2/services/react-app/node_modules/jest-circus/build/run.js:155:3)
+        at _runTestsForDescribeBlock (/Users/jancarlosinc/Desktop/base2/services/react-app/node_modules/jest-circus/build/run.js:66:9)
+        at _runTestsForDescribeBlock (/Users/jancarlosinc/Desktop/base2/services/react-app/node_modules/jest-circus/build/run.js:60:9)
+        at run (/Users/jancarlosinc/Desktop/base2/services/react-app/node_modules/jest-circus/build/run.js:25:3)
+        at runAndTransformResultsToJestFormat (/Users/jancarlosinc/Desktop/base2/services/react-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+        at jestAdapter (/Users/jancarlosinc/Desktop/base2/services/react-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:68:19)
+        at runTestInternal (/Users/jancarlosinc/Desktop/base2/services/react-app/node_modules/jest-runner/build/runTest.js:250:16)
+        at runTest (/Users/jancarlosinc/Desktop/base2/services/react-app/node_modules/jest-runner/build/runTest.js:310:7)
+        at TestRunner.runTests (/Users/jancarlosinc/Desktop/base2/services/react-app/node_modules/jest-runner/build/index.js:73:12)
+        at TestScheduler.scheduleTests (/Users/jancarlosinc/Desktop/base2/services/react-app/node_modules/@jest/core/build/TestScheduler.js:333:13)
+        at runJest (/Users/jancarlosinc/Desktop/base2/services/react-app/node_modules/@jest/core/build/runJest.js:404:19)
+        at _run10000 (/Users/jancarlosinc/Desktop/base2/services/react-app/node_modules/@jest/core/build/cli/index.js:320:7)
+        at runCLI (/Users/jancarlosinc/Desktop/base2/services/react-app/node_modules/@jest/core/build/cli/index.js:173:3)
+        at Object.run (/Users/jancarlosinc/Desktop/base2/services/react-app/node_modules/jest-cli/build/cli/index.js:155:37)
+
+    [0m [90m 24 |[39m       setError([36mnull[39m)[33m;[39m
+     [90m 25 |[39m     } [36mcatch[39m (err) {
+    [31m[1m>[22m[39m[90m 26 |[39m       console[33m.[39merror([32m'Error fetching order:'[39m[33m,[39m err)[33m;[39m
+     [90m    |[39m               [31m[1m^[22m[39m
+     [90m 27 |[39m       setError([32m'Failed to load order details'[39m)[33m;[39m
+     [90m 28 |[39m     } [36mfinally[39m {
+     [90m 29 |[39m       setLoading([36mfalse[39m)[33m;[39m[0m
+
+      at fetchOrder (src/pages/OrderConfirmation.js:26:15)
+
+PASS src/__tests__/pages/OrderConfirmation.test.js
+  OrderConfirmation Page
+    ✓ renders loading state initially (366 ms)
+    ✓ renders order not found state (17 ms)
+    ✓ renders order details correctly (69 ms)
+    ✓ handles polling for updates (84 ms)
+    ✓ handles fetch error (14 ms)
+    ✓ navigates back to menu on error (72 ms)
+    ✓ navigates to menu from success page (37 ms)
+    ✓ navigates home from success page (34 ms)
+    ✓ displays correct status text and colors (1 ms)
+    ✓ renders READY status with special message (34 ms)
+    ✓ renders unknown status correctly (21 ms)
+
+-----------------------|---------|----------|---------|---------|-------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------|---------|----------|---------|---------|-------------------
+All files              |    5.93 |     5.54 |    6.45 |     5.9 |                   
+ src                   |       0 |        0 |       0 |       0 |                   
+  App.js               |       0 |        0 |       0 |       0 | 26-37             
+  index.js             |       0 |      100 |     100 |       0 | 6-7               
+ src/components        |       0 |        0 |       0 |       0 |                   
+  CheckoutForm.js      |       0 |        0 |       0 |       0 | 4-66              
+  Navigation.js        |       0 |        0 |       0 |       0 | 6-116             
+  ProtectedRoute.js    |       0 |        0 |       0 |       0 | 5-21              
+ src/contexts          |       0 |        0 |       0 |       0 |                   
+  AuthContext.js       |       0 |        0 |       0 |       0 | 4-191             
+  CartContext.js       |       0 |        0 |       0 |       0 | 3-109             
+ src/pages             |     7.9 |     7.63 |    9.61 |    7.87 |                   
+  AdminDashboard.js    |       0 |        0 |       0 |       0 | 4-411             
+  Cart.js              |       0 |        0 |       0 |       0 | 10-298            
+  Dashboard.js         |       0 |      100 |       0 |       0 | 5-102             
+  ForgotPassword.js    |       0 |        0 |       0 |       0 | 5-94              
+  Home.js              |       0 |      100 |       0 |       0 | 6-7               
+  KitchenDashboard.js  |       0 |        0 |       0 |       0 | 4-211             
+  Location.js          |       0 |      100 |       0 |       0 | 3-65              
+  Login.js             |       0 |        0 |       0 |       0 | 6-123             
+  Menu.js              |       0 |        0 |       0 |       0 | 8-152             
+  OrderConfirmation.js |     100 |      100 |     100 |     100 |                   
+  ResetPassword.js     |       0 |        0 |       0 |       0 | 5-156             
+  UserSettings.js      |       0 |        0 |       0 |       0 | 5-172             
+  VerifyEmail.js       |       0 |        0 |       0 |       0 | 5-133             
+ src/services          |   15.62 |    16.66 |       0 |   15.62 |                   
+  api.js               |   15.62 |    16.66 |       0 |   15.62 | 16-23,29-37,45-88 
+-----------------------|---------|----------|---------|---------|-------------------
+Jest: "global" coverage threshold for statements (40%) not met: 19.55%
+Jest: "global" coverage threshold for branches (30%) not met: 15.26%
+Jest: "global" coverage threshold for lines (40%) not met: 19.2%
+Jest: "global" coverage threshold for functions (40%) not met: 28.57%
+Jest: "src/components" coverage threshold for statements (98%) not met: 0%
+Jest: "src/components" coverage threshold for branches (90%) not met: 0%
+Jest: "src/components" coverage threshold for lines (98%) not met: 0%
+Jest: "src/components" coverage threshold for functions (98%) not met: 0%
+Jest: "src/contexts" coverage threshold for statements (98%) not met: 0%
+Jest: "src/contexts" coverage threshold for branches (75%) not met: 0%
+Jest: "src/contexts" coverage threshold for lines (98%) not met: 0%
+Jest: "src/contexts" coverage threshold for functions (98%) not met: 0%
+Jest: "src/services" coverage threshold for statements (98%) not met: 15.62%
+Jest: "src/services" coverage threshold for branches (80%) not met: 16.66%
+Jest: "src/services" coverage threshold for lines (98%) not met: 15.62%
+Jest: "src/services" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Home.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Home.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Home.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for branches (90%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for branches (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Cart.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Cart.js" coverage threshold for branches (98%) not met: 0%
+Jest: "src/pages/Cart.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Cart.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Dashboard.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Dashboard.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Dashboard.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/AdminDashboard.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/AdminDashboard.js" coverage threshold for branches (85%) not met: 0%
+Jest: "src/pages/AdminDashboard.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/AdminDashboard.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/KitchenDashboard.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/KitchenDashboard.js" coverage threshold for branches (97%) not met: 0%
+Jest: "src/pages/KitchenDashboard.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/KitchenDashboard.js" coverage threshold for functions (98%) not met: 0%
+Test Suites: 1 passed, 1 total
+Tests:       11 passed, 11 total
+Snapshots:   0 total
+Time:        9.197 s
+Ran all test suites matching /src\/__tests__\/pages\/OrderConfirmation.test.js/i.

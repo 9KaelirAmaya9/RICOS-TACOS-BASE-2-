@@ -1,0 +1,166 @@
+
+> base2-backend@1.0.0 test
+> jest --coverage __tests__/middleware.test.js
+
+  console.log
+    Calling protect from roles.js
+
+      at log (middleware/roles.js:17:15)
+
+  console.log
+    Calling protect from roles.js
+
+      at log (middleware/roles.js:17:15)
+
+  console.log
+    Calling protect from roles.js
+
+      at log (middleware/roles.js:17:15)
+
+FAIL __tests__/middleware.test.js (30.447 s)
+  Middleware
+    Role Middleware
+      ✕ should call next if user has required role (10006 ms)
+      ✕ should return 403 if user does not have required role (10001 ms)
+      ✕ should allow multiple roles (10002 ms)
+
+  ● Middleware › Role Middleware › should call next if user has required role
+
+    thrown: "Exceeded timeout of 10000 ms for a test.
+    Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout."
+
+      64 |     // Let's try to test Role Middleware first since that was failing.
+      65 |     describe('Role Middleware', () => {
+    > 66 |         test('should call next if user has required role', async () => {
+         |         ^
+      67 |             req.user.role = 'ADMIN';
+      68 |             await requireRole('ADMIN')(req, res, next);
+      69 |             expect(next).toHaveBeenCalled();
+
+      at test (__tests__/middleware.test.js:66:9)
+      at describe (__tests__/middleware.test.js:65:5)
+      at Object.describe (__tests__/middleware.test.js:44:1)
+
+  ● Middleware › Role Middleware › should return 403 if user does not have required role
+
+    thrown: "Exceeded timeout of 10000 ms for a test.
+    Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout."
+
+      70 |         });
+      71 |
+    > 72 |         test('should return 403 if user does not have required role', async () => {
+         |         ^
+      73 |             req.user.role = 'CUSTOMER';
+      74 |             await requireRole('ADMIN')(req, res, next);
+      75 |             expect(res.status).toHaveBeenCalledWith(403);
+
+      at test (__tests__/middleware.test.js:72:9)
+      at describe (__tests__/middleware.test.js:65:5)
+      at Object.describe (__tests__/middleware.test.js:44:1)
+
+  ● Middleware › Role Middleware › should allow multiple roles
+
+    thrown: "Exceeded timeout of 10000 ms for a test.
+    Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout."
+
+      76 |         });
+      77 |
+    > 78 |         test('should allow multiple roles', async () => {
+         |         ^
+      79 |             req.user.role = 'KITCHEN';
+      80 |             await requireRole('ADMIN', 'KITCHEN')(req, res, next);
+      81 |             expect(next).toHaveBeenCalled();
+
+      at test (__tests__/middleware.test.js:78:9)
+      at describe (__tests__/middleware.test.js:65:5)
+      at Object.describe (__tests__/middleware.test.js:44:1)
+
+Failed to collect coverage from /Users/jancarlosinc/Desktop/base2/services/backend/utils/dbInit.js
+ERROR: /Users/jancarlosinc/Desktop/base2/services/backend/utils/dbInit.js: Missing semicolon. (88:1)
+
+  86 |     }
+  87 |
+> 88 | } catch (error) {
+     |  ^
+  89 |     logger.error('Error bootstrapping admin:', error);
+  90 |     throw error;
+  91 | } finally {
+STACK: SyntaxError: /Users/jancarlosinc/Desktop/base2/services/backend/utils/dbInit.js: Missing semicolon. (88:1)
+
+  86 |     }
+  87 |
+> 88 | } catch (error) {
+     |  ^
+  89 |     logger.error('Error bootstrapping admin:', error);
+  90 |     throw error;
+  91 | } finally {
+    at constructor (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/@babel/parser/lib/index.js:367:19)
+    at Parser.raise (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/@babel/parser/lib/index.js:6624:19)
+    at Parser.semicolon (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/@babel/parser/lib/index.js:6920:10)
+    at Parser.parseVarStatement (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/@babel/parser/lib/index.js:13307:10)
+    at Parser.parseStatementContent (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/@babel/parser/lib/index.js:12927:23)
+    at Parser.parseStatementLike (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/@babel/parser/lib/index.js:12843:17)
+    at Parser.parseModuleItem (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/@babel/parser/lib/index.js:12820:17)
+    at Parser.parseBlockOrModuleBlockBody (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/@babel/parser/lib/index.js:13392:36)
+    at Parser.parseBlockBody (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/@babel/parser/lib/index.js:13385:10)
+    at Parser.parseProgram (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/@babel/parser/lib/index.js:12698:10)
+    at Parser.parseTopLevel (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/@babel/parser/lib/index.js:12688:25)
+    at Parser.parse (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/@babel/parser/lib/index.js:14568:25)
+    at parse (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/@babel/parser/lib/index.js:14602:38)
+    at parser (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/@babel/core/lib/parser/index.js:41:34)
+    at parser.next (<anonymous>)
+    at normalizeFile (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+    at normalizeFile.next (<anonymous>)
+    at run (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+    at run.next (<anonymous>)
+    at transform (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/@babel/core/lib/transform.js:22:33)
+    at transform.next (<anonymous>)
+    at step (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/gensync/index.js:261:32)
+    at /Users/jancarlosinc/Desktop/base2/services/backend/node_modules/gensync/index.js:273:13
+    at async.call.result.err.err (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/gensync/index.js:223:11)
+    at /Users/jancarlosinc/Desktop/base2/services/backend/node_modules/gensync/index.js:189:28
+    at /Users/jancarlosinc/Desktop/base2/services/backend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+    at /Users/jancarlosinc/Desktop/base2/services/backend/node_modules/gensync/index.js:113:33
+    at step (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/gensync/index.js:287:14)
+    at /Users/jancarlosinc/Desktop/base2/services/backend/node_modules/gensync/index.js:273:13
+    at async.call.result.err.err (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/gensync/index.js:223:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+-----------------------|---------|----------|---------|---------|-----------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s     
+-----------------------|---------|----------|---------|---------|-----------------------
+All files              |    3.42 |        0 |    4.22 |    3.43 |                       
+ backend               |       0 |        0 |       0 |       0 |                       
+  check_admin.js       |       0 |      100 |       0 |       0 | 1-14                  
+  server.js            |       0 |        0 |       0 |       0 | 1-155                 
+ backend/config        |       0 |      100 |       0 |       0 |                       
+  database.js          |       0 |      100 |       0 |       0 | 1-67                  
+ backend/controllers   |       0 |        0 |       0 |       0 |                       
+  authController.js    |       0 |        0 |       0 |       0 | 1-446                 
+  menuController.js    |       0 |        0 |       0 |       0 | 6-413                 
+  orderController.js   |       0 |        0 |       0 |       0 | 6-459                 
+  paymentController.js |       0 |        0 |       0 |       0 | 6-78                  
+ backend/database      |       0 |        0 |       0 |       0 |                       
+  migrate.js           |       0 |        0 |       0 |       0 | 6-55                  
+  seed.js              |       0 |        0 |       0 |       0 | 6-169                 
+ backend/middleware    |   36.36 |        0 |      50 |    37.2 |                       
+  auth.js              |   21.73 |        0 |       0 |   21.73 | 9-52,61-67            
+  roles.js             |   52.38 |        0 |      75 |      55 | 20-45                 
+ backend/routes        |       0 |      100 |     100 |       0 |                       
+  auth.js              |       0 |      100 |     100 |       0 | 1-51                  
+  menu.js              |       0 |      100 |     100 |       0 | 6-35                  
+  orders.js            |       0 |      100 |     100 |       0 | 6-32                  
+  user.js              |       0 |      100 |     100 |       0 | 1-28                  
+ backend/utils         |   18.86 |        0 |       0 |   19.23 |                       
+  auth.js              |   52.63 |        0 |       0 |   52.63 | 7-8,13,18,27-30,36,41 
+  email.js             |       0 |        0 |       0 |       0 | 1-147                 
+  logger.js            |       0 |        0 |       0 |       0 | 1-78                  
+-----------------------|---------|----------|---------|---------|-----------------------
+Jest: "global" coverage threshold for statements (98%) not met: 3.42%
+Jest: "global" coverage threshold for branches (98%) not met: 0%
+Jest: "global" coverage threshold for lines (98%) not met: 3.43%
+Jest: "global" coverage threshold for functions (98%) not met: 4.22%
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 3 total
+Snapshots:   0 total
+Time:        31.106 s
+Ran all test suites matching /__tests__\/middleware.test.js/i.

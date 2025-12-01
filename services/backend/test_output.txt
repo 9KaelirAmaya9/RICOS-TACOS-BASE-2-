@@ -1,0 +1,140 @@
+
+> base2-backend@1.0.0 test
+> jest --coverage __tests__/menuController.test.js
+
+  console.error
+    Error fetching full menu: TypeError: Cannot destructure property 'available_only' of '((cov_2iraun9rz6(...).s[24]++) , req.query)' as it is undefined.
+        at Object.available_only [as getFullMenu] (/Users/jancarlosinc/Desktop/base2/services/backend/controllers/menuController.js:82:13)
+        at Object.getFullMenu (/Users/jancarlosinc/Desktop/base2/services/backend/__tests__/menuController.test.js:48:34)
+        at Promise.then.completed (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/utils.js:298:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/utils.js:231:10)
+        at _callCircusTest (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/run.js:316:40)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at _runTest (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/run.js:252:3)
+        at _runTestsForDescribeBlock (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/run.js:126:9)
+        at _runTestsForDescribeBlock (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/run.js:121:9)
+        at _runTestsForDescribeBlock (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/run.js:121:9)
+        at run (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/run.js:71:3)
+        at runAndTransformResultsToJestFormat (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+        at jestAdapter (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+        at runTestInternal (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-runner/build/runTest.js:367:16)
+        at runTest (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-runner/build/runTest.js:444:34)
+
+      108 |     });
+      109 |   } catch (error) {
+    > 110 |     console.error('Error fetching full menu:', error);
+          |             ^
+      111 |     res.status(500).json({
+      112 |       success: false,
+      113 |       message: 'Error fetching menu'
+
+      at Object.error [as getFullMenu] (controllers/menuController.js:110:13)
+      at Object.getFullMenu (__tests__/menuController.test.js:48:34)
+
+  console.error
+    Error fetching full menu: TypeError: Cannot destructure property 'available_only' of '((cov_2iraun9rz6(...).s[24]++) , req.query)' as it is undefined.
+        at Object.available_only [as getFullMenu] (/Users/jancarlosinc/Desktop/base2/services/backend/controllers/menuController.js:82:13)
+        at Object.getFullMenu (/Users/jancarlosinc/Desktop/base2/services/backend/__tests__/menuController.test.js:63:34)
+        at Promise.then.completed (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/utils.js:298:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/utils.js:231:10)
+        at _callCircusTest (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/run.js:316:40)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at _runTest (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/run.js:252:3)
+        at _runTestsForDescribeBlock (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/run.js:126:9)
+        at _runTestsForDescribeBlock (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/run.js:121:9)
+        at _runTestsForDescribeBlock (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/run.js:121:9)
+        at run (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/run.js:71:3)
+        at runAndTransformResultsToJestFormat (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+        at jestAdapter (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+        at runTestInternal (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-runner/build/runTest.js:367:16)
+        at runTest (/Users/jancarlosinc/Desktop/base2/services/backend/node_modules/jest-runner/build/runTest.js:444:34)
+
+      108 |     });
+      109 |   } catch (error) {
+    > 110 |     console.error('Error fetching full menu:', error);
+          |             ^
+      111 |     res.status(500).json({
+      112 |       success: false,
+      113 |       message: 'Error fetching menu'
+
+      at Object.error [as getFullMenu] (controllers/menuController.js:110:13)
+      at Object.getFullMenu (__tests__/menuController.test.js:63:34)
+
+FAIL __tests__/menuController.test.js
+  Menu Controller
+    getFullMenu
+      ✕ should return all menu items grouped by category (28 ms)
+      ✓ should handle database error (1 ms)
+    getMenuItem
+      ✓ should return a single menu item
+      ✓ should return 404 if item not found
+    createMenuItem
+      ✓ should create a new menu item (1 ms)
+    updateMenuItem
+      ✓ should update an existing menu item
+      ✓ should return 404 if item to update not found
+    deleteMenuItem
+      ✓ should delete a menu item
+      ✓ should return 404 if item to delete not found (1 ms)
+
+  ● Menu Controller › getFullMenu › should return all menu items grouped by category
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: ObjectContaining {"data": ArrayContaining [ObjectContaining {"items": ArrayContaining [ObjectContaining {"name": "Taco"}], "name": "Tacos"}], "success": true}
+    Received: {"message": "Error fetching menu", "success": false}
+
+    Number of calls: 1
+
+      48 |             await menuController.getFullMenu(req, res);
+      49 |
+    > 50 |             expect(res.json).toHaveBeenCalledWith(expect.objectContaining({
+         |                              ^
+      51 |                 success: true,
+      52 |                 data: expect.arrayContaining([
+      53 |                     expect.objectContaining({
+
+      at Object.toHaveBeenCalledWith (__tests__/menuController.test.js:50:30)
+
+-----------------------|---------|----------|---------|---------|----------------------------------------------------------------------------------------------------------------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                                                                          
+-----------------------|---------|----------|---------|---------|----------------------------------------------------------------------------------------------------------------------------
+All files              |    6.61 |     8.26 |    6.57 |    6.64 |                                                                                                                            
+ backend               |       0 |        0 |       0 |       0 |                                                                                                                            
+  check_admin.js       |       0 |      100 |       0 |       0 | 1-14                                                                                                                       
+  server.js            |       0 |        0 |       0 |       0 | 1-155                                                                                                                      
+ backend/config        |       0 |      100 |       0 |       0 |                                                                                                                            
+  database.js          |       0 |      100 |       0 |       0 | 1-67                                                                                                                       
+ backend/controllers   |   12.85 |    14.59 |   16.12 |   12.88 |                                                                                                                            
+  authController.js    |       0 |        0 |       0 |       0 | 1-446                                                                                                                      
+  menuController.js    |   39.56 |    43.47 |   45.45 |   39.85 | 14-25,38-68,85-105,147-148,174,194-195,239-240,243-244,247-248,251-252,255-256,259-260,264,281-282,315-316,329-351,364-407 
+  orderController.js   |       0 |        0 |       0 |       0 | 6-459                                                                                                                      
+  paymentController.js |       0 |        0 |       0 |       0 | 6-78                                                                                                                       
+ backend/database      |       0 |        0 |       0 |       0 |                                                                                                                            
+  migrate.js           |       0 |        0 |       0 |       0 | 6-55                                                                                                                       
+  seed.js              |       0 |        0 |       0 |       0 | 6-169                                                                                                                      
+ backend/middleware    |       0 |        0 |       0 |       0 |                                                                                                                            
+  auth.js              |       0 |        0 |       0 |       0 | 1-70                                                                                                                       
+  roles.js             |       0 |        0 |       0 |       0 | 6-66                                                                                                                       
+ backend/routes        |       0 |      100 |     100 |       0 |                                                                                                                            
+  auth.js              |       0 |      100 |     100 |       0 | 1-51                                                                                                                       
+  menu.js              |       0 |      100 |     100 |       0 | 6-35                                                                                                                       
+  orders.js            |       0 |      100 |     100 |       0 | 6-32                                                                                                                       
+  user.js              |       0 |      100 |     100 |       0 | 1-28                                                                                                                       
+ backend/utils         |       0 |        0 |       0 |       0 |                                                                                                                            
+  auth.js              |       0 |        0 |       0 |       0 | 1-44                                                                                                                       
+  dbInit.js            |       0 |        0 |       0 |       0 | 1-98                                                                                                                       
+  email.js             |       0 |        0 |       0 |       0 | 1-228                                                                                                                      
+  logger.js            |       0 |        0 |       0 |       0 | 1-78                                                                                                                       
+-----------------------|---------|----------|---------|---------|----------------------------------------------------------------------------------------------------------------------------
+Jest: "global" coverage threshold for statements (98%) not met: 6.61%
+Jest: "global" coverage threshold for branches (98%) not met: 8.26%
+Jest: "global" coverage threshold for lines (98%) not met: 6.64%
+Jest: "global" coverage threshold for functions (98%) not met: 6.57%
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 8 passed, 9 total
+Snapshots:   0 total
+Time:        0.887 s, estimated 1 s
+Ran all test suites matching /__tests__\/menuController.test.js/i.

@@ -57,12 +57,12 @@ if [ "$SELF_TEST" = true ]; then
         exit 1
     fi
     # Check backend test script
-    if ! grep -q 'test' backend/package.json; then
+    if ! grep -q 'test' services/backend/package.json; then
         echo -e "${RED}❌ Backend test script missing in package.json.${NC}"
         exit 1
     fi
     # Check frontend test script
-    if ! grep -q 'test' react-app/package.json; then
+    if ! grep -q 'test' services/react-app/package.json; then
         echo -e "${RED}❌ Frontend test script missing in package.json.${NC}"
         exit 1
     fi
@@ -77,7 +77,7 @@ echo ""
 
 # Run backend tests
 echo -e "${GREEN}Running Backend Tests...${NC}"
-cd backend
+cd services/backend
 
 if [ ! -d "node_modules" ]; then
     echo -e "${RED}Backend dependencies not installed. Run 'npm install' first.${NC}"
@@ -94,11 +94,11 @@ fi
 
 BACKEND_EXIT_CODE=$?
 
-cd ..
+cd ../..
 
 echo ""
 echo -e "${GREEN}Running Frontend Tests...${NC}"
-cd react-app
+cd services/react-app
 
 if [ ! -d "node_modules" ]; then
     echo -e "${RED}Frontend dependencies not installed. Run 'npm install' first.${NC}"
@@ -115,7 +115,7 @@ fi
 
 FRONTEND_EXIT_CODE=$?
 
-cd ..
+cd ../..
 
 echo ""
 echo -e "${BLUE}================================================${NC}"

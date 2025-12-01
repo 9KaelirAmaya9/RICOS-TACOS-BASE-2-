@@ -2,7 +2,7 @@ services:
   # React App Service
   react-app:
     build:
-      context: ./react-app
+      context: ./services/react-app
       dockerfile: .Dockerfile
       args:
         - NODE_VERSION=${REACT_APP_NODE_VERSION}
@@ -10,19 +10,23 @@ services:
         - REACT_APP_API_URL=${REACT_APP_API_URL}
     container_name: ${COMPOSE_PROJECT_NAME}_react-app
     ports:
-      - '${REACT_APP_HOST_PORT}:${REACT_APP_PORT}'
+      - "${REACT_APP_HOST_PORT}:${REACT_APP_PORT}"
     environment:
       - NODE_ENV=development
       - REACT_APP_API_URL=${REACT_APP_API_URL}
+      - REACT_APP_STRIPE_PUBLISHABLE_KEY=${REACT_APP_STRIPE_PUBLISHABLE_KEY}
+    volumes:
+      - ./services/react-app:/app
+      - /app/node_modules
     networks:
       - base2_network
     restart: unless-stopped
     healthcheck:
       test:
         [
-          'CMD',
-          'node',
-          '-e',
+          "CMD",
+          "node",
+          "-e",
           "require('http').get('http://localhost:${REACT_APP_PORT}', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})",
         ]
       interval: 30s
@@ -33,13 +37,13 @@ services:
   # Backend API Service
   backend:
     build:
-      context: ./backend
+      context: ./services/backend
       dockerfile: .Dockerfile
       args:
         - NODE_VERSION=${BACKEND_NODE_VERSION}
     container_name: ${COMPOSE_PROJECT_NAME}_backend
     ports:
-      - '${BACKEND_HOST_PORT}:${BACKEND_PORT}'
+      - "${BACKEND_HOST_PORT}:${BACKEND_PORT}"
     environment:
       - NODE_ENV=${NODE_ENV}
       - PORT=${BACKEND_PORT}
@@ -58,6 +62,9 @@ services:
       - FRONTEND_URL=${FRONTEND_URL}
       - RATE_LIMIT_WINDOW_MS=${RATE_LIMIT_WINDOW_MS}
       - RATE_LIMIT_MAX_REQUESTS=${RATE_LIMIT_MAX_REQUESTS}
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+    volumes:
+      - ./services/backend:/app
     networks:
       - base2_network
     depends_on:
@@ -67,9 +74,9 @@ services:
     healthcheck:
       test:
         [
-          'CMD',
-          'node',
-          '-e',
+          "CMD",
+          "node",
+          "-e",
           "require('http').get('http://localhost:${BACKEND_PORT}/api/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})",
         ]
       interval: 30s
@@ -80,7 +87,7 @@ services:
   # Traefik Reverse Proxy Service
   traefik:
     build:
-      context: ./traefik
+      context: ./services/traefik
       dockerfile: .Dockerfile
       args:
         - TRAEFIK_VERSION=${TRAEFIK_VERSION}
@@ -92,8 +99,8 @@ services:
         - TRAEFIK_EXPOSED_BY_DEFAULT=${TRAEFIK_EXPOSED_BY_DEFAULT}
     container_name: ${COMPOSE_PROJECT_NAME}_traefik
     ports:
-      - '${TRAEFIK_HOST_PORT}:${TRAEFIK_PORT}'
-      - '${TRAEFIK_API_PORT}:${TRAEFIK_API_PORT}'
+      - "${TRAEFIK_HOST_PORT}:${TRAEFIK_PORT}"
+      - "${TRAEFIK_API_PORT}:${TRAEFIK_API_PORT}"
     environment:
       - TRAEFIK_LOG_LEVEL=${TRAEFIK_LOG_LEVEL}
       - TRAEFIK_PORT=${TRAEFIK_PORT}
@@ -108,7 +115,7 @@ services:
       - base2_network
     restart: unless-stopped
     healthcheck:
-      test: ['CMD', 'traefik', 'healthcheck', '--ping']
+      test: ["CMD", "traefik", "healthcheck", "--ping"]
       interval: 30s
       timeout: 5s
       retries: 3
@@ -117,7 +124,7 @@ services:
   # Nginx Web Server Service
   nginx:
     build:
-      context: ./nginx
+      context: ./services/nginx
       dockerfile: .Dockerfile
       args:
         - NGINX_VERSION=${NGINX_VERSION}
@@ -126,7 +133,7 @@ services:
         - NGINX_PORT=${NGINX_PORT}
     container_name: ${COMPOSE_PROJECT_NAME}_nginx
     ports:
-      - '${NGINX_HOST_PORT}:${NGINX_PORT}'
+      - "${NGINX_HOST_PORT}:${NGINX_PORT}"
     environment:
       - NGINX_WORKER_PROCESSES=${NGINX_WORKER_PROCESSES}
       - NGINX_WORKER_CONNECTIONS=${NGINX_WORKER_CONNECTIONS}
@@ -135,7 +142,7 @@ services:
       - base2_network
     restart: unless-stopped
     healthcheck:
-      test: ['CMD', 'wget', '--quiet', '--tries=1', '--spider', 'http://localhost:${NGINX_PORT}/']
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:${NGINX_PORT}/"]
       interval: 30s
       timeout: 3s
       retries: 3
@@ -144,7 +151,7 @@ services:
   # PostgreSQL Database Service
   postgres:
     build:
-      context: ./postgres
+      context: ./services/postgres
       dockerfile: .Dockerfile
       args:
         - POSTGRES_VERSION=${POSTGRES_VERSION}
@@ -153,7 +160,7 @@ services:
         - POSTGRES_DB=${POSTGRES_DB}
     container_name: ${COMPOSE_PROJECT_NAME}_postgres
     ports:
-      - '${POSTGRES_HOST_PORT}:${POSTGRES_PORT}'
+      - "${POSTGRES_HOST_PORT}:${POSTGRES_PORT}"
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
@@ -165,7 +172,7 @@ services:
       - base2_network
     restart: unless-stopped
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}']
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 30s
       timeout: 5s
       retries: 3
@@ -174,7 +181,7 @@ services:
   # pgAdmin Database Management Service
   pgadmin:
     build:
-      context: ./pgadmin
+      context: ./services/pgadmin
       dockerfile: .Dockerfile
       args:
         - PGADMIN_VERSION=${PGADMIN_VERSION}
@@ -183,7 +190,7 @@ services:
         - PGADMIN_CONFIG_SERVER_MODE=${PGADMIN_CONFIG_SERVER_MODE}
     container_name: ${COMPOSE_PROJECT_NAME}_pgadmin
     ports:
-      - '${PGADMIN_HOST_PORT}:${PGADMIN_PORT}'
+      - "${PGADMIN_HOST_PORT}:${PGADMIN_PORT}"
     environment:
       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
@@ -200,12 +207,12 @@ services:
     healthcheck:
       test:
         [
-          'CMD',
-          'wget',
-          '--no-verbose',
-          '--tries=1',
-          '--spider',
-          'http://localhost:${PGADMIN_PORT}/misc/ping',
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:${PGADMIN_PORT}/misc/ping",
         ]
       interval: 30s
       timeout: 10s

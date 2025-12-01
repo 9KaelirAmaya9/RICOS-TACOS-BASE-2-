@@ -1,0 +1,576 @@
+
+> base2-react-app@1.0.0 test
+> react-scripts test --coverage --watchAll=false src/__tests__/pages/Menu.test.js
+
+  console.warn
+    ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+
+      at warnOnce (node_modules/react-router/lib/deprecations.ts:9:13)
+      at logDeprecation (node_modules/react-router/lib/deprecations.ts:14:3)
+      at logV6DeprecationWarnings (node_modules/react-router/lib/deprecations.ts:26:5)
+      at create (node_modules/react-router/lib/components.tsx:257:25)
+      at commitHookEffectListMount (node_modules/react-dom/cjs/react-dom.development.js:23189:26)
+      at commitPassiveMountOnFiber (node_modules/react-dom/cjs/react-dom.development.js:24970:11)
+      at commitPassiveMountEffects_complete (node_modules/react-dom/cjs/react-dom.development.js:24930:9)
+      at commitPassiveMountEffects_begin (node_modules/react-dom/cjs/react-dom.development.js:24917:7)
+      at commitPassiveMountEffects (node_modules/react-dom/cjs/react-dom.development.js:24905:3)
+      at flushPassiveEffectsImpl (node_modules/react-dom/cjs/react-dom.development.js:27078:3)
+      at flushPassiveEffects (node_modules/react-dom/cjs/react-dom.development.js:27023:14)
+      at callback (node_modules/react-dom/cjs/react-dom.development.js:26808:9)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at recursivelyFlushAsyncActWork (node_modules/react/cjs/react.development.js:2633:9)
+      at node_modules/react/cjs/react.development.js:2545:15
+
+  console.warn
+    ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+      at warnOnce (node_modules/react-router/lib/deprecations.ts:9:13)
+      at logDeprecation (node_modules/react-router/lib/deprecations.ts:14:3)
+      at logV6DeprecationWarnings (node_modules/react-router/lib/deprecations.ts:37:5)
+      at create (node_modules/react-router/lib/components.tsx:257:25)
+      at commitHookEffectListMount (node_modules/react-dom/cjs/react-dom.development.js:23189:26)
+      at commitPassiveMountOnFiber (node_modules/react-dom/cjs/react-dom.development.js:24970:11)
+      at commitPassiveMountEffects_complete (node_modules/react-dom/cjs/react-dom.development.js:24930:9)
+      at commitPassiveMountEffects_begin (node_modules/react-dom/cjs/react-dom.development.js:24917:7)
+      at commitPassiveMountEffects (node_modules/react-dom/cjs/react-dom.development.js:24905:3)
+      at flushPassiveEffectsImpl (node_modules/react-dom/cjs/react-dom.development.js:27078:3)
+      at flushPassiveEffects (node_modules/react-dom/cjs/react-dom.development.js:27023:14)
+      at callback (node_modules/react-dom/cjs/react-dom.development.js:26808:9)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at recursivelyFlushAsyncActWork (node_modules/react/cjs/react.development.js:2633:9)
+      at node_modules/react/cjs/react.development.js:2545:15
+
+  console.log
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"menu-page"[39m
+        [36m>[39m
+          [36m<header[39m
+            [33mclass[39m=[32m"menu-header"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"container"[39m
+            [36m>[39m
+              [36m<h1[39m
+                [33mclass[39m=[32m"menu-title"[39m
+              [36m>[39m
+                [0mOur Menu[0m
+              [36m</h1>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"menu-subtitle"[39m
+              [36m>[39m
+                [0mAuthentic flavors, handmade daily.[0m
+              [36m</p>[39m
+            [36m</div>[39m
+          [36m</header>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"category-nav-container"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"container"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"category-nav"[39m
+              [36m>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"category-btn active"[39m
+                [36m>[39m
+                  [0mAll Items[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"category-btn "[39m
+                [36m>[39m
+                  [0mTacos[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"category-btn "[39m
+                [36m>[39m
+                  [0mDrinks[0m
+                [36m</button>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"container"[39m
+          [36m>[39m
+            [36m<section[39m
+              [33mclass[39m=[32m"menu-category-section animate-fade-in"[39m
+            [36m>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"category-title"[39m
+              [36m>[39m
+                [0mTacos[0m
+              [36m</h2>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"menu-grid"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"menu-item-card"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"item-content"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"item-header"[39m
+                    [36m>[39m
+                      [36m<h3[39m
+                        [33mclass[39m=[32m"item-name"[39m
+                      [36m>[39m
+                        [0mBeef Taco[0m
+                      [36m</h3>[39m
+                      [36m<span[39m
+                        [33mclass[39m=[32m"item-price"[39m
+                      [36m>[39m
+                        [0m$[0m
+                        [0m3.50[0m
+                      [36m</span>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"item-badges"[39m
+                    [36m>[39m
+                      [36m<span[39m
+                        [33mclass[39m=[32m"badge badge-special"[39m
+                      [36m>[39m
+                        [0m⭐ Special[0m
+                      [36m</span>[39m
+                    [36m</div>[39m
+                    [36m<p[39m
+                      [33mclass[39m=[32m"item-description"[39m
+                    [36m>[39m
+                      [0mDelicious beef[0m
+                    [36m</p>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"add-btn "[39m
+                    [36m>[39m
+                      [0m+ Add to Order[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"menu-item-card"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"item-content"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"item-header"[39m
+                    [36m>[39m
+                      [36m<h3[39m
+                        [33mclass[39m=[32m"item-name"[39m
+                      [36m>[39m
+                        [0mChicken Taco[0m
+                      [36m</h3>[39m
+                      [36m<span[39m
+                        [33mclass[39m=[32m"item-price"[39m
+                      [36m>[39m
+                        [0m$[0m
+                        [0m3.00[0m
+                      [36m</span>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"item-badges"[39m
+                    [36m/>[39m
+                    [36m<p[39m
+                      [33mclass[39m=[32m"item-description"[39m
+                    [36m>[39m
+                      [0mTasty chicken[0m
+                    [36m</p>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"add-btn "[39m
+                    [36m>[39m
+                      [0m+ Add to Order[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</section>[39m
+            [36m<section[39m
+              [33mclass[39m=[32m"menu-category-section animate-fade-in"[39m
+            [36m>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"category-title"[39m
+              [36m>[39m
+                [0mDrinks[0m
+              [36m</h2>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"menu-grid"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"menu-item-card"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"item-content"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"item-header"[39m
+                    [36m>[39m
+                      [36m<h3[39m
+                        [33mclass[39m=[32m"item-name"[39m
+                      [36m>[39m
+                        [0mCola[0m
+                      [36m</h3>[39m
+                      [36m<span[39m
+                        [33mclass[39m=[32m"item-price"[39m
+                      [36m>[39m
+                        [0m$[0m
+                        [0m1.50[0m
+                      [36m</span>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"item-badges"[39m
+                    [36m/>[39m
+                    [36m<p[39m
+                      [33mclass[39m=[32m"item-description"[39m
+                    [36m>[39m
+                      [0mCold soda[0m
+                    [36m</p>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"add-btn "[39m
+                    [36m>[39m
+                      [0m+ Add to Order[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</section>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+    
+    /Users/jancarlosinc/Desktop/base2/services/react-app/src/__tests__/pages/Menu.test.js:93:16
+    [0m [90m 91 |[39m
+     [90m 92 |[39m         [90m// Debug output[39m
+    [31m[1m>[22m[39m[90m 93 |[39m         screen[33m.[39mdebug()[33m;[39m
+     [90m    |[39m                [31m[1m^[22m[39m[0m
+
+      at logDOM (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/pretty-dom.js:85:13)
+
+FAIL src/__tests__/pages/Menu.test.js
+  Menu Page
+    ✓ renders loading state initially (270 ms)
+    ✕ renders menu categories and items (154 ms)
+    ✓ filters menu items by category (271 ms)
+    ✓ adds item to cart and shows feedback (33 ms)
+    ✓ shows floating cart button when items in cart (18 ms)
+    ✓ navigates to cart when floating button clicked (18 ms)
+    ✓ handles fetch error and retry (80 ms)
+
+  ● Menu Page › renders menu categories and items
+
+    TestingLibraryElementError: Found multiple elements with the text: Tacos
+
+    Here are the matching elements:
+
+    Ignored nodes: comments, script, style
+    [36m<button[39m
+      [33mclass[39m=[32m"category-btn "[39m
+    [36m>[39m
+      [0mTacos[0m
+    [36m</button>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<h2[39m
+      [33mclass[39m=[32m"category-title"[39m
+    [36m>[39m
+      [0mTacos[0m
+    [36m</h2>[39m
+
+    (If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"menu-page"[39m
+        [36m>[39m
+          [36m<header[39m
+            [33mclass[39m=[32m"menu-header"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"container"[39m
+            [36m>[39m
+              [36m<h1[39m
+                [33mclass[39m=[32m"menu-title"[39m
+              [36m>[39m
+                [0mOur Menu[0m
+              [36m</h1>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"menu-subtitle"[39m
+              [36m>[39m
+                [0mAuthentic flavors, handmade daily.[0m
+              [36m</p>[39m
+            [36m</div>[39m
+          [36m</header>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"category-nav-container"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"container"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"category-nav"[39m
+              [36m>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"category-btn active"[39m
+                [36m>[39m
+                  [0mAll Items[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"category-btn "[39m
+                [36m>[39m
+                  [0mTacos[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"category-btn "[39m
+                [36m>[39m
+                  [0mDrinks[0m
+                [36m</button>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"container"[39m
+          [36m>[39m
+            [36m<section[39m
+              [33mclass[39m=[32m"menu-category-section animate-fade-in"[39m
+            [36m>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"category-title"[39m
+              [36m>[39m
+                [0mTacos[0m
+              [36m</h2>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"menu-grid"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"menu-item-card"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"item-content"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"item-header"[39m
+                    [36m>[39m
+                      [36m<h3[39m
+                        [33mclass[39m=[32m"item-name"[39m
+                      [36m>[39m
+                        [0mBeef Taco[0m
+                      [36m</h3>[39m
+                      [36m<span[39m
+                        [33mclass[39m=[32m"item-price"[39m
+                      [36m>[39m
+                        [0m$[0m
+                        [0m3.50[0m
+                      [36m</span>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"item-badges"[39m
+                    [36m>[39m
+                      [36m<span[39m
+                        [33mclass[39m=[32m"badge badge-special"[39m
+                      [36m>[39m
+                        [0m⭐ Special[0m
+                      [36m</span>[39m
+                    [36m</div>[39m
+                    [36m<p[39m
+                      [33mclass[39m=[32m"item-description"[39m
+                    [36m>[39m
+                      [0mDelicious beef[0m
+                    [36m</p>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"add-btn "[39m
+                    [36m>[39m
+                      [0m+ Add to Order[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"menu-item-card"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"item-content"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"item-header"[39m
+                    [36m>[39m
+                      [36m<h3[39m
+                        [33mclass[39m=[32m"item-name"[39m
+                      [36m>[39m
+                        [0mChicken Taco[0m
+                      [36m</h3>[39m
+                      [36m<span[39m
+                        [33mclass[39m=[32m"item-price"[39m
+                      [36m>[39m
+                        [0m$[0m
+                        [0m3.00[0m
+                      [36m</span>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"item-badges"[39m
+                    [36m/>[39m
+                    [36m<p[39m
+                      [33mclass[39m=[32m"item-description"[39m
+                    [36m>[39m
+                      [0mTasty chicken[0m
+                    [36m</p>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"add-btn "[39m
+                    [36m>[39m
+                      [0m+ Add to Order[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</section>[39m
+            [36m<section[39m
+              [33mclass[39m=[32m"menu-category-section animate-fade-in"[39m
+            [36m>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"category-title"[39m
+              [36m>[39m
+                [0mDrinks[0m
+              [36m</h2>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"menu-grid"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"menu-item-card"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"item-content"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"item-header"[39m
+                    [36m>[39m
+                      [36m<h3[39m
+                        [33mclass[39m=[32m"item-name"[39m
+                      [36m>[39m
+                        [0mCola[0m
+                      [36m</h3>[39m
+                      [36m<span[39m
+                        [33mclass[39m=[32m"item-price"[39m
+                      [36m>[39m
+                        [0m$[0m
+                        [0m1.50[0m
+                      [36m</span>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"item-badges"[39m
+                    [36m/>[39m
+                    [36m<p[39m
+                      [33mclass[39m=[32m"item-description"[39m
+                    [36m>[39m
+                      [0mCold soda[0m
+                    [36m</p>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"add-btn "[39m
+                    [36m>[39m
+                      [0m+ Add to Order[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</section>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+    [0m [90m 93 |[39m         screen[33m.[39mdebug()[33m;[39m
+     [90m 94 |[39m
+    [31m[1m>[22m[39m[90m 95 |[39m         expect(screen[33m.[39mgetByText([32m'Tacos'[39m))[33m.[39mtoBeInTheDocument()[33m;[39m
+     [90m    |[39m                       [31m[1m^[22m[39m
+     [90m 96 |[39m         expect(screen[33m.[39mgetByText([32m'Drinks'[39m))[33m.[39mtoBeInTheDocument()[33m;[39m
+     [90m 97 |[39m
+     [90m 98 |[39m         expect(screen[33m.[39mgetByText([32m'Beef Taco'[39m))[33m.[39mtoBeInTheDocument()[33m;[39m[0m
+
+      at Object.getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:20:35)
+      at getMultipleElementsFoundError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:23:10)
+      at query (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:55:13)
+      at getByText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
+      at Object.<anonymous> (src/__tests__/pages/Menu.test.js:95:23)
+
+-----------------------|---------|----------|---------|---------|-------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------|---------|----------|---------|---------|-------------------
+All files              |     7.4 |     5.01 |    9.67 |     7.4 |                   
+ src                   |       0 |        0 |       0 |       0 |                   
+  App.js               |       0 |        0 |       0 |       0 | 26-37             
+  index.js             |       0 |      100 |     100 |       0 | 6-7               
+ src/components        |       0 |        0 |       0 |       0 |                   
+  CheckoutForm.js      |       0 |        0 |       0 |       0 | 4-66              
+  Navigation.js        |       0 |        0 |       0 |       0 | 6-116             
+  ProtectedRoute.js    |       0 |        0 |       0 |       0 | 5-21              
+ src/contexts          |    1.98 |        0 |       0 |       2 |                   
+  AuthContext.js       |       0 |        0 |       0 |       0 | 4-191             
+  CartContext.js       |    6.66 |        0 |       0 |    6.81 | 6-10,14-109       
+ src/pages             |    9.45 |     6.87 |   14.42 |    9.46 |                   
+  AdminDashboard.js    |       0 |        0 |       0 |       0 | 4-411             
+  Cart.js              |       0 |        0 |       0 |       0 | 10-298            
+  Dashboard.js         |       0 |      100 |       0 |       0 | 5-102             
+  ForgotPassword.js    |       0 |        0 |       0 |       0 | 5-94              
+  Home.js              |       0 |      100 |       0 |       0 | 6-7               
+  KitchenDashboard.js  |       0 |        0 |       0 |       0 | 4-211             
+  Location.js          |       0 |      100 |       0 |       0 | 3-65              
+  Login.js             |       0 |        0 |       0 |       0 | 6-123             
+  Menu.js              |     100 |      100 |     100 |     100 |                   
+  OrderConfirmation.js |       0 |        0 |       0 |       0 | 5-197             
+  ResetPassword.js     |       0 |        0 |       0 |       0 | 5-156             
+  UserSettings.js      |       0 |        0 |       0 |       0 | 5-172             
+  VerifyEmail.js       |       0 |        0 |       0 |       0 | 5-133             
+ src/services          |   15.62 |    16.66 |       0 |   15.62 |                   
+  api.js               |   15.62 |    16.66 |       0 |   15.62 | 16-23,29-37,45-88 
+-----------------------|---------|----------|---------|---------|-------------------
+Jest: "global" coverage threshold for statements (40%) not met: 0%
+Jest: "global" coverage threshold for branches (30%) not met: 0%
+Jest: "global" coverage threshold for lines (40%) not met: 0%
+Jest: "global" coverage threshold for functions (40%) not met: 0%
+Jest: "src/components" coverage threshold for statements (98%) not met: 0%
+Jest: "src/components" coverage threshold for branches (90%) not met: 0%
+Jest: "src/components" coverage threshold for lines (98%) not met: 0%
+Jest: "src/components" coverage threshold for functions (98%) not met: 0%
+Jest: "src/contexts" coverage threshold for statements (98%) not met: 1.98%
+Jest: "src/contexts" coverage threshold for branches (75%) not met: 0%
+Jest: "src/contexts" coverage threshold for lines (98%) not met: 2%
+Jest: "src/contexts" coverage threshold for functions (98%) not met: 0%
+Jest: "src/services" coverage threshold for statements (98%) not met: 15.62%
+Jest: "src/services" coverage threshold for branches (80%) not met: 16.66%
+Jest: "src/services" coverage threshold for lines (98%) not met: 15.62%
+Jest: "src/services" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Home.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Home.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Home.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for statements (100%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for branches (100%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for lines (100%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for functions (100%) not met: 0%
+Jest: "src/pages/Cart.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Cart.js" coverage threshold for branches (98%) not met: 0%
+Jest: "src/pages/Cart.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Cart.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Dashboard.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Dashboard.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Dashboard.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/AdminDashboard.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/AdminDashboard.js" coverage threshold for branches (85%) not met: 0%
+Jest: "src/pages/AdminDashboard.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/AdminDashboard.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/KitchenDashboard.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/KitchenDashboard.js" coverage threshold for branches (97%) not met: 0%
+Jest: "src/pages/KitchenDashboard.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/KitchenDashboard.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/OrderConfirmation.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/OrderConfirmation.js" coverage threshold for branches (98%) not met: 0%
+Jest: "src/pages/OrderConfirmation.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/OrderConfirmation.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Location.js" coverage threshold for statements (100%) not met: 0%
+Jest: "src/pages/Location.js" coverage threshold for lines (100%) not met: 0%
+Jest: "src/pages/Location.js" coverage threshold for functions (100%) not met: 0%
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 6 passed, 7 total
+Snapshots:   0 total
+Time:        6.258 s
+Ran all test suites matching /src\/__tests__\/pages\/Menu.test.js/i.

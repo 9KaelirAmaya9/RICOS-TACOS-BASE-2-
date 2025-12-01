@@ -1,0 +1,151 @@
+
+> base2-react-app@1.0.0 test
+> react-scripts test --coverage --watchAll=false --coverage --watchAll=false src/__tests__/pages/Cart.test.js
+
+  console.warn
+    ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+
+    [0m [90m 57 |[39m
+     [90m 58 |[39m     [36mconst[39m renderCart [33m=[39m () [33m=>[39m {
+    [31m[1m>[22m[39m[90m 59 |[39m         [36mreturn[39m render(
+     [90m    |[39m                      [31m[1m^[22m[39m
+     [90m 60 |[39m             [33m<[39m[33mBrowserRouter[39m[33m>[39m
+     [90m 61 |[39m                 [33m<[39m[33mCart[39m [33m/[39m[33m>[39m
+     [90m 62 |[39m             [33m<[39m[33m/[39m[33mBrowserRouter[39m[33m>[39m[0m
+
+      at warnOnce (node_modules/react-router/lib/deprecations.ts:9:13)
+      at logDeprecation (node_modules/react-router/lib/deprecations.ts:14:3)
+      at Object.UNSAFE_logV6DeprecationWarnings (node_modules/react-router/lib/deprecations.ts:26:5)
+      at create (node_modules/react-router-dom/index.tsx:816:25)
+      at commitHookEffectListMount (node_modules/react-dom/cjs/react-dom.development.js:23189:26)
+      at commitPassiveMountOnFiber (node_modules/react-dom/cjs/react-dom.development.js:24970:11)
+      at commitPassiveMountEffects_complete (node_modules/react-dom/cjs/react-dom.development.js:24930:9)
+      at commitPassiveMountEffects_begin (node_modules/react-dom/cjs/react-dom.development.js:24917:7)
+      at commitPassiveMountEffects (node_modules/react-dom/cjs/react-dom.development.js:24905:3)
+      at flushPassiveEffectsImpl (node_modules/react-dom/cjs/react-dom.development.js:27078:3)
+      at flushPassiveEffects (node_modules/react-dom/cjs/react-dom.development.js:27023:14)
+      at callback (node_modules/react-dom/cjs/react-dom.development.js:26808:9)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at actImplementation (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:47:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:180:25)
+      at render (node_modules/@testing-library/react/dist/pure.js:271:10)
+      at renderCart (src/__tests__/pages/Cart.test.js:59:22)
+      at Object.<anonymous> (src/__tests__/pages/Cart.test.js:72:9)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+  console.warn
+    ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+    [0m [90m 57 |[39m
+     [90m 58 |[39m     [36mconst[39m renderCart [33m=[39m () [33m=>[39m {
+    [31m[1m>[22m[39m[90m 59 |[39m         [36mreturn[39m render(
+     [90m    |[39m                      [31m[1m^[22m[39m
+     [90m 60 |[39m             [33m<[39m[33mBrowserRouter[39m[33m>[39m
+     [90m 61 |[39m                 [33m<[39m[33mCart[39m [33m/[39m[33m>[39m
+     [90m 62 |[39m             [33m<[39m[33m/[39m[33mBrowserRouter[39m[33m>[39m[0m
+
+      at warnOnce (node_modules/react-router/lib/deprecations.ts:9:13)
+      at logDeprecation (node_modules/react-router/lib/deprecations.ts:14:3)
+      at Object.UNSAFE_logV6DeprecationWarnings (node_modules/react-router/lib/deprecations.ts:37:5)
+      at create (node_modules/react-router-dom/index.tsx:816:25)
+      at commitHookEffectListMount (node_modules/react-dom/cjs/react-dom.development.js:23189:26)
+      at commitPassiveMountOnFiber (node_modules/react-dom/cjs/react-dom.development.js:24970:11)
+      at commitPassiveMountEffects_complete (node_modules/react-dom/cjs/react-dom.development.js:24930:9)
+      at commitPassiveMountEffects_begin (node_modules/react-dom/cjs/react-dom.development.js:24917:7)
+      at commitPassiveMountEffects (node_modules/react-dom/cjs/react-dom.development.js:24905:3)
+      at flushPassiveEffectsImpl (node_modules/react-dom/cjs/react-dom.development.js:27078:3)
+      at flushPassiveEffects (node_modules/react-dom/cjs/react-dom.development.js:27023:14)
+      at callback (node_modules/react-dom/cjs/react-dom.development.js:26808:9)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at actImplementation (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:47:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:180:25)
+      at render (node_modules/@testing-library/react/dist/pure.js:271:10)
+      at renderCart (src/__tests__/pages/Cart.test.js:59:22)
+      at Object.<anonymous> (src/__tests__/pages/Cart.test.js:72:9)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+PASS src/__tests__/pages/Cart.test.js (7.147 s)
+  Cart Page
+    ✓ renders empty cart message when no items (1274 ms)
+    ✓ navigates to menu from empty cart (34 ms)
+    ✓ renders cart items and total (107 ms)
+    ✓ calls updateQuantity when quantity buttons clicked (62 ms)
+    ✓ calls removeFromCart when remove button clicked (52 ms)
+    ✓ validates customer info before checkout (48 ms)
+    ✓ initiates checkout and shows payment form (75 ms)
+    ✓ handles checkout initialization error (38 ms)
+    ✓ handles successful payment and order creation (94 ms)
+    ✓ handles order creation failure after payment (63 ms)
+    ✓ allows editing details before payment (130 ms)
+
+-----------------------|---------|----------|---------|---------|-------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------|---------|----------|---------|---------|-------------------
+All files              |    8.71 |     8.13 |    7.09 |    8.88 |                   
+ src                   |       0 |        0 |       0 |       0 |                   
+  App.js               |       0 |        0 |       0 |       0 | 26-37             
+  index.js             |       0 |      100 |     100 |       0 | 6-7               
+ src/components        |       0 |        0 |       0 |       0 |                   
+  CheckoutForm.js      |       0 |        0 |       0 |       0 | 4-66              
+  Navigation.js        |       0 |        0 |       0 |       0 | 6-116             
+  ProtectedRoute.js    |       0 |        0 |       0 |       0 | 5-21              
+ src/contexts          |    1.98 |        0 |       0 |       2 |                   
+  AuthContext.js       |       0 |        0 |       0 |       0 | 4-191             
+  CartContext.js       |    6.66 |        0 |       0 |    6.81 | 6-10,14-109       
+ src/pages             |   11.43 |    11.36 |   10.57 |   11.72 |                   
+  AdminDashboard.js    |       0 |        0 |       0 |       0 | 4-405             
+  Cart.js              |   92.72 |    93.75 |   91.66 |   92.72 | 53-54,69,114      
+  Dashboard.js         |       0 |      100 |       0 |       0 | 5-102             
+  ForgotPassword.js    |       0 |        0 |       0 |       0 | 5-94              
+  Home.js              |       0 |      100 |       0 |       0 | 6-7               
+  KitchenDashboard.js  |       0 |        0 |       0 |       0 | 4-211             
+  Location.js          |       0 |      100 |       0 |       0 | 3-65              
+  Login.js             |       0 |        0 |       0 |       0 | 6-123             
+  Menu.js              |       0 |        0 |       0 |       0 | 8-152             
+  OrderConfirmation.js |       0 |        0 |       0 |       0 | 5-197             
+  ResetPassword.js     |       0 |        0 |       0 |       0 | 5-156             
+  UserSettings.js      |       0 |        0 |       0 |       0 | 5-172             
+  VerifyEmail.js       |       0 |        0 |       0 |       0 | 5-133             
+ src/services          |   15.62 |    16.66 |       0 |   15.62 |                   
+  api.js               |   15.62 |    16.66 |       0 |   15.62 | 16-23,29-37,45-88 
+-----------------------|---------|----------|---------|---------|-------------------
+Jest: "global" coverage threshold for statements (40%) not met: 13.31%
+Jest: "global" coverage threshold for branches (30%) not met: 12.55%
+Jest: "global" coverage threshold for lines (40%) not met: 13.67%
+Jest: "global" coverage threshold for functions (40%) not met: 12.79%
+Jest: "src/components" coverage threshold for statements (98%) not met: 0%
+Jest: "src/components" coverage threshold for branches (90%) not met: 0%
+Jest: "src/components" coverage threshold for lines (98%) not met: 0%
+Jest: "src/components" coverage threshold for functions (98%) not met: 0%
+Jest: "src/contexts" coverage threshold for statements (98%) not met: 1.98%
+Jest: "src/contexts" coverage threshold for branches (75%) not met: 0%
+Jest: "src/contexts" coverage threshold for lines (98%) not met: 2%
+Jest: "src/contexts" coverage threshold for functions (98%) not met: 0%
+Jest: "src/services" coverage threshold for statements (98%) not met: 15.62%
+Jest: "src/services" coverage threshold for branches (80%) not met: 16.66%
+Jest: "src/services" coverage threshold for lines (98%) not met: 15.62%
+Jest: "src/services" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Home.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Home.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Home.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for branches (90%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for branches (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for functions (98%) not met: 0%
+Test Suites: 1 passed, 1 total
+Tests:       11 passed, 11 total
+Snapshots:   0 total
+Time:        13.968 s
+Ran all test suites matching /src\/__tests__\/pages\/Cart.test.js/i.

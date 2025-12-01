@@ -1,0 +1,194 @@
+[
+  {
+    "name": "Carne Asada Taco",
+    "description": "Grilled marinated steak with cilantro, onions, and fresh lime",
+    "price": 4.5,
+    "category": "TACOS",
+    "is_special": false,
+    "image_url": "/images/tacos/carne-asada.jpg"
+  },
+  {
+    "name": "Al Pastor Taco",
+    "description": "Marinated pork with pineapple, cilantro, and onions",
+    "price": 4.25,
+    "category": "TACOS",
+    "is_special": false,
+    "image_url": "/images/tacos/al-pastor.jpg"
+  },
+  {
+    "name": "Chicken Taco",
+    "description": "Grilled chicken with lettuce, tomato, cheese, and sour cream",
+    "price": 3.75,
+    "category": "TACOS",
+    "is_special": false,
+    "image_url": "/images/tacos/chicken.jpg"
+  },
+  {
+    "name": "Fish Taco",
+    "description": "Beer-battered fish with cabbage slaw and chipotle mayo",
+    "price": 5.0,
+    "category": "TACOS",
+    "is_special": false,
+    "image_url": "/images/tacos/fish.jpg"
+  },
+  {
+    "name": "Carnitas Taco",
+    "description": "Slow-cooked pork with cilantro, onions, and salsa verde",
+    "price": 4.25,
+    "category": "TACOS",
+    "is_special": false,
+    "image_url": "/images/tacos/carnitas.jpg"
+  },
+  {
+    "name": "Veggie Taco",
+    "description": "Grilled vegetables with black beans, guacamole, and queso fresco",
+    "price": 3.5,
+    "category": "TACOS",
+    "is_special": false,
+    "image_url": "/images/tacos/veggie.jpg"
+  },
+  {
+    "name": "Shrimp Taco",
+    "description": "Grilled shrimp with mango salsa and avocado crema",
+    "price": 5.5,
+    "category": "TACOS",
+    "is_special": true,
+    "image_url": "/images/tacos/shrimp.jpg"
+  },
+  {
+    "name": "Rice & Beans",
+    "description": "Mexican rice and refried beans",
+    "price": 3.5,
+    "category": "SIDES",
+    "is_special": false,
+    "image_url": "/images/sides/rice-beans.jpg"
+  },
+  {
+    "name": "Chips & Salsa",
+    "description": "Fresh tortilla chips with house-made salsa",
+    "price": 4.0,
+    "category": "SIDES",
+    "is_special": false,
+    "image_url": "/images/sides/chips-salsa.jpg"
+  },
+  {
+    "name": "Chips & Guacamole",
+    "description": "Fresh tortilla chips with made-to-order guacamole",
+    "price": 6.5,
+    "category": "SIDES",
+    "is_special": false,
+    "image_url": "/images/sides/chips-guac.jpg"
+  },
+  {
+    "name": "Street Corn (Elote)",
+    "description": "Grilled corn with mayo, cotija cheese, chili powder, and lime",
+    "price": 4.5,
+    "category": "SIDES",
+    "is_special": false,
+    "image_url": "/images/sides/elote.jpg"
+  },
+  {
+    "name": "Chips & Queso",
+    "description": "Crispy chips with warm queso dip",
+    "price": 5.0,
+    "category": "SIDES",
+    "is_special": false,
+    "image_url": "/images/sides/chips-queso.jpg"
+  },
+  {
+    "name": "Black Beans",
+    "description": "Seasoned black beans topped with queso fresco",
+    "price": 3.0,
+    "category": "SIDES",
+    "is_special": false,
+    "image_url": "/images/sides/black-beans.jpg"
+  },
+  {
+    "name": "Horchata",
+    "description": "Traditional Mexican rice drink with cinnamon",
+    "price": 3.0,
+    "category": "DRINKS",
+    "is_special": false,
+    "image_url": "/images/drinks/horchata.jpg"
+  },
+  {
+    "name": "Jamaica",
+    "description": "Hibiscus flower iced tea",
+    "price": 3.0,
+    "category": "DRINKS",
+    "is_special": false,
+    "image_url": "/images/drinks/jamaica.jpg"
+  },
+  {
+    "name": "Tamarindo",
+    "description": "Sweet and tangy tamarind drink",
+    "price": 3.0,
+    "category": "DRINKS",
+    "is_special": false,
+    "image_url": "/images/drinks/tamarindo.jpg"
+  },
+  {
+    "name": "Mexican Coke",
+    "description": "Coca-Cola made with real cane sugar",
+    "price": 2.5,
+    "category": "DRINKS",
+    "is_special": false,
+    "image_url": "/images/drinks/mexican-coke.jpg"
+  },
+  {
+    "name": "Jarritos",
+    "description": "Mexican soda (various flavors)",
+    "price": 2.5,
+    "category": "DRINKS",
+    "is_special": false,
+    "image_url": "/images/drinks/jarritos.jpg"
+  },
+  {
+    "name": "Fresh Lime Water",
+    "description": "House-made agua fresca with fresh lime",
+    "price": 3.0,
+    "category": "DRINKS",
+    "is_special": false,
+    "image_url": "/images/drinks/lime-water.jpg"
+  },
+  {
+    "name": "Iced Tea",
+    "description": "Freshly brewed iced tea",
+    "price": 2.0,
+    "category": "DRINKS",
+    "is_special": false,
+    "image_url": "/images/drinks/iced-tea.jpg"
+  },
+  {
+    "name": "Taco Trio",
+    "description": "Choose any three tacos from our menu",
+    "price": 11.99,
+    "category": "SPECIALS",
+    "is_special": true,
+    "image_url": "/images/specials/taco-trio.jpg"
+  },
+  {
+    "name": "Taco Platter",
+    "description": "Two tacos with rice, beans, and a drink",
+    "price": 13.99,
+    "category": "SPECIALS",
+    "is_special": true,
+    "image_url": "/images/specials/taco-platter.jpg"
+  },
+  {
+    "name": "Family Pack",
+    "description": "Eight tacos, large rice & beans, chips & salsa, and four drinks",
+    "price": 39.99,
+    "category": "SPECIALS",
+    "is_special": true,
+    "image_url": "/images/specials/family-pack.jpg"
+  },
+  {
+    "name": "Burrito Grande",
+    "description": "Huge burrito with choice of meat, rice, beans, cheese, and toppings",
+    "price": 10.99,
+    "category": "SPECIALS",
+    "is_special": false,
+    "image_url": "/images/specials/burrito.jpg"
+  }
+]

@@ -1,0 +1,161 @@
+{
+  "name": "base2-react-app",
+  "version": "1.0.0",
+  "description": "Base2 React Application",
+  "proxy": "http://backend:5001",
+  "private": true,
+  "dependencies": {
+    "@react-oauth/google": "^0.12.1",
+    "@stripe/react-stripe-js": "^5.4.1",
+    "@stripe/stripe-js": "^8.5.3",
+    "axios": "^1.6.0",
+    "jwt-decode": "^4.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.0",
+    "react-scripts": "^5.0.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.1.0",
+    "@testing-library/user-event": "^14.5.1",
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --coverage --watchAll=false",
+    "test:watch": "react-scripts test",
+    "test:ci": "CI=true react-scripts test --coverage",
+    "eject": "react-scripts eject",
+    "lint": "eslint src --ext .js,.jsx",
+    "lint:fix": "eslint src --ext .js,.jsx --fix",
+    "format": "prettier --write \"src/**/*.{js,jsx,json,css,md}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,json,css,md}\""
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!axios)/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 20,
+        "functions": 40,
+        "lines": 40,
+        "statements": 40
+      },
+      "src/components": {
+        "branches": 90,
+        "functions": 98,
+        "lines": 98,
+        "statements": 98
+      },
+      "src/contexts": {
+        "branches": 75,
+        "functions": 98,
+        "lines": 98,
+        "statements": 98
+      },
+      "src/services": {
+        "branches": 80,
+        "functions": 98,
+        "lines": 98,
+        "statements": 98
+      },
+      "src/pages/Home.js": {
+        "branches": 98,
+        "functions": 98,
+        "lines": 98,
+        "statements": 98
+      },
+      "src/pages/Login.js": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      },
+      "src/pages/Menu.js": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      },
+      "src/pages/Cart.js": {
+        "branches": 98,
+        "functions": 98,
+        "lines": 98,
+        "statements": 98
+      },
+      "src/pages/Dashboard.js": {
+        "branches": 98,
+        "functions": 98,
+        "lines": 98,
+        "statements": 98
+      },
+      "src/pages/AdminDashboard.js": {
+        "branches": 85,
+        "functions": 98,
+        "lines": 98,
+        "statements": 98
+      },
+      "src/pages/KitchenDashboard.js": {
+        "branches": 97,
+        "functions": 98,
+        "lines": 98,
+        "statements": 98
+      },
+      "src/pages/OrderConfirmation.js": {
+        "branches": 98,
+        "functions": 98,
+        "lines": 98,
+        "statements": 98
+      },
+      "src/pages/Location.js": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      },
+      "src/pages/ForgotPassword.js": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      },
+      "src/pages/ResetPassword.js": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      },
+      "src/pages/UserSettings.js": {
+        "branches": 80,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      },
+      "src/pages/VerifyEmail.js": {
+        "branches": 90,
+        "functions": 85,
+        "lines": 90,
+        "statements": 90
+      }
+    }
+  }
+}

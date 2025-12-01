@@ -1,0 +1,130 @@
+
+> base2-backend@1.0.0 test
+> jest --coverage __tests__/dbInit.test.js __tests__/middleware.test.js
+
+  console.log
+    Checking for admin...
+
+      at log (utils/dbInit.js:39:17)
+
+  console.log
+    Checking for admin...
+
+      at log (utils/dbInit.js:39:17)
+
+  console.log
+    Checking for admin...
+
+      at log (utils/dbInit.js:39:17)
+
+  console.log
+    Checking for admin...
+
+      at log (utils/dbInit.js:39:17)
+
+PASS __tests__/dbInit.test.js
+  Database Initialization
+    ✓ should run migrations and seed successfully (17 ms)
+    ✓ should bootstrap admin if none exists (1 ms)
+    ✓ should promote specific admin email from env (1 ms)
+    ✓ should handle admin email not found
+    ✓ should handle errors during initialization (4 ms)
+
+FAIL __tests__/middleware.test.js (30.371 s)
+  Middleware
+    Role Middleware
+      ✕ should call next if user has required role (10003 ms)
+      ✕ should return 403 if user does not have required role (10003 ms)
+      ✕ should allow multiple roles (10002 ms)
+
+  ● Middleware › Role Middleware › should call next if user has required role
+
+    thrown: "Exceeded timeout of 10000 ms for a test.
+    Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout."
+
+      61 |     // Let's try to test Role Middleware first since that was failing.
+      62 |     describe('Role Middleware', () => {
+    > 63 |         test('should call next if user has required role', async () => {
+         |         ^
+      64 |             req.user.role = 'ADMIN';
+      65 |             await requireRole('ADMIN')(req, res, next);
+      66 |             expect(next).toHaveBeenCalled();
+
+      at test (__tests__/middleware.test.js:63:9)
+      at describe (__tests__/middleware.test.js:62:5)
+      at Object.describe (__tests__/middleware.test.js:41:1)
+
+  ● Middleware › Role Middleware › should return 403 if user does not have required role
+
+    thrown: "Exceeded timeout of 10000 ms for a test.
+    Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout."
+
+      67 |         });
+      68 |
+    > 69 |         test('should return 403 if user does not have required role', async () => {
+         |         ^
+      70 |             req.user.role = 'CUSTOMER';
+      71 |             await requireRole('ADMIN')(req, res, next);
+      72 |             expect(res.status).toHaveBeenCalledWith(403);
+
+      at test (__tests__/middleware.test.js:69:9)
+      at describe (__tests__/middleware.test.js:62:5)
+      at Object.describe (__tests__/middleware.test.js:41:1)
+
+  ● Middleware › Role Middleware › should allow multiple roles
+
+    thrown: "Exceeded timeout of 10000 ms for a test.
+    Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout."
+
+      73 |         });
+      74 |
+    > 75 |         test('should allow multiple roles', async () => {
+         |         ^
+      76 |             req.user.role = 'KITCHEN';
+      77 |             await requireRole('ADMIN', 'KITCHEN')(req, res, next);
+      78 |             expect(next).toHaveBeenCalled();
+
+      at test (__tests__/middleware.test.js:75:9)
+      at describe (__tests__/middleware.test.js:62:5)
+      at Object.describe (__tests__/middleware.test.js:41:1)
+
+-----------------------|---------|----------|---------|---------|-----------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s     
+-----------------------|---------|----------|---------|---------|-----------------------
+All files              |   12.25 |     5.65 |    6.84 |   12.29 |                       
+ backend               |       0 |        0 |       0 |       0 |                       
+  check_admin.js       |       0 |      100 |       0 |       0 | 1-14                  
+  server.js            |       0 |        0 |       0 |       0 | 1-155                 
+ backend/config        |   24.24 |      100 |       0 |   24.24 |                       
+  database.js          |   24.24 |      100 |       0 |   24.24 | 18,22-23,28-36,42-64  
+ backend/controllers   |       0 |        0 |       0 |       0 |                       
+  authController.js    |       0 |        0 |       0 |       0 | 1-446                 
+  menuController.js    |       0 |        0 |       0 |       0 | 6-413                 
+  orderController.js   |       0 |        0 |       0 |       0 | 6-459                 
+  paymentController.js |       0 |        0 |       0 |       0 | 6-78                  
+ backend/database      |   13.58 |       20 |       0 |   13.58 |                       
+  migrate.js           |   20.83 |       50 |       0 |   20.83 | 11-40,47-51           
+  seed.js              |   10.52 |     12.5 |       0 |   10.52 | 12-154,161-165        
+ backend/middleware    |   35.71 |        0 |      50 |   36.58 |                       
+  auth.js              |   21.73 |        0 |       0 |   21.73 | 9-52,61-67            
+  roles.js             |   52.63 |        0 |      75 |   55.55 | 19-43                 
+ backend/routes        |       0 |      100 |     100 |       0 |                       
+  auth.js              |       0 |      100 |     100 |       0 | 1-51                  
+  menu.js              |       0 |      100 |     100 |       0 | 6-35                  
+  orders.js            |       0 |      100 |     100 |       0 | 6-32                  
+  user.js              |       0 |      100 |     100 |       0 | 1-28                  
+ backend/utils         |   66.66 |     28.2 |   15.38 |   67.36 |                       
+  auth.js              |   52.63 |        0 |       0 |   52.63 | 7-8,13,18,27-30,36,41 
+  dbInit.js            |   95.34 |      100 |     100 |   95.34 | 92-93                 
+  email.js             |       0 |        0 |       0 |       0 | 1-147                 
+  logger.js            |   72.22 |       50 |       0 |   72.22 | 18-22,74              
+-----------------------|---------|----------|---------|---------|-----------------------
+Jest: "global" coverage threshold for statements (98%) not met: 12.25%
+Jest: "global" coverage threshold for branches (98%) not met: 5.65%
+Jest: "global" coverage threshold for lines (98%) not met: 12.29%
+Jest: "global" coverage threshold for functions (98%) not met: 6.84%
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       3 failed, 5 passed, 8 total
+Snapshots:   0 total
+Time:        31.086 s
+Ran all test suites matching /__tests__\/dbInit.test.js|__tests__\/middleware.test.js/i.

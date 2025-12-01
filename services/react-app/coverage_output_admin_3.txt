@@ -1,0 +1,239 @@
+
+> base2-react-app@1.0.0 test
+> react-scripts test --coverage --watchAll=false --coverage --watchAll=false src/__tests__/pages/AdminDashboard.test.js
+
+  console.error
+    Warning: Removing a style property during rerender (borderBottomColor) when a conflicting property is set (borderBottom) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+        at button
+        at div
+        at div
+        at fn (/Users/jancarlosinc/Desktop/base2/services/react-app/src/pages/AdminDashboard.js:5:45)
+
+    [0m [90m 80 |[39m
+     [90m 81 |[39m         [90m// Switch to Order Management[39m
+    [31m[1m>[22m[39m[90m 82 |[39m         fireEvent[33m.[39mclick(screen[33m.[39mgetByText([32m'Order Management'[39m))[33m;[39m
+     [90m    |[39m                   [31m[1m^[22m[39m
+     [90m 83 |[39m         expect(screen[33m.[39mgetByText([32m'Order #501'[39m))[33m.[39mtoBeInTheDocument()[33m;[39m
+     [90m 84 |[39m         expect(screen[33m.[39mqueryByText([32m'+ Add Menu Item'[39m))[33m.[39mnot[33m.[39mtoBeInTheDocument()[33m;[39m
+     [90m 85 |[39m[0m
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at validateShorthandPropertyCollisionInDev (node_modules/react-dom/cjs/react-dom.development.js:2899:9)
+      at diffProperties (node_modules/react-dom/cjs/react-dom.development.js:10123:7)
+      at prepareUpdate (node_modules/react-dom/cjs/react-dom.development.js:10977:10)
+      at updateHostComponent$1 (node_modules/react-dom/cjs/react-dom.development.js:21825:25)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:22194:11)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26632:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26607:5)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26505:5)
+      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26473:7)
+      at callback (node_modules/react-dom/cjs/react-dom.development.js:26124:20)
+      at callback (node_modules/react-dom/cjs/react-dom.development.js:12042:22)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at actImplementation (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:47:25
+      at Object.eventWrapper (node_modules/@testing-library/react/dist/pure.js:107:27)
+      at fireEvent (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/events.js:12:35)
+      at fireEvent.<computed> [as click] (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/events.js:110:36)
+      at fireEvent.click (node_modules/@testing-library/react/dist/fire-event.js:15:52)
+      at Object.<anonymous> (src/__tests__/pages/AdminDashboard.test.js:82:19)
+
+  console.error
+    Warning: Removing a style property during rerender (borderBottomColor) when a conflicting property is set (borderBottom) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+        at button
+        at div
+        at div
+        at fn (/Users/jancarlosinc/Desktop/base2/services/react-app/src/pages/AdminDashboard.js:5:45)
+
+    [0m [90m 85 |[39m
+     [90m 86 |[39m         [90m// Switch back[39m
+    [31m[1m>[22m[39m[90m 87 |[39m         fireEvent[33m.[39mclick(screen[33m.[39mgetByText([32m'Menu Management'[39m))[33m;[39m
+     [90m    |[39m                   [31m[1m^[22m[39m
+     [90m 88 |[39m         expect(screen[33m.[39mgetByText([32m'+ Add Menu Item'[39m))[33m.[39mtoBeInTheDocument()[33m;[39m
+     [90m 89 |[39m     })[33m;[39m
+     [90m 90 |[39m[0m
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at validateShorthandPropertyCollisionInDev (node_modules/react-dom/cjs/react-dom.development.js:2899:9)
+      at diffProperties (node_modules/react-dom/cjs/react-dom.development.js:10123:7)
+      at prepareUpdate (node_modules/react-dom/cjs/react-dom.development.js:10977:10)
+      at updateHostComponent$1 (node_modules/react-dom/cjs/react-dom.development.js:21825:25)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:22194:11)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26632:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26607:5)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26505:5)
+      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26473:7)
+      at callback (node_modules/react-dom/cjs/react-dom.development.js:26124:20)
+      at callback (node_modules/react-dom/cjs/react-dom.development.js:12042:22)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at actImplementation (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:47:25
+      at Object.eventWrapper (node_modules/@testing-library/react/dist/pure.js:107:27)
+      at fireEvent (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/events.js:12:35)
+      at fireEvent.<computed> [as click] (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/events.js:110:36)
+      at fireEvent.click (node_modules/@testing-library/react/dist/fire-event.js:15:52)
+      at Object.<anonymous> (src/__tests__/pages/AdminDashboard.test.js:87:19)
+
+  console.error
+    Warning: Removing a style property during rerender (borderBottomColor) when a conflicting property is set (borderBottom) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+        at button
+        at div
+        at div
+        at fn (/Users/jancarlosinc/Desktop/base2/services/react-app/src/pages/AdminDashboard.js:5:45)
+
+    [0m [90m 162 |[39m         [36mawait[39m renderDashboard()[33m;[39m
+     [90m 163 |[39m
+    [31m[1m>[22m[39m[90m 164 |[39m         fireEvent[33m.[39mclick(screen[33m.[39mgetByText([32m'Order Management'[39m))[33m;[39m
+     [90m     |[39m                   [31m[1m^[22m[39m
+     [90m 165 |[39m
+     [90m 166 |[39m         [36mconst[39m statusSelect [33m=[39m screen[33m.[39mgetByDisplayValue([32m'New'[39m)[33m;[39m
+     [90m 167 |[39m         fireEvent[33m.[39mchange(statusSelect[33m,[39m { target[33m:[39m { value[33m:[39m [32m'IN_PROGRESS'[39m } })[33m;[39m[0m
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at validateShorthandPropertyCollisionInDev (node_modules/react-dom/cjs/react-dom.development.js:2899:9)
+      at diffProperties (node_modules/react-dom/cjs/react-dom.development.js:10123:7)
+      at prepareUpdate (node_modules/react-dom/cjs/react-dom.development.js:10977:10)
+      at updateHostComponent$1 (node_modules/react-dom/cjs/react-dom.development.js:21825:25)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:22194:11)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26632:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26607:5)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26505:5)
+      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26473:7)
+      at callback (node_modules/react-dom/cjs/react-dom.development.js:26124:20)
+      at callback (node_modules/react-dom/cjs/react-dom.development.js:12042:22)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at actImplementation (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:47:25
+      at Object.eventWrapper (node_modules/@testing-library/react/dist/pure.js:107:27)
+      at fireEvent (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/events.js:12:35)
+      at fireEvent.<computed> [as click] (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/events.js:110:36)
+      at fireEvent.click (node_modules/@testing-library/react/dist/fire-event.js:15:52)
+      at Object.<anonymous> (src/__tests__/pages/AdminDashboard.test.js:164:19)
+
+  console.error
+    Warning: Removing a style property during rerender (borderBottomColor) when a conflicting property is set (borderBottom) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+        at button
+        at div
+        at div
+        at fn (/Users/jancarlosinc/Desktop/base2/services/react-app/src/pages/AdminDashboard.js:5:45)
+
+    [0m [90m 268 |[39m         [36mawait[39m renderDashboard()[33m;[39m
+     [90m 269 |[39m
+    [31m[1m>[22m[39m[90m 270 |[39m         fireEvent[33m.[39mclick(screen[33m.[39mgetAllByText([32m'Order Management'[39m)[[35m0[39m])[33m;[39m
+     [90m     |[39m                   [31m[1m^[22m[39m
+     [90m 271 |[39m
+     [90m 272 |[39m         [36mconst[39m statusSelect [33m=[39m screen[33m.[39mgetByDisplayValue([32m'New'[39m)[33m;[39m
+     [90m 273 |[39m         fireEvent[33m.[39mchange(statusSelect[33m,[39m { target[33m:[39m { value[33m:[39m [32m'IN_PROGRESS'[39m } })[33m;[39m[0m
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at validateShorthandPropertyCollisionInDev (node_modules/react-dom/cjs/react-dom.development.js:2899:9)
+      at diffProperties (node_modules/react-dom/cjs/react-dom.development.js:10123:7)
+      at prepareUpdate (node_modules/react-dom/cjs/react-dom.development.js:10977:10)
+      at updateHostComponent$1 (node_modules/react-dom/cjs/react-dom.development.js:21825:25)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:22194:11)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26632:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26607:5)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26505:5)
+      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26473:7)
+      at callback (node_modules/react-dom/cjs/react-dom.development.js:26124:20)
+      at callback (node_modules/react-dom/cjs/react-dom.development.js:12042:22)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at actImplementation (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:47:25
+      at Object.eventWrapper (node_modules/@testing-library/react/dist/pure.js:107:27)
+      at fireEvent (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/events.js:12:35)
+      at fireEvent.<computed> [as click] (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/events.js:110:36)
+      at fireEvent.click (node_modules/@testing-library/react/dist/fire-event.js:15:52)
+      at Object.<anonymous> (src/__tests__/pages/AdminDashboard.test.js:270:19)
+
+PASS src/__tests__/pages/AdminDashboard.test.js
+  AdminDashboard Page
+    ✓ renders dashboard and fetches initial data (49 ms)
+    ✓ switches tabs correctly (519 ms)
+    ✓ opens and closes create menu item form (92 ms)
+    ✓ creates a new menu item (59 ms)
+    ✓ edits an existing menu item (35 ms)
+    ✓ deletes a menu item (18 ms)
+    ✓ updates order status (22 ms)
+    ✓ handles fetch errors gracefully (17 ms)
+    ✓ handles form submission error (30 ms)
+    ✓ handles category fetch error (5 ms)
+    ✓ handles order fetch error (8 ms)
+    ✓ cancels delete menu item (19 ms)
+    ✓ handles delete menu item error (30 ms)
+    ✓ handles update order status error (31 ms)
+
+-----------------------|---------|----------|---------|---------|-------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------|---------|----------|---------|---------|-------------------
+All files              |   13.35 |     9.49 |   14.83 |   13.61 |                   
+ src                   |       0 |        0 |       0 |       0 |                   
+  App.js               |       0 |        0 |       0 |       0 | 26-37             
+  index.js             |       0 |      100 |     100 |       0 | 6-7               
+ src/components        |       0 |        0 |       0 |       0 |                   
+  CheckoutForm.js      |       0 |        0 |       0 |       0 | 4-66              
+  Navigation.js        |       0 |        0 |       0 |       0 | 6-116             
+  ProtectedRoute.js    |       0 |        0 |       0 |       0 | 5-21              
+ src/contexts          |       0 |        0 |       0 |       0 |                   
+  AuthContext.js       |       0 |        0 |       0 |       0 | 4-191             
+  CartContext.js       |       0 |        0 |       0 |       0 | 3-109             
+ src/pages             |   19.18 |    13.35 |   22.11 |   19.67 |                   
+  AdminDashboard.js    |     100 |     87.5 |     100 |     100 | 65-75,115,131-141 
+  Cart.js              |       0 |        0 |       0 |       0 | 10-298            
+  Dashboard.js         |       0 |      100 |       0 |       0 | 5-102             
+  ForgotPassword.js    |       0 |        0 |       0 |       0 | 5-94              
+  Home.js              |       0 |      100 |       0 |       0 | 6-7               
+  KitchenDashboard.js  |       0 |        0 |       0 |       0 | 4-211             
+  Location.js          |       0 |      100 |       0 |       0 | 3-65              
+  Login.js             |       0 |        0 |       0 |       0 | 6-123             
+  Menu.js              |       0 |        0 |       0 |       0 | 8-152             
+  OrderConfirmation.js |       0 |        0 |       0 |       0 | 5-197             
+  ResetPassword.js     |       0 |        0 |       0 |       0 | 5-156             
+  UserSettings.js      |       0 |        0 |       0 |       0 | 5-172             
+  VerifyEmail.js       |       0 |        0 |       0 |       0 | 5-133             
+ src/services          |   15.62 |    16.66 |       0 |   15.62 |                   
+  api.js               |   15.62 |    16.66 |       0 |   15.62 | 16-23,29-37,45-88 
+-----------------------|---------|----------|---------|---------|-------------------
+Jest: "global" coverage threshold for statements (40%) not met: 26.23%
+Jest: "global" coverage threshold for branches (30%) not met: 16.9%
+Jest: "global" coverage threshold for lines (40%) not met: 27.07%
+Jest: "global" coverage threshold for functions (40%) not met: 31.5%
+Jest: "src/components" coverage threshold for statements (98%) not met: 0%
+Jest: "src/components" coverage threshold for branches (90%) not met: 0%
+Jest: "src/components" coverage threshold for lines (98%) not met: 0%
+Jest: "src/components" coverage threshold for functions (98%) not met: 0%
+Jest: "src/contexts" coverage threshold for statements (98%) not met: 0%
+Jest: "src/contexts" coverage threshold for branches (75%) not met: 0%
+Jest: "src/contexts" coverage threshold for lines (98%) not met: 0%
+Jest: "src/contexts" coverage threshold for functions (98%) not met: 0%
+Jest: "src/services" coverage threshold for statements (98%) not met: 15.62%
+Jest: "src/services" coverage threshold for branches (80%) not met: 16.66%
+Jest: "src/services" coverage threshold for lines (98%) not met: 15.62%
+Jest: "src/services" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Home.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Home.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Home.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for branches (90%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for branches (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Cart.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Cart.js" coverage threshold for branches (98%) not met: 0%
+Jest: "src/pages/Cart.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Cart.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Dashboard.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Dashboard.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Dashboard.js" coverage threshold for functions (98%) not met: 0%
+Test Suites: 1 passed, 1 total
+Tests:       14 passed, 14 total
+Snapshots:   0 total
+Time:        6.586 s
+Ran all test suites matching /src\/__tests__\/pages\/AdminDashboard.test.js/i.

@@ -1,0 +1,173 @@
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { toast } from "sonner";
+import { ChefHat, Loader2 } from "lucide-react";
+
+const KitchenLogin = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  // Auto-redirect if already authenticated and has required role
+  useEffect(() => {
+    let mounted = true;
+
+    const redirectIfAuthorized = async (userId: string) => {
+      try {
+        const { data: roles, error } = await supabase
+          .from("user_roles")
+          .select("role")
+          .eq("user_id", userId);
+        if (!mounted) return;
+        if (error) return;
+        const ok = roles?.some((r) => r.role === "kitchen" || r.role === "admin");
+        if (ok) navigate("/kitchen", { replace: true });
+      } catch (_) {
+        // noop
+      }
+    };
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (!mounted) return;
+      if (session?.user) {
+        setLoading(true);
+        setTimeout(() => {
+          redirectIfAuthorized(session.user.id).finally(() => mounted && setLoading(false));
+        }, 0);
+      }
+    });
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!mounted) return;
+      if (session?.user) {
+        setLoading(true);
+        redirectIfAuthorized(session.user.id).finally(() => mounted && setLoading(false));
+      }
+    });
+
+    return () => {
+      mounted = false;
+      subscription.unsubscribe();
+    };
+  }, [navigate]);
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!email || !password) {
+      toast.error("Please enter both email and password");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: email.trim(),
+        password: password,
+      });
+
+      if (error) throw error;
+
+      if (!data.session) {
+        throw new Error("No session created");
+      }
+
+      toast.success("Login successful! Redirecting to kitchen...");
+
+      // Defer navigation and let ProtectedRoute handle authorization
+      setTimeout(() => {
+        navigate("/kitchen", { replace: true });
+      }, 300);
+    } catch (error: any) {
+      console.error("Login error:", error);
+      toast.error(error.message || "Login failed. Please check your credentials.");
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-primary/5 p-4">
+      <Card className="w-full max-w-md shadow-2xl border-2">
+        <CardHeader className="space-y-4 text-center pb-8">
+          <div className="mx-auto w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
+            <ChefHat className="h-10 w-10 text-primary" />
+          </div>
+          <div>
+            <CardTitle className="text-3xl font-bold">Kitchen Staff Login</CardTitle>
+            <CardDescription className="text-base mt-2">
+              Enter your credentials to access the kitchen orders system
+            </CardDescription>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <form onSubmit={handleLogin} className="space-y-6">
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <label htmlFor="email" className="text-sm font-medium text-foreground">
+                  Email Address
+                </label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="kitchen@restaurant.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  autoComplete="email"
+                  className="h-12 text-base"
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="password" className="text-sm font-medium text-foreground">
+                  Password
+                </label>
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  autoComplete="current-password"
+                  className="h-12 text-base"
+                />
+              </div>
+            </div>
+
+            <Button
+              type="submit"
+              className="w-full h-12 text-base font-semibold"
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  Signing In...
+                </>
+              ) : (
+                <>
+                  <ChefHat className="mr-2 h-5 w-5" />
+                  Sign In to Kitchen
+                </>
+              )}
+            </Button>
+          </form>
+
+          <div className="mt-6 text-center text-sm text-muted-foreground">
+            <p>For kitchen staff only. Contact admin for access.</p>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
+export default KitchenLogin;

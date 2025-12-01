@@ -1,0 +1,1471 @@
+
+> base2-react-app@1.0.0 test
+> react-scripts test --coverage --watchAll=false src/__tests__/pages/Cart.test.js
+
+  console.warn
+    ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+
+    [0m [90m 57 |[39m
+     [90m 58 |[39m     [36mconst[39m renderCart [33m=[39m () [33m=>[39m {
+    [31m[1m>[22m[39m[90m 59 |[39m         [36mreturn[39m render(
+     [90m    |[39m                      [31m[1m^[22m[39m
+     [90m 60 |[39m             [33m<[39m[33mBrowserRouter[39m[33m>[39m
+     [90m 61 |[39m                 [33m<[39m[33mCart[39m [33m/[39m[33m>[39m
+     [90m 62 |[39m             [33m<[39m[33m/[39m[33mBrowserRouter[39m[33m>[39m[0m
+
+      at warnOnce (node_modules/react-router/lib/deprecations.ts:9:13)
+      at logDeprecation (node_modules/react-router/lib/deprecations.ts:14:3)
+      at Object.UNSAFE_logV6DeprecationWarnings (node_modules/react-router/lib/deprecations.ts:26:5)
+      at create (node_modules/react-router-dom/index.tsx:816:25)
+      at commitHookEffectListMount (node_modules/react-dom/cjs/react-dom.development.js:23189:26)
+      at commitPassiveMountOnFiber (node_modules/react-dom/cjs/react-dom.development.js:24970:11)
+      at commitPassiveMountEffects_complete (node_modules/react-dom/cjs/react-dom.development.js:24930:9)
+      at commitPassiveMountEffects_begin (node_modules/react-dom/cjs/react-dom.development.js:24917:7)
+      at commitPassiveMountEffects (node_modules/react-dom/cjs/react-dom.development.js:24905:3)
+      at flushPassiveEffectsImpl (node_modules/react-dom/cjs/react-dom.development.js:27078:3)
+      at flushPassiveEffects (node_modules/react-dom/cjs/react-dom.development.js:27023:14)
+      at callback (node_modules/react-dom/cjs/react-dom.development.js:26808:9)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at actImplementation (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:47:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:180:25)
+      at render (node_modules/@testing-library/react/dist/pure.js:271:10)
+      at renderCart (src/__tests__/pages/Cart.test.js:59:22)
+      at Object.<anonymous> (src/__tests__/pages/Cart.test.js:72:9)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+  console.warn
+    ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+    [0m [90m 57 |[39m
+     [90m 58 |[39m     [36mconst[39m renderCart [33m=[39m () [33m=>[39m {
+    [31m[1m>[22m[39m[90m 59 |[39m         [36mreturn[39m render(
+     [90m    |[39m                      [31m[1m^[22m[39m
+     [90m 60 |[39m             [33m<[39m[33mBrowserRouter[39m[33m>[39m
+     [90m 61 |[39m                 [33m<[39m[33mCart[39m [33m/[39m[33m>[39m
+     [90m 62 |[39m             [33m<[39m[33m/[39m[33mBrowserRouter[39m[33m>[39m[0m
+
+      at warnOnce (node_modules/react-router/lib/deprecations.ts:9:13)
+      at logDeprecation (node_modules/react-router/lib/deprecations.ts:14:3)
+      at Object.UNSAFE_logV6DeprecationWarnings (node_modules/react-router/lib/deprecations.ts:37:5)
+      at create (node_modules/react-router-dom/index.tsx:816:25)
+      at commitHookEffectListMount (node_modules/react-dom/cjs/react-dom.development.js:23189:26)
+      at commitPassiveMountOnFiber (node_modules/react-dom/cjs/react-dom.development.js:24970:11)
+      at commitPassiveMountEffects_complete (node_modules/react-dom/cjs/react-dom.development.js:24930:9)
+      at commitPassiveMountEffects_begin (node_modules/react-dom/cjs/react-dom.development.js:24917:7)
+      at commitPassiveMountEffects (node_modules/react-dom/cjs/react-dom.development.js:24905:3)
+      at flushPassiveEffectsImpl (node_modules/react-dom/cjs/react-dom.development.js:27078:3)
+      at flushPassiveEffects (node_modules/react-dom/cjs/react-dom.development.js:27023:14)
+      at callback (node_modules/react-dom/cjs/react-dom.development.js:26808:9)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at actImplementation (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:47:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:180:25)
+      at render (node_modules/@testing-library/react/dist/pure.js:271:10)
+      at renderCart (src/__tests__/pages/Cart.test.js:59:22)
+      at Object.<anonymous> (src/__tests__/pages/Cart.test.js:72:9)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+FAIL src/__tests__/pages/Cart.test.js (6.705 s)
+  Cart Page
+    ✓ renders empty cart message when no items (1231 ms)
+    ✓ navigates to menu from empty cart (17 ms)
+    ✓ renders cart items and total (73 ms)
+    ✓ calls updateQuantity when quantity buttons clicked (26 ms)
+    ✓ calls removeFromCart when remove button clicked (12 ms)
+    ✓ validates customer info before checkout (39 ms)
+    ✕ initiates checkout and shows payment form (28 ms)
+    ✕ handles checkout initialization error (49 ms)
+    ✕ handles successful payment and order creation (21 ms)
+    ✕ handles order creation failure after payment (17 ms)
+    ✕ allows editing details before payment (22 ms)
+
+  ● Cart Page › initiates checkout and shows payment form
+
+    TestingLibraryElementError: Found a label with the text of: /Name/i, however no form control was found associated to that label. Make sure you're using the "for" attribute or "aria-labelledby" attribute correctly.
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mstyle[39m=[32m"min-height: 100vh; background-color: rgb(245, 247, 250); padding: 20px;"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mstyle[39m=[32m"max-width: 800px; margin: 0px auto;"[39m
+          [36m>[39m
+            [36m<h1[39m
+              [33mstyle[39m=[32m"font-size: 36px; color: rgb(45, 55, 72); margin-bottom: 30px; font-weight: bold;"[39m
+            [36m>[39m
+              [0mYour Order[0m
+            [36m</h1>[39m
+            [36m<div[39m
+              [33mstyle[39m=[32m"background-color: white; border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: grid; grid-template-columns: 1fr auto auto; gap: 20px; padding: 20px 0px; border-bottom: 1px solid #e2e8f0; align-items: center;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"flex: 1;"[39m
+                [36m>[39m
+                  [36m<h3[39m
+                    [33mstyle[39m=[32m"font-size: 18px; color: rgb(45, 55, 72); margin: 0px 0px 5px 0px; font-weight: 600;"[39m
+                  [36m>[39m
+                    [0mTacos[0m
+                  [36m</h3>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"font-size: 14px; color: rgb(113, 128, 150); margin: 5px 0px; font-style: italic;"[39m
+                  [36m>[39m
+                    [0mNote: [0m
+                    [0mSpicy[0m
+                  [36m</p>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"font-size: 14px; color: rgb(113, 128, 150); margin: 5px 0px 0px 0px;"[39m
+                  [36m>[39m
+                    [0m$[0m
+                    [0m4.50[0m
+                    [0m each[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 10px; align-items: center;"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mstyle[39m=[32m"display: flex; align-items: center; gap: 10px; background-color: rgb(247, 250, 252); border-radius: 8px; padding: 5px;"[39m
+                  [36m>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m-[0m
+                    [36m</button>[39m
+                    [36m<span[39m
+                      [33mstyle[39m=[32m"font-size: 16px; font-weight: 600; min-width: 30px; text-align: center;"[39m
+                    [36m>[39m
+                      [0m2[0m
+                    [36m</span>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m+[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<button[39m
+                    [33mstyle[39m=[32m"font-size: 12px; color: rgb(229, 62, 62); background: none; cursor: pointer; text-decoration: underline;"[39m
+                  [36m>[39m
+                    [0mRemove[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"font-size: 18px; font-weight: bold; color: rgb(45, 55, 72);"[39m
+                [36m>[39m
+                  [0m$[0m
+                  [0m9.00[0m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: grid; grid-template-columns: 1fr auto auto; gap: 20px; padding: 20px 0px; border-bottom: 1px solid #e2e8f0; align-items: center;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"flex: 1;"[39m
+                [36m>[39m
+                  [36m<h3[39m
+                    [33mstyle[39m=[32m"font-size: 18px; color: rgb(45, 55, 72); margin: 0px 0px 5px 0px; font-weight: 600;"[39m
+                  [36m>[39m
+                    [0mHorchata[0m
+                  [36m</h3>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"font-size: 14px; color: rgb(113, 128, 150); margin: 5px 0px 0px 0px;"[39m
+                  [36m>[39m
+                    [0m$[0m
+                    [0m3.00[0m
+                    [0m each[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 10px; align-items: center;"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mstyle[39m=[32m"display: flex; align-items: center; gap: 10px; background-color: rgb(247, 250, 252); border-radius: 8px; padding: 5px;"[39m
+                  [36m>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m-[0m
+                    [36m</button>[39m
+                    [36m<span[39m
+                      [33mstyle[39m=[32m"font-size: 16px; font-weight: 600; min-width: 30px; text-align: center;"[39m
+                    [36m>[39m
+                      [0m1[0m
+                    [36m</span>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m+[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<button[39m
+                    [33mstyle[39m=[32m"font-size: 12px; color: rgb(229, 62, 62); background: none; cursor: pointer; text-decoration: underline;"[39m
+                  [36m>[39m
+                    [0mRemove[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"font-size: 18px; font-weight: bold; color: rgb(45, 55, 72);"[39m
+                [36m>[39m
+                  [0m$[0m
+                  [0m3.00[0m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: flex; justify-content: space-between; align-items: center; padding-top: 20px; margin-top: 10px;"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mstyle[39m=[32m"font-size: 20px; font-weight: bold; color: rgb(45, 55, 72);"[39m
+                [36m>[39m
+                  [0mTotal:[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mstyle[39m=[32m"font-size: 28px; font-weight: bold; color: rgb(102, 126, 234);"[39m
+                [36m>[39m
+                  [0m$[0m
+                  [0m12.00[0m
+                [36m</span>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mstyle[39m=[32m"background-color: white; border-radius: 12px; padding: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"[39m
+            [36m>[39m
+              [36m<h2[39m
+                [33mstyle[39m=[32m"font-size: 24px; color: rgb(45, 55, 72); margin-bottom: 20px; font-weight: bold;"[39m
+              [36m>[39m
+                [0mCheckout[0m
+              [36m</h2>[39m
+              [36m<form[39m
+                [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 20px;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mName *[0m
+                  [36m</label>[39m
+                  [36m<input[39m
+                    [33mname[39m=[32m"name"[39m
+                    [33mrequired[39m=[32m""[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; transition: border-color 0.2s ease;"[39m
+                    [33mtype[39m=[32m"text"[39m
+                    [33mvalue[39m=[32m""[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mPhone *[0m
+                  [36m</label>[39m
+                  [36m<input[39m
+                    [33mname[39m=[32m"phone"[39m
+                    [33mrequired[39m=[32m""[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; transition: border-color 0.2s ease;"[39m
+                    [33mtype[39m=[32m"tel"[39m
+                    [33mvalue[39m=[32m""[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mEmail (optional)[0m
+                  [36m</label>[39m
+                  [36m<input[39m
+                    [33mname[39m=[32m"email"[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; transition: border-color 0.2s ease;"[39m
+                    [33mtype[39m=[32m"email"[39m
+                    [33mvalue[39m=[32m""[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mSpecial Instructions (optional)[0m
+                  [36m</label>[39m
+                  [36m<textarea[39m
+                    [33mname[39m=[32m"notes"[39m
+                    [33mplaceholder[39m=[32m"Any special requests or dietary restrictions?"[39m
+                    [33mrows[39m=[32m"3"[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; resize: vertical; font-family: inherit;"[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"background-color: rgb(237, 242, 247); padding: 15px; border-radius: 8px; margin-top: 10px;"[39m
+                [36m>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"margin: 0px; font-size: 14px; color: rgb(45, 55, 72); text-align: center;"[39m
+                  [36m>[39m
+                    [0m📍 Pickup only • Ready in 15-20 minutes[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<button[39m
+                  [33mstyle[39m=[32m"padding: 16px; background-color: rgb(102, 126, 234); color: white; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; transition: background-color 0.2s ease;"[39m
+                  [33mtype[39m=[32m"submit"[39m
+                [36m>[39m
+                  [0mProceed to Payment[0m
+                [36m</button>[39m
+              [36m</form>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+    [0m [90m 136 |[39m
+     [90m 137 |[39m         [90m// Fill form[39m
+    [31m[1m>[22m[39m[90m 138 |[39m         fireEvent[33m.[39mchange(screen[33m.[39mgetByLabelText([35m/Name/i[39m)[33m,[39m { target[33m:[39m { value[33m:[39m [32m'John Doe'[39m } })[33m;[39m
+     [90m     |[39m                                 [31m[1m^[22m[39m
+     [90m 139 |[39m         fireEvent[33m.[39mchange(screen[33m.[39mgetByLabelText([35m/Phone/i[39m)[33m,[39m { target[33m:[39m { value[33m:[39m [32m'555-0123'[39m } })[33m;[39m
+     [90m 140 |[39m
+     [90m 141 |[39m         fireEvent[33m.[39mclick(screen[33m.[39mgetByText([32m'Proceed to Payment'[39m))[33m;[39m[0m
+
+      at Object.getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at allQuery (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/queries/label-text.js:108:40)
+      at query (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:52:17)
+      at getByLabelText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
+      at Object.<anonymous> (src/__tests__/pages/Cart.test.js:138:33)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+  ● Cart Page › handles checkout initialization error
+
+    TestingLibraryElementError: Found a label with the text of: /Name/i, however no form control was found associated to that label. Make sure you're using the "for" attribute or "aria-labelledby" attribute correctly.
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mstyle[39m=[32m"min-height: 100vh; background-color: rgb(245, 247, 250); padding: 20px;"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mstyle[39m=[32m"max-width: 800px; margin: 0px auto;"[39m
+          [36m>[39m
+            [36m<h1[39m
+              [33mstyle[39m=[32m"font-size: 36px; color: rgb(45, 55, 72); margin-bottom: 30px; font-weight: bold;"[39m
+            [36m>[39m
+              [0mYour Order[0m
+            [36m</h1>[39m
+            [36m<div[39m
+              [33mstyle[39m=[32m"background-color: white; border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: grid; grid-template-columns: 1fr auto auto; gap: 20px; padding: 20px 0px; border-bottom: 1px solid #e2e8f0; align-items: center;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"flex: 1;"[39m
+                [36m>[39m
+                  [36m<h3[39m
+                    [33mstyle[39m=[32m"font-size: 18px; color: rgb(45, 55, 72); margin: 0px 0px 5px 0px; font-weight: 600;"[39m
+                  [36m>[39m
+                    [0mTacos[0m
+                  [36m</h3>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"font-size: 14px; color: rgb(113, 128, 150); margin: 5px 0px; font-style: italic;"[39m
+                  [36m>[39m
+                    [0mNote: [0m
+                    [0mSpicy[0m
+                  [36m</p>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"font-size: 14px; color: rgb(113, 128, 150); margin: 5px 0px 0px 0px;"[39m
+                  [36m>[39m
+                    [0m$[0m
+                    [0m4.50[0m
+                    [0m each[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 10px; align-items: center;"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mstyle[39m=[32m"display: flex; align-items: center; gap: 10px; background-color: rgb(247, 250, 252); border-radius: 8px; padding: 5px;"[39m
+                  [36m>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m-[0m
+                    [36m</button>[39m
+                    [36m<span[39m
+                      [33mstyle[39m=[32m"font-size: 16px; font-weight: 600; min-width: 30px; text-align: center;"[39m
+                    [36m>[39m
+                      [0m2[0m
+                    [36m</span>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m+[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<button[39m
+                    [33mstyle[39m=[32m"font-size: 12px; color: rgb(229, 62, 62); background: none; cursor: pointer; text-decoration: underline;"[39m
+                  [36m>[39m
+                    [0mRemove[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"font-size: 18px; font-weight: bold; color: rgb(45, 55, 72);"[39m
+                [36m>[39m
+                  [0m$[0m
+                  [0m9.00[0m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: grid; grid-template-columns: 1fr auto auto; gap: 20px; padding: 20px 0px; border-bottom: 1px solid #e2e8f0; align-items: center;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"flex: 1;"[39m
+                [36m>[39m
+                  [36m<h3[39m
+                    [33mstyle[39m=[32m"font-size: 18px; color: rgb(45, 55, 72); margin: 0px 0px 5px 0px; font-weight: 600;"[39m
+                  [36m>[39m
+                    [0mHorchata[0m
+                  [36m</h3>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"font-size: 14px; color: rgb(113, 128, 150); margin: 5px 0px 0px 0px;"[39m
+                  [36m>[39m
+                    [0m$[0m
+                    [0m3.00[0m
+                    [0m each[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 10px; align-items: center;"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mstyle[39m=[32m"display: flex; align-items: center; gap: 10px; background-color: rgb(247, 250, 252); border-radius: 8px; padding: 5px;"[39m
+                  [36m>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m-[0m
+                    [36m</button>[39m
+                    [36m<span[39m
+                      [33mstyle[39m=[32m"font-size: 16px; font-weight: 600; min-width: 30px; text-align: center;"[39m
+                    [36m>[39m
+                      [0m1[0m
+                    [36m</span>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m+[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<button[39m
+                    [33mstyle[39m=[32m"font-size: 12px; color: rgb(229, 62, 62); background: none; cursor: pointer; text-decoration: underline;"[39m
+                  [36m>[39m
+                    [0mRemove[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"font-size: 18px; font-weight: bold; color: rgb(45, 55, 72);"[39m
+                [36m>[39m
+                  [0m$[0m
+                  [0m3.00[0m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: flex; justify-content: space-between; align-items: center; padding-top: 20px; margin-top: 10px;"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mstyle[39m=[32m"font-size: 20px; font-weight: bold; color: rgb(45, 55, 72);"[39m
+                [36m>[39m
+                  [0mTotal:[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mstyle[39m=[32m"font-size: 28px; font-weight: bold; color: rgb(102, 126, 234);"[39m
+                [36m>[39m
+                  [0m$[0m
+                  [0m12.00[0m
+                [36m</span>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mstyle[39m=[32m"background-color: white; border-radius: 12px; padding: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"[39m
+            [36m>[39m
+              [36m<h2[39m
+                [33mstyle[39m=[32m"font-size: 24px; color: rgb(45, 55, 72); margin-bottom: 20px; font-weight: bold;"[39m
+              [36m>[39m
+                [0mCheckout[0m
+              [36m</h2>[39m
+              [36m<form[39m
+                [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 20px;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mName *[0m
+                  [36m</label>[39m
+                  [36m<input[39m
+                    [33mname[39m=[32m"name"[39m
+                    [33mrequired[39m=[32m""[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; transition: border-color 0.2s ease;"[39m
+                    [33mtype[39m=[32m"text"[39m
+                    [33mvalue[39m=[32m""[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mPhone *[0m
+                  [36m</label>[39m
+                  [36m<input[39m
+                    [33mname[39m=[32m"phone"[39m
+                    [33mrequired[39m=[32m""[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; transition: border-color 0.2s ease;"[39m
+                    [33mtype[39m=[32m"tel"[39m
+                    [33mvalue[39m=[32m""[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mEmail (optional)[0m
+                  [36m</label>[39m
+                  [36m<input[39m
+                    [33mname[39m=[32m"email"[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; transition: border-color 0.2s ease;"[39m
+                    [33mtype[39m=[32m"email"[39m
+                    [33mvalue[39m=[32m""[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mSpecial Instructions (optional)[0m
+                  [36m</label>[39m
+                  [36m<textarea[39m
+                    [33mname[39m=[32m"notes"[39m
+                    [33mplaceholder[39m=[32m"Any special requests or dietary restrictions?"[39m
+                    [33mrows[39m=[32m"3"[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; resize: vertical; font-family: inherit;"[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"background-color: rgb(237, 242, 247); padding: 15px; border-radius: 8px; margin-top: 10px;"[39m
+                [36m>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"margin: 0px; font-size: 14px; color: rgb(45, 55, 72); text-align: center;"[39m
+                  [36m>[39m
+                    [0m📍 Pickup only • Ready in 15-20 minutes[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<button[39m
+                  [33mstyle[39m=[32m"padding: 16px; background-color: rgb(102, 126, 234); color: white; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; transition: background-color 0.2s ease;"[39m
+                  [33mtype[39m=[32m"submit"[39m
+                [36m>[39m
+                  [0mProceed to Payment[0m
+                [36m</button>[39m
+              [36m</form>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+    [0m [90m 155 |[39m         renderCart()[33m;[39m
+     [90m 156 |[39m
+    [31m[1m>[22m[39m[90m 157 |[39m         fireEvent[33m.[39mchange(screen[33m.[39mgetByLabelText([35m/Name/i[39m)[33m,[39m { target[33m:[39m { value[33m:[39m [32m'John Doe'[39m } })[33m;[39m
+     [90m     |[39m                                 [31m[1m^[22m[39m
+     [90m 158 |[39m         fireEvent[33m.[39mchange(screen[33m.[39mgetByLabelText([35m/Phone/i[39m)[33m,[39m { target[33m:[39m { value[33m:[39m [32m'555-0123'[39m } })[33m;[39m
+     [90m 159 |[39m
+     [90m 160 |[39m         fireEvent[33m.[39mclick(screen[33m.[39mgetByText([32m'Proceed to Payment'[39m))[33m;[39m[0m
+
+      at Object.getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at allQuery (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/queries/label-text.js:108:40)
+      at query (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:52:17)
+      at getByLabelText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
+      at Object.<anonymous> (src/__tests__/pages/Cart.test.js:157:33)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+  ● Cart Page › handles successful payment and order creation
+
+    TestingLibraryElementError: Found a label with the text of: /Name/i, however no form control was found associated to that label. Make sure you're using the "for" attribute or "aria-labelledby" attribute correctly.
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mstyle[39m=[32m"min-height: 100vh; background-color: rgb(245, 247, 250); padding: 20px;"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mstyle[39m=[32m"max-width: 800px; margin: 0px auto;"[39m
+          [36m>[39m
+            [36m<h1[39m
+              [33mstyle[39m=[32m"font-size: 36px; color: rgb(45, 55, 72); margin-bottom: 30px; font-weight: bold;"[39m
+            [36m>[39m
+              [0mYour Order[0m
+            [36m</h1>[39m
+            [36m<div[39m
+              [33mstyle[39m=[32m"background-color: white; border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: grid; grid-template-columns: 1fr auto auto; gap: 20px; padding: 20px 0px; border-bottom: 1px solid #e2e8f0; align-items: center;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"flex: 1;"[39m
+                [36m>[39m
+                  [36m<h3[39m
+                    [33mstyle[39m=[32m"font-size: 18px; color: rgb(45, 55, 72); margin: 0px 0px 5px 0px; font-weight: 600;"[39m
+                  [36m>[39m
+                    [0mTacos[0m
+                  [36m</h3>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"font-size: 14px; color: rgb(113, 128, 150); margin: 5px 0px; font-style: italic;"[39m
+                  [36m>[39m
+                    [0mNote: [0m
+                    [0mSpicy[0m
+                  [36m</p>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"font-size: 14px; color: rgb(113, 128, 150); margin: 5px 0px 0px 0px;"[39m
+                  [36m>[39m
+                    [0m$[0m
+                    [0m4.50[0m
+                    [0m each[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 10px; align-items: center;"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mstyle[39m=[32m"display: flex; align-items: center; gap: 10px; background-color: rgb(247, 250, 252); border-radius: 8px; padding: 5px;"[39m
+                  [36m>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m-[0m
+                    [36m</button>[39m
+                    [36m<span[39m
+                      [33mstyle[39m=[32m"font-size: 16px; font-weight: 600; min-width: 30px; text-align: center;"[39m
+                    [36m>[39m
+                      [0m2[0m
+                    [36m</span>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m+[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<button[39m
+                    [33mstyle[39m=[32m"font-size: 12px; color: rgb(229, 62, 62); background: none; cursor: pointer; text-decoration: underline;"[39m
+                  [36m>[39m
+                    [0mRemove[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"font-size: 18px; font-weight: bold; color: rgb(45, 55, 72);"[39m
+                [36m>[39m
+                  [0m$[0m
+                  [0m9.00[0m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: grid; grid-template-columns: 1fr auto auto; gap: 20px; padding: 20px 0px; border-bottom: 1px solid #e2e8f0; align-items: center;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"flex: 1;"[39m
+                [36m>[39m
+                  [36m<h3[39m
+                    [33mstyle[39m=[32m"font-size: 18px; color: rgb(45, 55, 72); margin: 0px 0px 5px 0px; font-weight: 600;"[39m
+                  [36m>[39m
+                    [0mHorchata[0m
+                  [36m</h3>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"font-size: 14px; color: rgb(113, 128, 150); margin: 5px 0px 0px 0px;"[39m
+                  [36m>[39m
+                    [0m$[0m
+                    [0m3.00[0m
+                    [0m each[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 10px; align-items: center;"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mstyle[39m=[32m"display: flex; align-items: center; gap: 10px; background-color: rgb(247, 250, 252); border-radius: 8px; padding: 5px;"[39m
+                  [36m>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m-[0m
+                    [36m</button>[39m
+                    [36m<span[39m
+                      [33mstyle[39m=[32m"font-size: 16px; font-weight: 600; min-width: 30px; text-align: center;"[39m
+                    [36m>[39m
+                      [0m1[0m
+                    [36m</span>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m+[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<button[39m
+                    [33mstyle[39m=[32m"font-size: 12px; color: rgb(229, 62, 62); background: none; cursor: pointer; text-decoration: underline;"[39m
+                  [36m>[39m
+                    [0mRemove[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"font-size: 18px; font-weight: bold; color: rgb(45, 55, 72);"[39m
+                [36m>[39m
+                  [0m$[0m
+                  [0m3.00[0m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: flex; justify-content: space-between; align-items: center; padding-top: 20px; margin-top: 10px;"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mstyle[39m=[32m"font-size: 20px; font-weight: bold; color: rgb(45, 55, 72);"[39m
+                [36m>[39m
+                  [0mTotal:[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mstyle[39m=[32m"font-size: 28px; font-weight: bold; color: rgb(102, 126, 234);"[39m
+                [36m>[39m
+                  [0m$[0m
+                  [0m12.00[0m
+                [36m</span>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mstyle[39m=[32m"background-color: white; border-radius: 12px; padding: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"[39m
+            [36m>[39m
+              [36m<h2[39m
+                [33mstyle[39m=[32m"font-size: 24px; color: rgb(45, 55, 72); margin-bottom: 20px; font-weight: bold;"[39m
+              [36m>[39m
+                [0mCheckout[0m
+              [36m</h2>[39m
+              [36m<form[39m
+                [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 20px;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mName *[0m
+                  [36m</label>[39m
+                  [36m<input[39m
+                    [33mname[39m=[32m"name"[39m
+                    [33mrequired[39m=[32m""[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; transition: border-color 0.2s ease;"[39m
+                    [33mtype[39m=[32m"text"[39m
+                    [33mvalue[39m=[32m""[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mPhone *[0m
+                  [36m</label>[39m
+                  [36m<input[39m
+                    [33mname[39m=[32m"phone"[39m
+                    [33mrequired[39m=[32m""[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; transition: border-color 0.2s ease;"[39m
+                    [33mtype[39m=[32m"tel"[39m
+                    [33mvalue[39m=[32m""[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mEmail (optional)[0m
+                  [36m</label>[39m
+                  [36m<input[39m
+                    [33mname[39m=[32m"email"[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; transition: border-color 0.2s ease;"[39m
+                    [33mtype[39m=[32m"email"[39m
+                    [33mvalue[39m=[32m""[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mSpecial Instructions (optional)[0m
+                  [36m</label>[39m
+                  [36m<textarea[39m
+                    [33mname[39m=[32m"notes"[39m
+                    [33mplaceholder[39m=[32m"Any special requests or dietary restrictions?"[39m
+                    [33mrows[39m=[32m"3"[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; resize: vertical; font-family: inherit;"[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"background-color: rgb(237, 242, 247); padding: 15px; border-radius: 8px; margin-top: 10px;"[39m
+                [36m>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"margin: 0px; font-size: 14px; color: rgb(45, 55, 72); text-align: center;"[39m
+                  [36m>[39m
+                    [0m📍 Pickup only • Ready in 15-20 minutes[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<button[39m
+                  [33mstyle[39m=[32m"padding: 16px; background-color: rgb(102, 126, 234); color: white; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; transition: background-color 0.2s ease;"[39m
+                  [33mtype[39m=[32m"submit"[39m
+                [36m>[39m
+                  [0mProceed to Payment[0m
+                [36m</button>[39m
+              [36m</form>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+    [0m [90m 182 |[39m
+     [90m 183 |[39m         [90m// Fill form and proceed[39m
+    [31m[1m>[22m[39m[90m 184 |[39m         fireEvent[33m.[39mchange(screen[33m.[39mgetByLabelText([35m/Name/i[39m)[33m,[39m { target[33m:[39m { value[33m:[39m [32m'John Doe'[39m } })[33m;[39m
+     [90m     |[39m                                 [31m[1m^[22m[39m
+     [90m 185 |[39m         fireEvent[33m.[39mchange(screen[33m.[39mgetByLabelText([35m/Phone/i[39m)[33m,[39m { target[33m:[39m { value[33m:[39m [32m'555-0123'[39m } })[33m;[39m
+     [90m 186 |[39m         fireEvent[33m.[39mclick(screen[33m.[39mgetByText([32m'Proceed to Payment'[39m))[33m;[39m
+     [90m 187 |[39m[0m
+
+      at Object.getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at allQuery (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/queries/label-text.js:108:40)
+      at query (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:52:17)
+      at getByLabelText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
+      at Object.<anonymous> (src/__tests__/pages/Cart.test.js:184:33)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+  ● Cart Page › handles order creation failure after payment
+
+    TestingLibraryElementError: Found a label with the text of: /Name/i, however no form control was found associated to that label. Make sure you're using the "for" attribute or "aria-labelledby" attribute correctly.
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mstyle[39m=[32m"min-height: 100vh; background-color: rgb(245, 247, 250); padding: 20px;"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mstyle[39m=[32m"max-width: 800px; margin: 0px auto;"[39m
+          [36m>[39m
+            [36m<h1[39m
+              [33mstyle[39m=[32m"font-size: 36px; color: rgb(45, 55, 72); margin-bottom: 30px; font-weight: bold;"[39m
+            [36m>[39m
+              [0mYour Order[0m
+            [36m</h1>[39m
+            [36m<div[39m
+              [33mstyle[39m=[32m"background-color: white; border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: grid; grid-template-columns: 1fr auto auto; gap: 20px; padding: 20px 0px; border-bottom: 1px solid #e2e8f0; align-items: center;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"flex: 1;"[39m
+                [36m>[39m
+                  [36m<h3[39m
+                    [33mstyle[39m=[32m"font-size: 18px; color: rgb(45, 55, 72); margin: 0px 0px 5px 0px; font-weight: 600;"[39m
+                  [36m>[39m
+                    [0mTacos[0m
+                  [36m</h3>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"font-size: 14px; color: rgb(113, 128, 150); margin: 5px 0px; font-style: italic;"[39m
+                  [36m>[39m
+                    [0mNote: [0m
+                    [0mSpicy[0m
+                  [36m</p>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"font-size: 14px; color: rgb(113, 128, 150); margin: 5px 0px 0px 0px;"[39m
+                  [36m>[39m
+                    [0m$[0m
+                    [0m4.50[0m
+                    [0m each[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 10px; align-items: center;"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mstyle[39m=[32m"display: flex; align-items: center; gap: 10px; background-color: rgb(247, 250, 252); border-radius: 8px; padding: 5px;"[39m
+                  [36m>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m-[0m
+                    [36m</button>[39m
+                    [36m<span[39m
+                      [33mstyle[39m=[32m"font-size: 16px; font-weight: 600; min-width: 30px; text-align: center;"[39m
+                    [36m>[39m
+                      [0m2[0m
+                    [36m</span>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m+[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<button[39m
+                    [33mstyle[39m=[32m"font-size: 12px; color: rgb(229, 62, 62); background: none; cursor: pointer; text-decoration: underline;"[39m
+                  [36m>[39m
+                    [0mRemove[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"font-size: 18px; font-weight: bold; color: rgb(45, 55, 72);"[39m
+                [36m>[39m
+                  [0m$[0m
+                  [0m9.00[0m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: grid; grid-template-columns: 1fr auto auto; gap: 20px; padding: 20px 0px; border-bottom: 1px solid #e2e8f0; align-items: center;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"flex: 1;"[39m
+                [36m>[39m
+                  [36m<h3[39m
+                    [33mstyle[39m=[32m"font-size: 18px; color: rgb(45, 55, 72); margin: 0px 0px 5px 0px; font-weight: 600;"[39m
+                  [36m>[39m
+                    [0mHorchata[0m
+                  [36m</h3>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"font-size: 14px; color: rgb(113, 128, 150); margin: 5px 0px 0px 0px;"[39m
+                  [36m>[39m
+                    [0m$[0m
+                    [0m3.00[0m
+                    [0m each[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 10px; align-items: center;"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mstyle[39m=[32m"display: flex; align-items: center; gap: 10px; background-color: rgb(247, 250, 252); border-radius: 8px; padding: 5px;"[39m
+                  [36m>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m-[0m
+                    [36m</button>[39m
+                    [36m<span[39m
+                      [33mstyle[39m=[32m"font-size: 16px; font-weight: 600; min-width: 30px; text-align: center;"[39m
+                    [36m>[39m
+                      [0m1[0m
+                    [36m</span>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m+[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<button[39m
+                    [33mstyle[39m=[32m"font-size: 12px; color: rgb(229, 62, 62); background: none; cursor: pointer; text-decoration: underline;"[39m
+                  [36m>[39m
+                    [0mRemove[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"font-size: 18px; font-weight: bold; color: rgb(45, 55, 72);"[39m
+                [36m>[39m
+                  [0m$[0m
+                  [0m3.00[0m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: flex; justify-content: space-between; align-items: center; padding-top: 20px; margin-top: 10px;"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mstyle[39m=[32m"font-size: 20px; font-weight: bold; color: rgb(45, 55, 72);"[39m
+                [36m>[39m
+                  [0mTotal:[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mstyle[39m=[32m"font-size: 28px; font-weight: bold; color: rgb(102, 126, 234);"[39m
+                [36m>[39m
+                  [0m$[0m
+                  [0m12.00[0m
+                [36m</span>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mstyle[39m=[32m"background-color: white; border-radius: 12px; padding: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"[39m
+            [36m>[39m
+              [36m<h2[39m
+                [33mstyle[39m=[32m"font-size: 24px; color: rgb(45, 55, 72); margin-bottom: 20px; font-weight: bold;"[39m
+              [36m>[39m
+                [0mCheckout[0m
+              [36m</h2>[39m
+              [36m<form[39m
+                [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 20px;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mName *[0m
+                  [36m</label>[39m
+                  [36m<input[39m
+                    [33mname[39m=[32m"name"[39m
+                    [33mrequired[39m=[32m""[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; transition: border-color 0.2s ease;"[39m
+                    [33mtype[39m=[32m"text"[39m
+                    [33mvalue[39m=[32m""[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mPhone *[0m
+                  [36m</label>[39m
+                  [36m<input[39m
+                    [33mname[39m=[32m"phone"[39m
+                    [33mrequired[39m=[32m""[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; transition: border-color 0.2s ease;"[39m
+                    [33mtype[39m=[32m"tel"[39m
+                    [33mvalue[39m=[32m""[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mEmail (optional)[0m
+                  [36m</label>[39m
+                  [36m<input[39m
+                    [33mname[39m=[32m"email"[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; transition: border-color 0.2s ease;"[39m
+                    [33mtype[39m=[32m"email"[39m
+                    [33mvalue[39m=[32m""[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mSpecial Instructions (optional)[0m
+                  [36m</label>[39m
+                  [36m<textarea[39m
+                    [33mname[39m=[32m"notes"[39m
+                    [33mplaceholder[39m=[32m"Any special requests or dietary restrictions?"[39m
+                    [33mrows[39m=[32m"3"[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; resize: vertical; font-family: inherit;"[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"background-color: rgb(237, 242, 247); padding: 15px; border-radius: 8px; margin-top: 10px;"[39m
+                [36m>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"margin: 0px; font-size: 14px; color: rgb(45, 55, 72); text-align: center;"[39m
+                  [36m>[39m
+                    [0m📍 Pickup only • Ready in 15-20 minutes[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<button[39m
+                  [33mstyle[39m=[32m"padding: 16px; background-color: rgb(102, 126, 234); color: white; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; transition: background-color 0.2s ease;"[39m
+                  [33mtype[39m=[32m"submit"[39m
+                [36m>[39m
+                  [0mProceed to Payment[0m
+                [36m</button>[39m
+              [36m</form>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+    [0m [90m 219 |[39m
+     [90m 220 |[39m         [90m// Fill form and proceed[39m
+    [31m[1m>[22m[39m[90m 221 |[39m         fireEvent[33m.[39mchange(screen[33m.[39mgetByLabelText([35m/Name/i[39m)[33m,[39m { target[33m:[39m { value[33m:[39m [32m'John Doe'[39m } })[33m;[39m
+     [90m     |[39m                                 [31m[1m^[22m[39m
+     [90m 222 |[39m         fireEvent[33m.[39mchange(screen[33m.[39mgetByLabelText([35m/Phone/i[39m)[33m,[39m { target[33m:[39m { value[33m:[39m [32m'555-0123'[39m } })[33m;[39m
+     [90m 223 |[39m         fireEvent[33m.[39mclick(screen[33m.[39mgetByText([32m'Proceed to Payment'[39m))[33m;[39m
+     [90m 224 |[39m[0m
+
+      at Object.getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at allQuery (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/queries/label-text.js:108:40)
+      at query (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:52:17)
+      at getByLabelText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
+      at Object.<anonymous> (src/__tests__/pages/Cart.test.js:221:33)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+  ● Cart Page › allows editing details before payment
+
+    TestingLibraryElementError: Found a label with the text of: /Name/i, however no form control was found associated to that label. Make sure you're using the "for" attribute or "aria-labelledby" attribute correctly.
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mstyle[39m=[32m"min-height: 100vh; background-color: rgb(245, 247, 250); padding: 20px;"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mstyle[39m=[32m"max-width: 800px; margin: 0px auto;"[39m
+          [36m>[39m
+            [36m<h1[39m
+              [33mstyle[39m=[32m"font-size: 36px; color: rgb(45, 55, 72); margin-bottom: 30px; font-weight: bold;"[39m
+            [36m>[39m
+              [0mYour Order[0m
+            [36m</h1>[39m
+            [36m<div[39m
+              [33mstyle[39m=[32m"background-color: white; border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: grid; grid-template-columns: 1fr auto auto; gap: 20px; padding: 20px 0px; border-bottom: 1px solid #e2e8f0; align-items: center;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"flex: 1;"[39m
+                [36m>[39m
+                  [36m<h3[39m
+                    [33mstyle[39m=[32m"font-size: 18px; color: rgb(45, 55, 72); margin: 0px 0px 5px 0px; font-weight: 600;"[39m
+                  [36m>[39m
+                    [0mTacos[0m
+                  [36m</h3>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"font-size: 14px; color: rgb(113, 128, 150); margin: 5px 0px; font-style: italic;"[39m
+                  [36m>[39m
+                    [0mNote: [0m
+                    [0mSpicy[0m
+                  [36m</p>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"font-size: 14px; color: rgb(113, 128, 150); margin: 5px 0px 0px 0px;"[39m
+                  [36m>[39m
+                    [0m$[0m
+                    [0m4.50[0m
+                    [0m each[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 10px; align-items: center;"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mstyle[39m=[32m"display: flex; align-items: center; gap: 10px; background-color: rgb(247, 250, 252); border-radius: 8px; padding: 5px;"[39m
+                  [36m>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m-[0m
+                    [36m</button>[39m
+                    [36m<span[39m
+                      [33mstyle[39m=[32m"font-size: 16px; font-weight: 600; min-width: 30px; text-align: center;"[39m
+                    [36m>[39m
+                      [0m2[0m
+                    [36m</span>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m+[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<button[39m
+                    [33mstyle[39m=[32m"font-size: 12px; color: rgb(229, 62, 62); background: none; cursor: pointer; text-decoration: underline;"[39m
+                  [36m>[39m
+                    [0mRemove[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"font-size: 18px; font-weight: bold; color: rgb(45, 55, 72);"[39m
+                [36m>[39m
+                  [0m$[0m
+                  [0m9.00[0m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: grid; grid-template-columns: 1fr auto auto; gap: 20px; padding: 20px 0px; border-bottom: 1px solid #e2e8f0; align-items: center;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"flex: 1;"[39m
+                [36m>[39m
+                  [36m<h3[39m
+                    [33mstyle[39m=[32m"font-size: 18px; color: rgb(45, 55, 72); margin: 0px 0px 5px 0px; font-weight: 600;"[39m
+                  [36m>[39m
+                    [0mHorchata[0m
+                  [36m</h3>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"font-size: 14px; color: rgb(113, 128, 150); margin: 5px 0px 0px 0px;"[39m
+                  [36m>[39m
+                    [0m$[0m
+                    [0m3.00[0m
+                    [0m each[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 10px; align-items: center;"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mstyle[39m=[32m"display: flex; align-items: center; gap: 10px; background-color: rgb(247, 250, 252); border-radius: 8px; padding: 5px;"[39m
+                  [36m>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m-[0m
+                    [36m</button>[39m
+                    [36m<span[39m
+                      [33mstyle[39m=[32m"font-size: 16px; font-weight: 600; min-width: 30px; text-align: center;"[39m
+                    [36m>[39m
+                      [0m1[0m
+                    [36m</span>[39m
+                    [36m<button[39m
+                      [33mstyle[39m=[32m"width: 30px; height: 30px; background-color: rgb(102, 126, 234); color: white; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;"[39m
+                    [36m>[39m
+                      [0m+[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<button[39m
+                    [33mstyle[39m=[32m"font-size: 12px; color: rgb(229, 62, 62); background: none; cursor: pointer; text-decoration: underline;"[39m
+                  [36m>[39m
+                    [0mRemove[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"font-size: 18px; font-weight: bold; color: rgb(45, 55, 72);"[39m
+                [36m>[39m
+                  [0m$[0m
+                  [0m3.00[0m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: flex; justify-content: space-between; align-items: center; padding-top: 20px; margin-top: 10px;"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mstyle[39m=[32m"font-size: 20px; font-weight: bold; color: rgb(45, 55, 72);"[39m
+                [36m>[39m
+                  [0mTotal:[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mstyle[39m=[32m"font-size: 28px; font-weight: bold; color: rgb(102, 126, 234);"[39m
+                [36m>[39m
+                  [0m$[0m
+                  [0m12.00[0m
+                [36m</span>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mstyle[39m=[32m"background-color: white; border-radius: 12px; padding: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"[39m
+            [36m>[39m
+              [36m<h2[39m
+                [33mstyle[39m=[32m"font-size: 24px; color: rgb(45, 55, 72); margin-bottom: 20px; font-weight: bold;"[39m
+              [36m>[39m
+                [0mCheckout[0m
+              [36m</h2>[39m
+              [36m<form[39m
+                [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 20px;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mName *[0m
+                  [36m</label>[39m
+                  [36m<input[39m
+                    [33mname[39m=[32m"name"[39m
+                    [33mrequired[39m=[32m""[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; transition: border-color 0.2s ease;"[39m
+                    [33mtype[39m=[32m"text"[39m
+                    [33mvalue[39m=[32m""[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mPhone *[0m
+                  [36m</label>[39m
+                  [36m<input[39m
+                    [33mname[39m=[32m"phone"[39m
+                    [33mrequired[39m=[32m""[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; transition: border-color 0.2s ease;"[39m
+                    [33mtype[39m=[32m"tel"[39m
+                    [33mvalue[39m=[32m""[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mEmail (optional)[0m
+                  [36m</label>[39m
+                  [36m<input[39m
+                    [33mname[39m=[32m"email"[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; transition: border-color 0.2s ease;"[39m
+                    [33mtype[39m=[32m"email"[39m
+                    [33mvalue[39m=[32m""[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"display: flex; flex-direction: column; gap: 8px;"[39m
+                [36m>[39m
+                  [36m<label[39m
+                    [33mstyle[39m=[32m"font-size: 14px; font-weight: 600; color: rgb(45, 55, 72);"[39m
+                  [36m>[39m
+                    [0mSpecial Instructions (optional)[0m
+                  [36m</label>[39m
+                  [36m<textarea[39m
+                    [33mname[39m=[32m"notes"[39m
+                    [33mplaceholder[39m=[32m"Any special requests or dietary restrictions?"[39m
+                    [33mrows[39m=[32m"3"[39m
+                    [33mstyle[39m=[32m"padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; resize: vertical; font-family: inherit;"[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"background-color: rgb(237, 242, 247); padding: 15px; border-radius: 8px; margin-top: 10px;"[39m
+                [36m>[39m
+                  [36m<p[39m
+                    [33mstyle[39m=[32m"margin: 0px; font-size: 14px; color: rgb(45, 55, 72); text-align: center;"[39m
+                  [36m>[39m
+                    [0m📍 Pickup only • Ready in 15-20 minutes[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<button[39m
+                  [33mstyle[39m=[32m"padding: 16px; background-color: rgb(102, 126, 234); color: white; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; transition: background-color 0.2s ease;"[39m
+                  [33mtype[39m=[32m"submit"[39m
+                [36m>[39m
+                  [0mProceed to Payment[0m
+                [36m</button>[39m
+              [36m</form>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+    [0m [90m 244 |[39m         renderCart()[33m;[39m
+     [90m 245 |[39m
+    [31m[1m>[22m[39m[90m 246 |[39m         fireEvent[33m.[39mchange(screen[33m.[39mgetByLabelText([35m/Name/i[39m)[33m,[39m { target[33m:[39m { value[33m:[39m [32m'John Doe'[39m } })[33m;[39m
+     [90m     |[39m                                 [31m[1m^[22m[39m
+     [90m 247 |[39m         fireEvent[33m.[39mchange(screen[33m.[39mgetByLabelText([35m/Phone/i[39m)[33m,[39m { target[33m:[39m { value[33m:[39m [32m'555-0123'[39m } })[33m;[39m
+     [90m 248 |[39m         fireEvent[33m.[39mclick(screen[33m.[39mgetByText([32m'Proceed to Payment'[39m))[33m;[39m
+     [90m 249 |[39m[0m
+
+      at Object.getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at allQuery (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/queries/label-text.js:108:40)
+      at query (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:52:17)
+      at getByLabelText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
+      at Object.<anonymous> (src/__tests__/pages/Cart.test.js:246:33)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+-----------------------|---------|----------|---------|---------|-------------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
+-----------------------|---------|----------|---------|---------|-------------------------
+All files              |    5.46 |     3.67 |    4.51 |    5.57 |                         
+ src                   |       0 |        0 |       0 |       0 |                         
+  App.js               |       0 |        0 |       0 |       0 | 26-37                   
+  index.js             |       0 |      100 |     100 |       0 | 6-7                     
+ src/components        |       0 |        0 |       0 |       0 |                         
+  CheckoutForm.js      |       0 |        0 |       0 |       0 | 4-66                    
+  Navigation.js        |       0 |        0 |       0 |       0 | 6-116                   
+  ProtectedRoute.js    |       0 |        0 |       0 |       0 | 5-21                    
+ src/contexts          |    1.98 |        0 |       0 |       2 |                         
+  AuthContext.js       |       0 |        0 |       0 |       0 | 4-191                   
+  CartContext.js       |    6.66 |        0 |       0 |    6.81 | 6-10,14-109             
+ src/pages             |     6.5 |     4.92 |    6.73 |    6.66 |                         
+  AdminDashboard.js    |       0 |        0 |       0 |       0 | 4-405                   
+  Cart.js              |   52.72 |    40.62 |   58.33 |   52.72 | 36,52-75,80-109,114,273 
+  Dashboard.js         |       0 |      100 |       0 |       0 | 5-102                   
+  ForgotPassword.js    |       0 |        0 |       0 |       0 | 5-94                    
+  Home.js              |       0 |      100 |       0 |       0 | 6-7                     
+  KitchenDashboard.js  |       0 |        0 |       0 |       0 | 4-211                   
+  Location.js          |       0 |      100 |       0 |       0 | 3-65                    
+  Login.js             |       0 |        0 |       0 |       0 | 6-123                   
+  Menu.js              |       0 |        0 |       0 |       0 | 8-152                   
+  OrderConfirmation.js |       0 |        0 |       0 |       0 | 5-197                   
+  ResetPassword.js     |       0 |        0 |       0 |       0 | 5-156                   
+  UserSettings.js      |       0 |        0 |       0 |       0 | 5-172                   
+  VerifyEmail.js       |       0 |        0 |       0 |       0 | 5-133                   
+ src/services          |   15.62 |    16.66 |       0 |   15.62 |                         
+  api.js               |   15.62 |    16.66 |       0 |   15.62 | 16-23,29-37,45-88       
+-----------------------|---------|----------|---------|---------|-------------------------
+Jest: "global" coverage threshold for statements (40%) not met: 7.57%
+Jest: "global" coverage threshold for branches (30%) not met: 5.43%
+Jest: "global" coverage threshold for lines (40%) not met: 7.77%
+Jest: "global" coverage threshold for functions (40%) not met: 8.13%
+Jest: "src/components" coverage threshold for statements (98%) not met: 0%
+Jest: "src/components" coverage threshold for branches (90%) not met: 0%
+Jest: "src/components" coverage threshold for lines (98%) not met: 0%
+Jest: "src/components" coverage threshold for functions (98%) not met: 0%
+Jest: "src/contexts" coverage threshold for statements (98%) not met: 1.98%
+Jest: "src/contexts" coverage threshold for branches (75%) not met: 0%
+Jest: "src/contexts" coverage threshold for lines (98%) not met: 2%
+Jest: "src/contexts" coverage threshold for functions (98%) not met: 0%
+Jest: "src/services" coverage threshold for statements (98%) not met: 15.62%
+Jest: "src/services" coverage threshold for branches (80%) not met: 16.66%
+Jest: "src/services" coverage threshold for lines (98%) not met: 15.62%
+Jest: "src/services" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Home.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Home.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Home.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for branches (90%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Login.js" coverage threshold for functions (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for statements (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for branches (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for lines (98%) not met: 0%
+Jest: "src/pages/Menu.js" coverage threshold for functions (98%) not met: 0%
+Test Suites: 1 failed, 1 total
+Tests:       5 failed, 6 passed, 11 total
+Snapshots:   0 total
+Time:        12.088 s
+Ran all test suites matching /src\/__tests__\/pages\/Cart.test.js/i.
