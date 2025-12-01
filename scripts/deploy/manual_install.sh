@@ -22,10 +22,13 @@ apt-get install -y git curl apt-transport-https ca-certificates software-propert
 # 3. Install Docker
 echo "Installing Docker..."
 if ! command -v docker &> /dev/null; then
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    chmod a+r /etc/apt/keyrings/docker.gpg
+    echo \
+      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+      $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     apt-get update
-    apt-get install -y docker-ce docker-ce-cli containerd.io
+    apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 else
     echo "Docker already installed."
 fi
@@ -33,7 +36,7 @@ fi
 # 4. Install Docker Compose
 echo "Installing Docker Compose..."
 if ! command -v docker-compose &> /dev/null; then
-    curl -L "https://github.com/docker/compose/releases/download/v2.23.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    curl -L "https://github.com/docker/compose/releases/download/v2.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     chmod +x /usr/local/bin/docker-compose
 else
     echo "Docker Compose already installed."
@@ -59,12 +62,15 @@ REPO_URL="https://github.com/9KaelirAmaya9/RICOS-TACOS-BASE-2-.git"
 TARGET_DIR="/home/deploy/app"
 
 if [ -d "$TARGET_DIR" ]; then
-    echo "Directory $TARGET_DIR already exists. Pulling latest changes..."
-    cd $TARGET_DIR
-    git pull
+    echo "Directory exists. Pulling latest..."
+    # Fix ownership first
+    chown -R deploy:deploy $TARGET_DIR
+    # Run git pull as deploy user
+    su - deploy -c "cd $TARGET_DIR && git config --global --add safe.directory $TARGET_DIR && git pull"
 else
     mkdir -p $TARGET_DIR
     git clone $REPO_URL $TARGET_DIR
+    chown -R deploy:deploy $TARGET_DIR
 fi
 
 chown -R deploy:deploy $TARGET_DIR

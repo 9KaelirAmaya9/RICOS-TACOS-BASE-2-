@@ -57,11 +57,11 @@ mkdir -p services/backend/logs
 mkdir -p services/nginx/certs
 
 # 3. Generate Self-Signed Certs if missing (for Nginx)
-if [ ! -f services/nginx/certs/nginx.key ]; then
+if [ ! -f services/nginx/certs/selfsigned.key ]; then
     echo -e "${BLUE}Generating self-signed SSL certificates...${NC}"
     openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-        -keyout services/nginx/certs/nginx.key \
-        -out services/nginx/certs/nginx.crt \
+        -keyout services/nginx/certs/selfsigned.key \
+        -out services/nginx/certs/selfsigned.crt \
         -subj "/C=US/ST=State/L=City/O=Organization/CN=localhost"
 fi
 
