@@ -24,6 +24,9 @@ export class DocumentGenerator {
      * @returns Promise<Blob>
      */
     static async generateDocument(type: DocumentType, data: Record<string, unknown>): Promise<Blob> {
+        console.log(`[DocumentGenerator] Starting generation for type: ${type}`);
+        console.log(`[DocumentGenerator] Data received:`, data);
+
         // 1. Create a hidden container to render the template
         const container = document.createElement("div");
         container.style.position = "absolute";
@@ -44,10 +47,10 @@ export class DocumentGenerator {
                 component = <VehicleInvestmentAgreement data={data as unknown as AgreementData} />;
                 break;
             case "contractor-agreement":
-                component = <ContractorAgreement data={(data as unknown as ContractorAgreementProps).data} />;
+                component = <ContractorAgreement data={data as any} />;
                 break;
             case "client-services":
-                component = <ClientServicesAgreement data={(data as unknown as ClientServicesAgreementProps).data} />;
+                component = <ClientServicesAgreement data={data as any} />;
                 break;
             default:
                 throw new Error(`Unknown document type: ${type}`);
@@ -60,6 +63,8 @@ export class DocumentGenerator {
             setTimeout(resolve, 500); // Give it time to render images/fonts
         });
 
+        console.log(`[DocumentGenerator] Component rendered. Starting html2canvas capture...`);
+
         try {
             // 3. Capture with html2canvas
             const canvas = await html2canvas(container, {
@@ -68,6 +73,8 @@ export class DocumentGenerator {
                 logging: false,
                 backgroundColor: "#ffffff"
             });
+
+            console.log(`[DocumentGenerator] Canvas captured. Dimensions: ${canvas.width}x${canvas.height}`);
 
             // 4. Generate PDF
             const imgData = canvas.toDataURL("image/jpeg", 0.95); // JPEG is smaller than PNG
@@ -83,6 +90,8 @@ export class DocumentGenerator {
 
             pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight);
 
+            console.log(`[DocumentGenerator] PDF generated. Outputting blob...`);
+
             // If content overflows one page, handle multi-page (basic implementation)
             // For now, we assume single page or handle scaling. 
             // A more complex loop would check height > 11in and add pages.
@@ -90,12 +99,13 @@ export class DocumentGenerator {
             return pdf.output("blob");
 
         } catch (error) {
-            console.error("PDF Generation Failed:", error);
+            console.error("[DocumentGenerator] PDF Generation Failed:", error);
             throw error;
         } finally {
             // 5. Cleanup
             root.unmount();
             document.body.removeChild(container);
+            console.log(`[DocumentGenerator] Cleanup complete.`);
         }
     }
 }
