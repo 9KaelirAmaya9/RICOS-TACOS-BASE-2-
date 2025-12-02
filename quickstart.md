@@ -24,7 +24,6 @@ cd /path/to/base2
 ```
 
 **What this does:**
-
 - Creates Docker network
 - Starts PostgreSQL database on port 5432
 - Starts backend API on port 5000
@@ -42,7 +41,6 @@ npm run db:setup
 ```
 
 **What this creates:**
-
 - ✅ Restaurant database tables (menu_categories, menu_items, orders, order_items)
 - ✅ Admin account: `admin@tacos.local` / `admin123`
 - ✅ Kitchen account: `kitchen@tacos.local` / `kitchen123`
@@ -65,7 +63,6 @@ If you prefer to run services locally without Docker:
 ### Step 1: Install PostgreSQL
 
 Install PostgreSQL 14+ on your system:
-
 - **Mac**: `brew install postgresql@14`
 - **Linux**: `sudo apt-get install postgresql-14`
 - **Windows**: Download from [postgresql.org](https://www.postgresql.org/download/)
@@ -96,7 +93,6 @@ nano .env  # or use your preferred editor
 ```
 
 **Update these values in `.env`:**
-
 ```bash
 DATABASE_URL=postgresql://base2user:your_password@localhost:5432/base2
 JWT_SECRET=your-super-secret-jwt-key-change-this
@@ -128,21 +124,17 @@ npm run db:setup
 Open **two terminal windows**:
 
 **Terminal 1 - Backend:**
-
 ```bash
 cd backend
 npm run dev
 ```
-
 Server will start on http://localhost:5000
 
 **Terminal 2 - Frontend:**
-
 ```bash
 cd react-app
 npm start
 ```
-
 App will open on http://localhost:3000
 
 ---
@@ -150,21 +142,18 @@ App will open on http://localhost:3000
 ## ✅ Verify Installation
 
 ### 1. Test Public Menu
-
 1. Visit http://localhost:3000/menu
 2. You should see menu items organized by category
 3. Try adding items to cart
 4. Place a test order
 
 ### 2. Test Admin Login
-
 1. Go to http://localhost:3000
 2. Login with: `admin@tacos.local` / `admin123`
 3. Click "Admin" in navigation
 4. You should see Menu Management and Order Management tabs
 
 ### 3. Test Kitchen Dashboard
-
 1. Logout and login with: `kitchen@tacos.local` / `kitchen123`
 2. Click "Kitchen" in navigation
 3. Place an order as a customer (use incognito window)
@@ -178,7 +167,6 @@ App will open on http://localhost:3000
 ### Customer Flow (No Login Required)
 
 1. **Browse Menu**
-
    ```
    → Go to http://localhost:3000/menu
    → Click category filters (TACOS, SIDES, DRINKS)
@@ -187,7 +175,6 @@ App will open on http://localhost:3000
    ```
 
 2. **Place Order**
-
    ```
    → Click "Cart" button
    → Adjust quantities with +/- buttons
@@ -209,7 +196,6 @@ App will open on http://localhost:3000
 ### Kitchen Staff Flow
 
 1. **Login**
-
    ```
    → Go to http://localhost:3000
    → Login: kitchen@tacos.local / kitchen123
@@ -217,7 +203,6 @@ App will open on http://localhost:3000
    ```
 
 2. **Process Orders**
-
    ```
    → See new order in blue card
    → Review items and special notes
@@ -237,7 +222,6 @@ App will open on http://localhost:3000
 ### Admin Flow
 
 1. **Login**
-
    ```
    → Go to http://localhost:3000
    → Login: admin@tacos.local / admin123
@@ -245,7 +229,6 @@ App will open on http://localhost:3000
    ```
 
 2. **Manage Menu**
-
    ```
    → Click "Menu Management" tab
    → Click "+ Add Menu Item"
@@ -280,7 +263,6 @@ App will open on http://localhost:3000
 **Error**: `ECONNREFUSED 127.0.0.1:5432`
 
 **Solutions:**
-
 ```bash
 # Check if PostgreSQL is running
 docker ps | grep postgres  # For Docker setup
@@ -297,7 +279,6 @@ sudo systemctl restart postgresql    # Linux local
 **Error**: `Port 3000/5000 is already in use`
 
 **Solutions:**
-
 ```bash
 # Find and kill process using port
 lsof -ti:3000 | xargs kill -9  # Frontend
@@ -311,7 +292,6 @@ lsof -ti:5000 | xargs kill -9  # Backend
 **Error**: `Cannot find module 'pg'` or similar
 
 **Solution:**
-
 ```bash
 # Reinstall dependencies
 cd backend && rm -rf node_modules package-lock.json && npm install
@@ -323,7 +303,6 @@ cd ../react-app && rm -rf node_modules package-lock.json && npm install
 **Error**: Menu is empty or staff accounts don't work
 
 **Solution:**
-
 ```bash
 cd backend
 npm run db:setup  # Run migrations and seed again
@@ -334,7 +313,6 @@ npm run db:setup  # Run migrations and seed again
 **Error**: Cart clears on page refresh
 
 **Solution:**
-
 - Clear browser localStorage and try again
 - Check browser console for errors
 - Disable browser extensions that block localStorage
@@ -346,14 +324,12 @@ npm run db:setup  # Run migrations and seed again
 After running `npm run db:setup`, you'll have:
 
 ### Staff Accounts
-
-| Email               | Password   | Role    |
-| ------------------- | ---------- | ------- |
-| admin@tacos.local   | admin123   | ADMIN   |
+| Email | Password | Role |
+|-------|----------|------|
+| admin@tacos.local | admin123 | ADMIN |
 | kitchen@tacos.local | kitchen123 | KITCHEN |
 
 ### Menu Categories
-
 - **TACOS** - 7 items (Carne Asada, Al Pastor, Chicken, Fish, Carnitas, Veggie, Shrimp)
 - **SIDES** - 6 items (Rice & Beans, Chips & Salsa, Guacamole, Elote, Queso, Black Beans)
 - **DRINKS** - 7 items (Horchata, Jamaica, Tamarindo, Mexican Coke, Jarritos, Lime Water, Iced Tea)
@@ -366,7 +342,6 @@ After running `npm run db:setup`, you'll have:
 ## 🎬 Video Walkthrough (What to Expect)
 
 ### Customer Experience
-
 1. Land on menu page with hero header and taco emoji
 2. See items organized by colorful category pills
 3. Click items, watch "Added!" confirmation
@@ -377,7 +352,6 @@ After running `npm run db:setup`, you'll have:
 8. Status auto-updates as kitchen progresses
 
 ### Kitchen Experience
-
 1. Dark-themed dashboard (easy on eyes in bright kitchen)
 2. Badge counters show NEW vs IN_PROGRESS counts
 3. New orders in blue, in-progress in yellow
@@ -387,7 +361,6 @@ After running `npm run db:setup`, you'll have:
 7. Special instructions highlighted
 
 ### Admin Experience
-
 1. Clean white dashboard with two tabs
 2. Menu Management has full CRUD interface
 3. Forms with validation and error messages
@@ -432,7 +405,6 @@ After running `npm run db:setup`, you'll have:
 ### Deploy to Production
 
 1. **Environment Variables**
-
    ```bash
    # Update .env for production
    NODE_ENV=production
@@ -442,7 +414,6 @@ After running `npm run db:setup`, you'll have:
    ```
 
 2. **Build Frontend**
-
    ```bash
    cd react-app
    npm run build
@@ -450,7 +421,6 @@ After running `npm run db:setup`, you'll have:
    ```
 
 3. **Deploy Backend**
-
    ```bash
    # Use Docker or deploy to:
    # - Heroku
@@ -481,7 +451,6 @@ If you run into issues:
 
 1. Check the Troubleshooting section above
 2. Review logs:
-
    ```bash
    # Docker logs
    docker-compose logs backend
@@ -489,7 +458,6 @@ If you run into issues:
 
    # Or check terminal output for local dev
    ```
-
 3. Check browser console for frontend errors (F12 → Console)
 4. Verify database connection in pgAdmin or psql
 5. Ensure all environment variables are set correctly

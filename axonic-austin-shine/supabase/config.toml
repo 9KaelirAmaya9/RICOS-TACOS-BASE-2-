@@ -1,0 +1,13 @@
+project_id = "xzguiidjliospmotdfnh"
+
+[functions.send-booking-email]
+verify_jwt = false
+
+[functions.chat]
+verify_jwt = false
+
+[functions.generate-work-order-pdf]
+verify_jwt = true
+
+[functions.generate-service-agreement]
+verify_jwt = true

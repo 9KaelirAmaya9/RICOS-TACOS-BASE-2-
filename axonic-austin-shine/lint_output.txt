@@ -1,0 +1,123 @@
+
+> vite_react_shadcn_ts@0.0.0 lint
+> eslint .
+
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/admin/ClientDetailsDialog.tsx
+  11:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  47:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/admin/ClientsTab.tsx
+  29:6   warning  React Hook useEffect has a missing dependency: 'fetchClients'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  40:21  error    Unexpected any. Specify a different type                                                                         @typescript-eslint/no-explicit-any
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/admin/CreateClientDialog.tsx
+  53:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/admin/CreateOrderDialog.tsx
+  18:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  71:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/admin/CreateWorkOrderDialog.tsx
+   96:14  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  225:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  252:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/admin/EmployeesTab.tsx
+  68:6  warning  React Hook useEffect has a missing dependency: 'fetchUsers'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/admin/OrderDetailsDialog.tsx
+   17:10  error    Unexpected any. Specify a different type                                                                               @typescript-eslint/no-explicit-any
+   27:54  error    Unexpected any. Specify a different type                                                                               @typescript-eslint/no-explicit-any
+   42:6   warning  React Hook useEffect has a missing dependency: 'fetchAgreementData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   86:21  error    Unexpected any. Specify a different type                                                                               @typescript-eslint/no-explicit-any
+  167:21  error    Unexpected any. Specify a different type                                                                               @typescript-eslint/no-explicit-any
+  227:21  error    Unexpected any. Specify a different type                                                                               @typescript-eslint/no-explicit-any
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/admin/OrdersTab.tsx
+  133:21  error    Unexpected any. Specify a different type                                                                        @typescript-eslint/no-explicit-any
+  147:6   warning  React Hook useEffect has a missing dependency: 'fetchOrders'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  158:21  error    Unexpected any. Specify a different type                                                                        @typescript-eslint/no-explicit-any
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/admin/ServiceAgreementDialog.tsx
+  11:10  error    Unexpected any. Specify a different type                                                                                   @typescript-eslint/no-explicit-any
+  19:62  error    Unexpected any. Specify a different type                                                                                   @typescript-eslint/no-explicit-any
+  26:6   warning  React Hook useEffect has a missing dependency: 'fetchExistingAgreement'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/admin/SignatureModal.tsx
+   17:10  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  120:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/admin/WorkOrderDialog.tsx
+   22:42  error    Unexpected any. Specify a different type                                                                                   @typescript-eslint/no-explicit-any
+   57:6   warning  React Hook useEffect has a missing dependency: 'calculateEstimatedCost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  134:21  error    Unexpected any. Specify a different type                                                                                   @typescript-eslint/no-explicit-any
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/admin/WorkOrdersTab.tsx
+  160:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/ui/badge.tsx
+  29:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/ui/button.tsx
+  48:18  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/ui/command.tsx
+  24:11  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/ui/form.tsx
+  129:10  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/ui/navigation-menu.tsx
+  111:3  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/ui/sidebar.tsx
+  636:3  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/ui/sonner.tsx
+  27:19  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/ui/textarea.tsx
+  5:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/components/ui/toggle.tsx
+  37:18  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/pages/Admin.tsx
+  26:6  warning  React Hook useEffect has a missing dependency: 'checkAdminStatus'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/pages/Settings.tsx
+   38:6   warning  React Hook useEffect has a missing dependency: 'checkAdminStatus'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   92:21  error    Unexpected any. Specify a different type                                                                             @typescript-eslint/no-explicit-any
+  122:21  error    Unexpected any. Specify a different type                                                                             @typescript-eslint/no-explicit-any
+  140:21  error    Unexpected any. Specify a different type                                                                             @typescript-eslint/no-explicit-any
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/src/pages/SignAgreement.tsx
+  13:38  error    Unexpected any. Specify a different type                                                                       @typescript-eslint/no-explicit-any
+  20:6   warning  React Hook useEffect has a missing dependency: 'fetchOrder'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  53:19  error    Unexpected any. Specify a different type                                                                       @typescript-eslint/no-explicit-any
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/supabase/functions/generate-service-agreement/index.ts
+  150:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  209:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  282:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/supabase/functions/generate-work-order-pdf/index.ts
+  144:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  273:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/supabase/functions/send-booking-confirmation/index.ts
+  210:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/supabase/functions/send-work-order-email/index.ts
+  221:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/supabase/functions/sign-service-agreement/index.ts
+  157:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  208:47  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/jancarlosinc/Desktop/base2/axonic-austin-shine/tailwind.config.ts
+  116:13  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+✖ 56 problems (40 errors, 16 warnings)
+

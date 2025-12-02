@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 15% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 15% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 15% 12%;
+
+    /* Military-inspired precision blue palette */
+    --primary: 210 100% 20%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 42 100% 50%;
+    --secondary-foreground: 210 15% 12%;
+
+    --muted: 210 15% 96%;
+    --muted-foreground: 210 10% 40%;
+
+    --accent: 160 85% 35%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 15% 88%;
+    --input: 210 15% 88%;
+    --ring: 210 100% 20%;
+
+    --radius: 0.375rem;
+    
+    /* Axonic Motorworks Military-Grade Brand Colors */
+    --military-navy: 210 100% 20%;
+    --military-steel: 210 15% 50%;
+    --excellence-gold: 42 100% 50%;
+    --precision-teal: 160 85% 35%;
+    --carbon-black: 210 15% 12%;
+    --platinum-gray: 210 10% 85%;
+    
+    /* Gradients - Military precision & excellence */
+    --gradient-hero: linear-gradient(135deg, hsl(210 100% 15%) 0%, hsl(210 100% 8%) 50%, hsl(210 100% 12%) 100%);
+    --gradient-precision: linear-gradient(135deg, hsl(210 100% 20%) 0%, hsl(160 85% 35%) 100%);
+    --gradient-excellence: linear-gradient(135deg, hsl(42 100% 50%) 0%, hsl(30 100% 55%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 15% 98%) 100%);
+    --gradient-overlay: linear-gradient(135deg, hsl(210 100% 20% / 0.95) 0%, hsl(210 100% 12% / 0.9) 100%);
+    
+    /* Shadows - Depth & prestige */
+    --shadow-card: 0 8px 32px hsla(210 100% 20% / 0.12);
+    --shadow-card-hover: 0 12px 48px hsla(210 100% 20% / 0.18);
+    --shadow-button: 0 4px 16px hsla(210 100% 20% / 0.25);
+    --shadow-gold: 0 4px 24px hsla(42 100% 50% / 0.3);
+    --shadow-inset: inset 0 2px 4px hsla(210 100% 20% / 0.1);
+    
+    /* Transitions - Precision timing */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Textures & Patterns - Military tech aesthetic */
+    --texture-carbon: repeating-linear-gradient(0deg, transparent, transparent 2px, hsl(210 15% 12% / 0.03) 2px, hsl(210 15% 12% / 0.03) 4px), repeating-linear-gradient(90deg, transparent, transparent 2px, hsl(210 15% 12% / 0.03) 2px, hsl(210 15% 12% / 0.03) 4px);
+    --texture-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    --pattern-hexagon: url("data:image/svg+xml,%3Csvg width='28' height='49' viewBox='0 0 28 49' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23001a33' fill-opacity='0.03'%3E%3Cpolygon points='13.99 9.25 26.02 2.25 14.01 49.25 0.02 42.25'/%3E%3C/g%3E%3C/svg%3E");
+    --pattern-diagonal: repeating-linear-gradient(45deg, transparent, transparent 10px, hsl(210 100% 20% / 0.02) 10px, hsl(210 100% 20% / 0.02) 20px);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 210 15% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 210 15% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 210 15% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 210 100% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 42 100% 50%;
+    --secondary-foreground: 210 15% 12%;
+
+    --muted: 210 15% 18%;
+    --muted-foreground: 210 10% 70%;
+
+    --accent: 160 85% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 15% 22%;
+    --input: 210 15% 22%;
+    --ring: 210 100% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Subtle pulse animation for CTAs */
+  @keyframes gentle-pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+  }
+
+  .animate-gentle-pulse {
+    animation: gentle-pulse 3s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  /* Hover scale effect */
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+}
