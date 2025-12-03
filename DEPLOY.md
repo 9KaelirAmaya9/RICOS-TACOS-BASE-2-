@@ -1,8 +1,26 @@
 # Quick Deployment Guide
 
-## Deploy Delivery Feature on Your Server
+## 🚀 Easiest Method: One-Command Deploy
 
-SSH into your production server and run these commands:
+**SSH into your production server (138.197.35.87) and run:**
+
+```bash
+curl -sL https://raw.githubusercontent.com/9KaelirAmaya9/RICOS-TACOS-BASE-2-/claude/fix-payment-intent-error-016Pxrq617taHBBUDx19dTp8/scripts/deploy/auto-deploy.sh | bash
+```
+
+This single command will:
+- Automatically find your project directory
+- Pull the latest code
+- Update your .env file
+- Deploy the delivery feature
+
+**Done!** ✅
+
+---
+
+## Alternative: Step-by-Step Deployment
+
+If you prefer manual control or the one-command doesn't work, follow these steps:
 
 ### Step 1: Navigate to Project Directory
 
