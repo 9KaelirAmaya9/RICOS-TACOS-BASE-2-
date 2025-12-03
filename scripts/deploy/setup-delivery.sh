@@ -17,6 +17,20 @@ echo -e "${BLUE}║          🚗 Delivery Feature Deployment Script 🚗       
 echo -e "${BLUE}╚══════════════════════════════════════════════════════════════╝${NC}"
 echo ""
 
+# Auto-detect script directory and navigate to project root
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+
+echo -e "${BLUE}Project directory: ${PROJECT_ROOT}${NC}"
+cd "$PROJECT_ROOT"
+
+# Verify we're in the right place
+if [ ! -f "production.docker.yml" ]; then
+    echo -e "${RED}ERROR: production.docker.yml not found!${NC}"
+    echo -e "${YELLOW}This script must be run from the project root or using ./scripts/deploy/setup-delivery.sh${NC}"
+    exit 1
+fi
+
 # Check if .env exists
 if [ ! -f .env ]; then
     echo -e "${RED}ERROR: .env file not found!${NC}"
