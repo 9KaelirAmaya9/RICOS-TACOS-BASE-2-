@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from '../components/CheckoutForm';
+import AddressForm from '../components/AddressForm';
 import { useCart } from '../contexts/CartContext';
 import api from '../services/api';
 
@@ -27,6 +28,11 @@ const Cart = () => {
     notes: ''
   });
 
+  const [orderType, setOrderType] = useState('PICKUP'); // 'PICKUP' or 'DELIVERY'
+  const [deliveryAddress, setDeliveryAddress] = useState(null);
+  const [deliveryFee, setDeliveryFee] = useState(0);
+  const [addressValid, setAddressValid] = useState(false);
+
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
   const [clientSecret, setClientSecret] = useState('');
@@ -39,6 +45,27 @@ const Cart = () => {
     });
   };
 
+  const handleAddressChange = (addr) => {
+    setDeliveryAddress(addr);
+    if (addr.deliveryFee !== undefined) {
+      setDeliveryFee(addr.deliveryFee);
+    }
+  };
+
+  const handleOrderTypeChange = (type) => {
+    setOrderType(type);
+    if (type === 'PICKUP') {
+      setDeliveryAddress(null);
+      setDeliveryFee(0);
+      setAddressValid(false);
+    }
+  };
+
+  const getOrderTotal = () => {
+    const subtotal = getCartTotal();
+    return subtotal + deliveryFee;
+  };
+
   const initiateCheckout = async (e) => {
     e.preventDefault();
     setError(null);
@@ -46,6 +73,12 @@ const Cart = () => {
     // Validation
     if (!customerInfo.name || !customerInfo.phone) {
       setError('Please provide your name and phone number');
+      return;
+    }
+
+    // Validate delivery address if delivery is selected
+    if (orderType === 'DELIVERY' && (!deliveryAddress || !addressValid)) {
+      setError('Please enter and validate your delivery address');
       return;
     }
 
@@ -82,14 +115,27 @@ const Cart = () => {
         customer_name: customerInfo.name,
         customer_phone: customerInfo.phone,
         customer_email: customerInfo.email || null,
-        order_type: 'PICKUP',
+        order_type: orderType,
         notes: customerInfo.notes || null,
         items: cartItems.map(item => ({
           menu_item_id: item.id,
           quantity: item.quantity,
           customizations: item.customizations || null
         })),
-        paymentIntentId // Pass the successful payment ID
+        paymentIntentId, // Pass the successful payment ID
+        // Add delivery fields if delivery order
+        ...(orderType === 'DELIVERY' && deliveryAddress ? {
+          delivery_address_street: deliveryAddress.street,
+          delivery_address_unit: deliveryAddress.unit,
+          delivery_address_city: deliveryAddress.city,
+          delivery_address_state: deliveryAddress.state,
+          delivery_address_zip: deliveryAddress.zip,
+          delivery_address_lat: deliveryAddress.lat,
+          delivery_address_lng: deliveryAddress.lng,
+          delivery_fee: deliveryFee,
+          delivery_instructions: deliveryAddress.deliveryInstructions,
+          delivery_distance_miles: deliveryAddress.distance
+        } : {})
       };
 
       const response = await api.post('/orders', orderData);
@@ -184,8 +230,26 @@ const Cart = () => {
           ))}
 
           <div style={styles.totalSection}>
-            <span style={styles.totalLabel}>Total:</span>
-            <span style={styles.totalAmount}>${getCartTotal().toFixed(2)}</span>
+            <div style={styles.subtotalRow}>
+              <span style={styles.totalLabel}>Subtotal:</span>
+              <span style={styles.totalAmount}>${getCartTotal().toFixed(2)}</span>
+            </div>
+            {orderType === 'DELIVERY' && deliveryFee > 0 && (
+              <div style={styles.deliveryFeeRow}>
+                <span style={styles.totalLabel}>Delivery Fee:</span>
+                <span style={styles.totalAmount}>${deliveryFee.toFixed(2)}</span>
+              </div>
+            )}
+            {orderType === 'DELIVERY' && deliveryFee === 0 && deliveryAddress && (
+              <div style={styles.freeDeliveryRow}>
+                <span style={styles.totalLabel}>Delivery Fee:</span>
+                <span style={{...styles.totalAmount, color: '#10b981'}}>FREE! 🎉</span>
+              </div>
+            )}
+            <div style={styles.grandTotalRow}>
+              <span style={styles.totalLabel}>Total:</span>
+              <span style={styles.totalAmount}>${getOrderTotal().toFixed(2)}</span>
+            </div>
           </div>
         </div>
 
@@ -197,6 +261,45 @@ const Cart = () => {
 
           {!showPayment ? (
             <form onSubmit={initiateCheckout} style={styles.form}>
+              {/* Order Type Toggle */}
+              <div style={styles.orderTypeSection}>
+                <label style={styles.sectionLabel}>Order Type</label>
+                <div style={styles.orderTypeButtons}>
+                  <button
+                    type="button"
+                    onClick={() => handleOrderTypeChange('PICKUP')}
+                    style={{
+                      ...styles.orderTypeButton,
+                      ...(orderType === 'PICKUP' ? styles.orderTypeButtonActive : {})
+                    }}
+                  >
+                    🏃 Pickup
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleOrderTypeChange('DELIVERY')}
+                    style={{
+                      ...styles.orderTypeButton,
+                      ...(orderType === 'DELIVERY' ? styles.orderTypeButtonActive : {})
+                    }}
+                  >
+                    🚗 Delivery
+                  </button>
+                </div>
+              </div>
+
+              {/* Delivery Address Form */}
+              {orderType === 'DELIVERY' && (
+                <div style={styles.addressSection}>
+                  <label style={styles.sectionLabel}>Delivery Address</label>
+                  <AddressForm
+                    onAddressChange={handleAddressChange}
+                    onValidAddress={setAddressValid}
+                    cartTotal={getCartTotal()}
+                  />
+                </div>
+              )}
+
               <div style={styles.formGroup}>
                 <label htmlFor="name" style={styles.label}>Name *</label>
                 <input
@@ -250,7 +353,10 @@ const Cart = () => {
 
               <div style={styles.pickupInfo}>
                 <p style={styles.pickupText}>
-                  📍 Pickup only • Ready in 15-20 minutes
+                  {orderType === 'PICKUP'
+                    ? '📍 Pickup • Ready in 15-20 minutes'
+                    : '🚗 Delivery • Estimated 30-45 minutes'
+                  }
                 </p>
               </div>
 
@@ -283,7 +389,7 @@ const Cart = () => {
                   <CheckoutForm
                     onPaymentSuccess={handlePaymentSuccess}
                     onPaymentError={handlePaymentError}
-                    totalAmount={getCartTotal().toFixed(2)}
+                    totalAmount={getOrderTotal().toFixed(2)}
                   />
                 </Elements>
               )}
@@ -392,10 +498,39 @@ const styles = {
   },
   totalSection: {
     display: 'flex',
+    flexDirection: 'column',
+    gap: '12px',
+    paddingTop: '20px',
+    marginTop: '10px',
+    borderTop: '2px solid #e2e8f0'
+  },
+  subtotalRow: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  deliveryFeeRow: {
+    display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop: '20px',
-    marginTop: '10px'
+    fontSize: '16px'
+  },
+  freeDeliveryRow: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    fontSize: '16px',
+    backgroundColor: '#d1fae5',
+    padding: '8px 12px',
+    borderRadius: '6px',
+    margin: '-4px 0'
+  },
+  grandTotalRow: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingTop: '12px',
+    borderTop: '1px solid #e2e8f0'
   },
   totalLabel: {
     fontSize: '20px',
@@ -527,6 +662,43 @@ const styles = {
     padding: '0',
     marginTop: '10px',
     fontSize: '14px'
+  },
+  orderTypeSection: {
+    marginBottom: '24px'
+  },
+  sectionLabel: {
+    fontSize: '16px',
+    fontWeight: '600',
+    color: '#2d3748',
+    display: 'block',
+    marginBottom: '12px'
+  },
+  orderTypeButtons: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gap: '12px'
+  },
+  orderTypeButton: {
+    padding: '16px',
+    border: '2px solid #e2e8f0',
+    backgroundColor: 'white',
+    borderRadius: '8px',
+    fontSize: '16px',
+    fontWeight: '600',
+    cursor: 'pointer',
+    transition: 'all 0.2s ease'
+  },
+  orderTypeButtonActive: {
+    backgroundColor: '#667eea',
+    color: 'white',
+    borderColor: '#667eea'
+  },
+  addressSection: {
+    marginBottom: '24px',
+    padding: '20px',
+    backgroundColor: '#f7fafc',
+    borderRadius: '8px',
+    border: '1px solid #e2e8f0'
   }
 };
 
