@@ -42,12 +42,32 @@ if [ ! -f .env ]; then
     
     # In non-interactive mode, we assume .env.example has sane defaults or secrets are injected another way.
     # For a real production setup, you might want to pull secrets from a vault here.
-    
+
     if [ "$NON_INTERACTIVE" = false ]; then
         echo -e "${BLUE}Please configure your .env file now.${NC}"
         read -p "Press Enter to continue after editing .env..."
     else
-        echo -e "${BLUE}Using default .env values. PLEASE UPDATE SECRETS LATER.${NC}"
+        echo -e "${RED}╔══════════════════════════════════════════════════════════════╗${NC}"
+        echo -e "${RED}║                    ⚠️  WARNING  ⚠️                          ║${NC}"
+        echo -e "${RED}╠══════════════════════════════════════════════════════════════╣${NC}"
+        echo -e "${RED}║  Using default .env values with PLACEHOLDER credentials!    ║${NC}"
+        echo -e "${RED}║                                                              ║${NC}"
+        echo -e "${RED}║  🔐 CRITICAL: You MUST update these secrets:                ║${NC}"
+        echo -e "${RED}║  - STRIPE_SECRET_KEY                                         ║${NC}"
+        echo -e "${RED}║  - REACT_APP_STRIPE_PUBLISHABLE_KEY                          ║${NC}"
+        echo -e "${RED}║  - JWT_SECRET                                                ║${NC}"
+        echo -e "${RED}║  - Database passwords                                        ║${NC}"
+        echo -e "${RED}║                                                              ║${NC}"
+        echo -e "${RED}║  💳 To fix Stripe configuration:                            ║${NC}"
+        echo -e "${RED}║  1. Get your keys from:                                      ║${NC}"
+        echo -e "${RED}║     https://dashboard.stripe.com/test/apikeys               ║${NC}"
+        echo -e "${RED}║  2. Run:                                                     ║${NC}"
+        echo -e "${RED}║     ./scripts/deploy/update-stripe-keys.sh \\                ║${NC}"
+        echo -e "${RED}║       sk_test_YOUR_KEY pk_test_YOUR_KEY                     ║${NC}"
+        echo -e "${RED}║                                                              ║${NC}"
+        echo -e "${RED}║  ⚠️  Payments will NOT work until Stripe keys are set!      ║${NC}"
+        echo -e "${RED}╚══════════════════════════════════════════════════════════════╝${NC}"
+        echo ""
     fi
 fi
 
@@ -78,5 +98,25 @@ fi
 $DOCKER_COMPOSE -f production.docker.yml build
 $DOCKER_COMPOSE -f production.docker.yml up -d
 
-echo -e "${GREEN}Deployment Complete!${NC}"
-echo -e "${BLUE}Check status with: $DOCKER_COMPOSE -f production.docker.yml ps${NC}"
+echo ""
+echo -e "${GREEN}╔══════════════════════════════════════════════════════════════╗${NC}"
+echo -e "${GREEN}║              🎉 Deployment Complete! 🎉                       ║${NC}"
+echo -e "${GREEN}╚══════════════════════════════════════════════════════════════╝${NC}"
+echo ""
+echo -e "${BLUE}Check status with:${NC}"
+echo -e "  $DOCKER_COMPOSE -f production.docker.yml ps"
+echo ""
+echo -e "${BLUE}View logs with:${NC}"
+echo -e "  $DOCKER_COMPOSE -f production.docker.yml logs -f"
+echo ""
+
+# Check if Stripe keys are still placeholders
+if grep -q "STRIPE_SECRET_KEY=sk_test_placeholder" .env 2>/dev/null || \
+   grep -q "STRIPE_SECRET_KEY=$" .env 2>/dev/null; then
+    echo -e "${YELLOW}⚠️  REMINDER: Stripe keys are not configured!${NC}"
+    echo -e "${YELLOW}   Payment functionality will not work until you update them.${NC}"
+    echo -e ""
+    echo -e "${BLUE}   To configure Stripe:${NC}"
+    echo -e "   ./scripts/deploy/update-stripe-keys.sh sk_test_YOUR_KEY pk_test_YOUR_KEY"
+    echo ""
+fi
