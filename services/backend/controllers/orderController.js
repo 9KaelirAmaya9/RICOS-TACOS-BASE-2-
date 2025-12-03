@@ -30,7 +30,18 @@ const createOrder = async (req, res) => {
       notes,
       pickup_time,
       items, // Array of { menu_item_id, quantity, customizations }
-      paymentIntentId // Optional: Stripe PaymentIntent ID
+      paymentIntentId, // Optional: Stripe PaymentIntent ID
+      // Delivery fields
+      delivery_address_street,
+      delivery_address_unit,
+      delivery_address_city,
+      delivery_address_state,
+      delivery_address_zip,
+      delivery_address_lat,
+      delivery_address_lng,
+      delivery_fee = 0,
+      delivery_instructions,
+      delivery_distance_miles
     } = req.body;
 
     // Validate required fields
@@ -39,6 +50,16 @@ const createOrder = async (req, res) => {
         success: false,
         message: 'Customer name, phone, and at least one item are required'
       });
+    }
+
+    // Validate delivery address if order type is DELIVERY
+    if (order_type === 'DELIVERY') {
+      if (!delivery_address_street || !delivery_address_city || !delivery_address_state || !delivery_address_zip) {
+        return res.status(400).json({
+          success: false,
+          message: 'Delivery address is required for delivery orders'
+        });
+      }
     }
 
     // Verify payment if provided
@@ -86,11 +107,17 @@ const createOrder = async (req, res) => {
       });
     }
 
+    // Add delivery fee to total if applicable
+    const final_total = parseFloat(total_amount) + parseFloat(delivery_fee || 0);
+
     // Create order
     const orderResult = await client.query(
       `INSERT INTO orders
-       (customer_name, customer_phone, customer_email, order_type, status, notes, pickup_time, total_amount, payment_intent_id, payment_status)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+       (customer_name, customer_phone, customer_email, order_type, status, notes, pickup_time, total_amount,
+        payment_intent_id, payment_status, delivery_address_street, delivery_address_unit, delivery_address_city,
+        delivery_address_state, delivery_address_zip, delivery_address_lat, delivery_address_lng,
+        delivery_fee, delivery_instructions, delivery_distance_miles)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)
        RETURNING *`,
       [
         customer_name,
@@ -100,9 +127,19 @@ const createOrder = async (req, res) => {
         'NEW',
         notes,
         pickup_time,
-        total_amount.toFixed(2),
+        final_total.toFixed(2),
         paymentIntentId || null,
-        paymentIntentId ? 'PAID' : 'PENDING'
+        paymentIntentId ? 'PAID' : 'PENDING',
+        delivery_address_street || null,
+        delivery_address_unit || null,
+        delivery_address_city || null,
+        delivery_address_state || null,
+        delivery_address_zip || null,
+        delivery_address_lat || null,
+        delivery_address_lng || null,
+        delivery_fee || 0,
+        delivery_instructions || null,
+        delivery_distance_miles || null
       ]
     );
 
