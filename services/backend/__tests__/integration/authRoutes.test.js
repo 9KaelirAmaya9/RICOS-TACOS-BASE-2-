@@ -14,9 +14,9 @@ jest.mock('../../config/database', () => ({
 
 // Mock email utils
 jest.mock('../../utils/email', () => ({
-    sendVerificationEmail: jest.fn().mockResolvedValue(true),
-    sendWelcomeEmail: jest.fn().mockResolvedValue(true),
-    sendPasswordResetEmail: jest.fn().mockResolvedValue(true)
+    sendVerificationEmail: jest.fn(() => Promise.resolve(true)),
+    sendWelcomeEmail: jest.fn(() => Promise.resolve(true)),
+    sendPasswordResetEmail: jest.fn(() => Promise.resolve(true))
 }));
 
 // Mock auth utils
@@ -38,6 +38,7 @@ jest.mock('stripe', () => {
 });
 
 const { comparePassword, generateToken } = require('../../utils/auth');
+const { sendVerificationEmail } = require('../../utils/email');
 
 // Import app after mocking
 const app = require('../../server');
@@ -49,6 +50,7 @@ describe('Auth Routes Integration', () => {
 
     describe('POST /api/auth/register', () => {
         test('should register a new user', async () => {
+            sendVerificationEmail.mockResolvedValue(true);
             // Mock user check (not found)
             query.mockResolvedValueOnce({ rows: [] });
             // Mock user insertion

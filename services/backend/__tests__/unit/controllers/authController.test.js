@@ -51,6 +51,7 @@ describe('Auth Controller', () => {
             generateVerificationToken.mockReturnValue('token');
             generateTokenExpiry.mockReturnValue(new Date());
             query.mockResolvedValueOnce({ rows: [{ id: 1, email: 'test@example.com', name: 'Test User', email_verified: false, role: 'CUSTOMER' }] }); // Insert user
+            sendVerificationEmail.mockResolvedValue(true);
 
             await register(req, res);
 

@@ -56,13 +56,10 @@ const register = async (req, res) => {
 
     const user = result.rows[0];
 
-    // Send verification email
-    try {
-      await sendVerificationEmail(email, name, verificationToken);
-    } catch (emailError) {
+    // Send verification email (Async - don't block response)
+    sendVerificationEmail(email, name, verificationToken).catch((emailError) => {
       console.error('Error sending verification email:', emailError);
-      // Continue even if email fails
-    }
+    });
 
     res.status(201).json({
       success: true,
