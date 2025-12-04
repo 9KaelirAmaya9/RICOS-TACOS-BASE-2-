@@ -150,6 +150,19 @@ const AddressForm = ({ onAddressChange, onValidAddress, cartTotal }) => {
   const handleInputChange = (field, value) => {
     const newAddress = { ...address, [field]: value };
     setAddress(newAddress);
+
+    // If user manually filled all required fields, validate automatically
+    if (newAddress.street && newAddress.city && newAddress.state && newAddress.zip) {
+      // Only auto-validate if we have lat/lng (from autocomplete)
+      // or if all fields are filled (manual entry - need to geocode)
+      if (newAddress.lat && newAddress.lng) {
+        validateAndCalculateFee(newAddress);
+      }
+    } else {
+      // Reset validation if fields are incomplete
+      onValidAddress(false);
+    }
+
     onAddressChange({ ...newAddress, deliveryInstructions });
   };
 
