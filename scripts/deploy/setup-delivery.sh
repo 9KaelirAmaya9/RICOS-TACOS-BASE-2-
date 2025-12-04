@@ -56,6 +56,9 @@ if ! grep -q "GOOGLE_MAPS_API_KEY=AIzaSy" .env 2>/dev/null; then
     exit 1
 fi
 
+# Load environment variables from .env file
+export $(grep -v '^#' .env | xargs)
+
 # Detect docker-compose command
 if command -v docker-compose &> /dev/null; then
     DOCKER_COMPOSE="docker-compose"
@@ -66,9 +69,15 @@ else
     exit 1
 fi
 
+# Get database credentials from environment
+DB_USER="${POSTGRES_USER:-myuser}"
+DB_NAME="${POSTGRES_DB:-mydatabase}"
+
+echo -e "${BLUE}Using database: ${DB_NAME} with user: ${DB_USER}${NC}"
+
 echo -e "${BLUE}Step 1/4: Applying database migration...${NC}"
 # Apply the delivery fields migration
-$DOCKER_COMPOSE -f production.docker.yml exec -T postgres psql -U tacos_admin -d tacos_db < services/backend/database/migrations/20251203_add_delivery_fields.sql
+$DOCKER_COMPOSE -f production.docker.yml exec -T postgres psql -U "$DB_USER" -d "$DB_NAME" < services/backend/database/migrations/20251203_add_delivery_fields.sql
 
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}✓ Database migration applied successfully${NC}"
