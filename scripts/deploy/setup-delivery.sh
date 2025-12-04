@@ -57,9 +57,16 @@ if ! grep -q "GOOGLE_MAPS_API_KEY=AIzaSy" .env 2>/dev/null; then
 fi
 
 # Load environment variables from .env file (handle inline comments and spaces)
-set -a
-source <(grep -v '^#' .env | sed 's/#.*//' | grep -v '^[[:space:]]*$')
-set +a
+while IFS='=' read -r key value; do
+    # Skip empty lines and comments
+    [[ -z "$key" || "$key" =~ ^[[:space:]]*# ]] && continue
+
+    # Remove inline comments and trim whitespace
+    value=$(echo "$value" | sed 's/#.*$//' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+    # Export the variable
+    export "$key=$value"
+done < <(grep -v '^[[:space:]]*#' .env | grep -v '^[[:space:]]*$')
 
 # Detect docker-compose command
 if command -v docker-compose &> /dev/null; then
