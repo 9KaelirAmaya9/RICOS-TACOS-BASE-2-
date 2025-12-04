@@ -82,7 +82,7 @@ const getFullMenu = async (req, res) => {
     const { available_only } = req.query;
 
     // Get all categories
-    const categoriesResult = await query('SELECT * FROM categories ORDER BY sort_order ASC');
+    const categoriesResult = await query('SELECT * FROM menu_categories ORDER BY sort_order ASC');
     const categories = categoriesResult.rows;
 
     // Get all items

@@ -55,7 +55,6 @@ const limiter = rateLimit({
 app.use('/api/', limiter);
 
 // Routes
-// Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/menu', menuRoutes);
@@ -65,6 +64,14 @@ const { createPaymentIntent } = require('./controllers/paymentController');
 const paymentRouter = express.Router();
 paymentRouter.post('/create-intent', createPaymentIntent);
 app.use('/api/payments', paymentRouter);
+
+// Delivery routes
+const { validateAddress, calculateFee, getDeliveryConfig } = require('./controllers/deliveryController');
+const deliveryRouter = express.Router();
+deliveryRouter.post('/validate-address', validateAddress);
+deliveryRouter.post('/calculate-fee', calculateFee);
+deliveryRouter.get('/config', getDeliveryConfig);
+app.use('/api/delivery', deliveryRouter);
 
 // Health check route
 app.get('/api/health', (req, res) => {
