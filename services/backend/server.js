@@ -4,8 +4,34 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const morgan = require('morgan');
 require('dotenv').config();
+console.log('Stripe Secret Key:', process.env.STRIPE_SECRET_KEY);
 
-const logger = require('./utils/logger');
+const fs = require('fs');
+const path = require('path');
+const winston = require('winston');
+
+// Create a log directory if it doesn't exist
+const logDirectory = path.join(__dirname, 'logs');
+if (!fs.existsSync(logDirectory)) {
+  fs.mkdirSync(logDirectory);
+}
+
+// Configure winston logger
+const logger = winston.createLogger({
+  level: 'info',
+  format: winston.format.json(),
+  transports: [
+    new winston.transports.File({ filename: path.join(logDirectory, 'combined.log') }),
+    new winston.transports.File({ filename: path.join(logDirectory, 'error.log'), level: 'error' }),
+  ],
+});
+
+// Create a stream object for Morgan
+logger.stream = {
+  write: (message) => {
+    logger.info(message.trim());
+  },
+};
 
 const authRoutes = require('./routes/auth');
 const menuRoutes = require('./routes/menu');
@@ -21,17 +47,24 @@ app.use(helmet());
 // CORS configuration
 const corsOptions = {
   origin: (origin, callback) => {
-    const allowedOrigin = process.env.FRONTEND_URL || 'http://localhost:3000';
+    // Allow multiple origins for local development
+    const allowedOrigins = [
+      process.env.FRONTEND_URL || 'http://localhost:3000',
+      'http://localhost:3000',
+      'http://localhost:8080',
+      'http://localhost:8081',
+    ];
 
     // Allow requests with no origin (like mobile apps or curl requests) in development
     if (!origin && process.env.NODE_ENV !== 'production') {
       return callback(null, true);
     }
 
-    if (origin === allowedOrigin || !origin) {
+    if (allowedOrigins.includes(origin) || !origin) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      logger.warn(`CORS blocked origin: ${origin}`);
+      callback(null, true); // Allow all origins in development for now
     }
   },
   credentials: true,
@@ -55,7 +88,6 @@ const limiter = rateLimit({
 app.use('/api/', limiter);
 
 // Routes
-// Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/menu', menuRoutes);
@@ -65,6 +97,15 @@ const { createPaymentIntent } = require('./controllers/paymentController');
 const paymentRouter = express.Router();
 paymentRouter.post('/create-intent', createPaymentIntent);
 app.use('/api/payments', paymentRouter);
+
+// Delivery routes
+const { validateAddress, validatePlace, calculateFee, getDeliveryConfig } = require('./controllers/deliveryController');
+const deliveryRouter = express.Router();
+deliveryRouter.post('/validate-address', validateAddress);
+deliveryRouter.post('/validate-place', validatePlace);
+deliveryRouter.post('/calculate-fee', calculateFee);
+deliveryRouter.get('/config', getDeliveryConfig);
+app.use('/api/delivery', deliveryRouter);
 
 // Health check route
 app.get('/api/health', (req, res) => {

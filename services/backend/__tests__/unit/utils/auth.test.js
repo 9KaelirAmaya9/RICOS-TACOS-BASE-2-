@@ -69,7 +69,9 @@ describe('Auth Utils', () => {
         });
 
         test('should return null for invalid token', () => {
-            jwt.verify.mockImplementation(() => { throw new Error('Invalid token'); });
+            jwt.verify.mockImplementation(() => {
+ throw new Error('Invalid token');
+});
 
             const result = verifyToken('invalid');
 

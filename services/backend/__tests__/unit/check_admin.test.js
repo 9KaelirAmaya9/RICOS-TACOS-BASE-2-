@@ -34,7 +34,7 @@ describe('check_admin script', () => {
         // Wait for async execution
         await new Promise(resolve => setTimeout(resolve, 100));
 
-        expect(pool.query).toHaveBeenCalledWith(expect.stringContaining("SELECT email, role, password_hash FROM users"));
+        expect(pool.query).toHaveBeenCalledWith(expect.stringContaining('SELECT email, role, password_hash FROM users'));
         expect(consoleLogSpy).toHaveBeenCalledWith('Admin User:', { email: 'admin@tacos.local' });
         expect(pool.end).toHaveBeenCalled();
     });
