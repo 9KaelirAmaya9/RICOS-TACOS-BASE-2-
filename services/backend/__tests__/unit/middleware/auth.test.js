@@ -72,7 +72,9 @@ describe('Auth Middleware', () => {
 
         test('should return 401 on error', async () => {
             req.headers.authorization = 'Bearer validtoken';
-            verifyToken.mockImplementation(() => { throw new Error('Error'); });
+            verifyToken.mockImplementation(() => {
+ throw new Error('Error');
+});
 
             await protect(req, res, next);
 

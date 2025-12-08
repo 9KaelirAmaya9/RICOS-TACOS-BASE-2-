@@ -52,7 +52,7 @@ const getMenuItems = async (req, res) => {
     }
 
     if (available_only === 'true') {
-      sql += ` AND mi.is_available = true`;
+      sql += ' AND mi.is_available = true';
     }
 
     sql += ' ORDER BY mc.sort_order, mi.name';

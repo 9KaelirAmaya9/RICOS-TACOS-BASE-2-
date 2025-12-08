@@ -43,8 +43,11 @@ describe('Middleware', () => {
         // Setup mock implementation
         authMiddleware.protect.mockImplementation((req, res, next) => next());
         authMiddleware.requireVerifiedEmail.mockImplementation((req, res, next) => {
-            if (req.user.email_verified) next();
-            else res.status(403).json({ message: 'Email not verified' });
+            if (req.user.email_verified) {
+next();
+} else {
+res.status(403).json({ message: 'Email not verified' });
+}
         });
 
         // Require roles AFTER mocking auth

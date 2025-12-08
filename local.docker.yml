@@ -15,6 +15,7 @@ services:
       - NODE_ENV=development
       - REACT_APP_API_URL=${REACT_APP_API_URL}
       - REACT_APP_STRIPE_PUBLISHABLE_KEY=${REACT_APP_STRIPE_PUBLISHABLE_KEY}
+      - REACT_APP_GOOGLE_MAPS_API_KEY=${REACT_APP_GOOGLE_MAPS_API_KEY}
     volumes:
       - ./services/react-app:/app
       - /app/node_modules
@@ -52,6 +53,13 @@ services:
       - DB_NAME=${POSTGRES_DB}
       - DB_USER=${POSTGRES_USER}
       - DB_PASSWORD=${POSTGRES_PASSWORD}
+      - RESTAURANT_LAT=40.6405
+      - RESTAURANT_LNG=-74.0124
+      - RESTAURANT_ADDRESS=5125 6th Ave, Brooklyn, NY 11220
+      - DELIVERY_MAX_DISTANCE=10
+      - DELIVERY_BASE_FEE=3.99
+      - DELIVERY_PER_MILE_FEE=0.50
+      - FREE_DELIVERY_MINIMUM=50.00
       - JWT_SECRET=${JWT_SECRET}
       - JWT_EXPIRE=${JWT_EXPIRE}
       - EMAIL_HOST=${EMAIL_HOST}
@@ -63,6 +71,7 @@ services:
       - RATE_LIMIT_WINDOW_MS=${RATE_LIMIT_WINDOW_MS}
       - RATE_LIMIT_MAX_REQUESTS=${RATE_LIMIT_MAX_REQUESTS}
       - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_SERVER_API_KEY}
     volumes:
       - ./services/backend:/app
     networks:

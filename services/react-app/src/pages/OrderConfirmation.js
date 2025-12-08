@@ -139,9 +139,11 @@ const OrderConfirmation = () => {
           </div>
         </div>
 
-        {/* Contact & Pickup Info */}
+        {/* Contact & Pickup/Delivery Info */}
         <div style={styles.section}>
-          <h2 style={styles.sectionTitle}>Pickup Information</h2>
+          <h2 style={styles.sectionTitle}>
+            {order.order_type === 'DELIVERY' ? 'Delivery Information' : 'Pickup Information'}
+          </h2>
           <div style={styles.infoCard}>
             <div style={styles.infoRow}>
               <span style={styles.infoLabel}>Name:</span>
@@ -161,6 +163,20 @@ const OrderConfirmation = () => {
               <span style={styles.infoLabel}>Order Type:</span>
               <span style={styles.infoValue}>{order.order_type}</span>
             </div>
+
+            {/* Display Address for Delivery Orders */}
+            {order.order_type === 'DELIVERY' && (
+              <div style={styles.infoRow}>
+                <span style={styles.infoLabel}>Address:</span>
+                <span style={styles.infoValue}>
+                  {order.delivery_address_street}
+                  {order.delivery_address_unit ? `, Unit ${order.delivery_address_unit}` : ''}
+                  <br />
+                  {order.delivery_address_city}, {order.delivery_address_state} {order.delivery_address_zip}
+                </span>
+              </div>
+            )}
+
             {order.notes && (
               <div style={styles.infoRow}>
                 <span style={styles.infoLabel}>Special Instructions:</span>
@@ -173,7 +189,10 @@ const OrderConfirmation = () => {
         {/* Time Estimate */}
         <div style={styles.estimateCard}>
           <p style={styles.estimateText}>
-            ⏱️ Estimated pickup time: 15-20 minutes
+            {order.order_type === 'DELIVERY'
+              ? '⏱️ Estimated delivery time: 30-45 minutes'
+              : '⏱️ Estimated pickup time: 15-20 minutes'
+            }
           </p>
           <p style={styles.estimateSubtext}>
             We'll prepare your order fresh! Check back here for status updates.

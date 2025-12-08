@@ -62,6 +62,10 @@ const createPaymentIntent = async (req, res) => {
             totalAmount += parseFloat(menuItem.price) * item.quantity;
         }
 
+        const { deliveryFee = 0, tip = 0 } = req.body;
+        totalAmount += parseFloat(deliveryFee);
+        totalAmount += parseFloat(tip);
+
         // Create PaymentIntent
         const paymentIntent = await stripe.paymentIntents.create({
             amount: Math.round(totalAmount * 100), // Convert to cents

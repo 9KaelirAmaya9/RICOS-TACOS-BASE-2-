@@ -33,7 +33,7 @@ const sendOrderConfirmationEmail = async (order) => {
 
   const orderTypeInfo = order.order_type === 'DELIVERY'
     ? `<p style="margin: 5px 0;"><strong>📍 Delivery Address:</strong> ${order.delivery_address || 'Not specified'}</p>`
-    : `<p style="margin: 5px 0;"><strong>📍 Pickup:</strong> Ready in 15-20 minutes</p>`;
+    : '<p style="margin: 5px 0;"><strong>📍 Pickup:</strong> Ready in 15-20 minutes</p>';
 
   const mailOptions = {
     from: process.env.EMAIL_FROM || '"Ricos Tacos" <orders@losricostacos.com>',

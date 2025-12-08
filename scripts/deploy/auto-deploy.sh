@@ -73,8 +73,8 @@ pwd
 echo ""
 echo -e "${BLUE}Step 1: Pulling latest code...${NC}"
 git fetch origin
-git checkout claude/fix-payment-intent-error-016Pxrq617taHBBUDx19dTp8
-git pull origin claude/fix-payment-intent-error-016Pxrq617taHBBUDx19dTp8
+git checkout claude/digital-ocean-containers-016Pxrq617taHBBUDx19dTp8
+git pull origin claude/digital-ocean-containers-016Pxrq617taHBBUDx19dTp8
 
 if [ $? -ne 0 ]; then
     echo -e "${RED}✗ Failed to pull latest code${NC}"

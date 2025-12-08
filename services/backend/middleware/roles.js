@@ -16,8 +16,11 @@ const requireRole = (...allowedRoles) => {
       // First ensure user is authenticated
       await new Promise((resolve, reject) => {
         protect(req, res, (err) => {
-          if (err) reject(err);
-          else resolve();
+          if (err) {
+reject(err);
+} else {
+resolve();
+}
         });
       });
 

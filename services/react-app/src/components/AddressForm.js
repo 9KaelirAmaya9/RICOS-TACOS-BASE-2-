@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import api from '../services/api';
 
 /**
  * AddressForm Component
@@ -27,20 +28,28 @@ const AddressForm = ({ onAddressChange, onValidAddress, cartTotal }) => {
 
   // Initialize Google Maps Autocomplete
   useEffect(() => {
-    if (!window.google || !streetInputRef.current) return;
+    if (!window.google || !window.google.maps || !window.google.maps.places) {
+      console.error('Google Maps API not loaded');
+      setError('Address autocomplete unavailable. Please enter address manually.');
+      return;
+    }
+
+    if (!streetInputRef.current) return;
 
     try {
       autocompleteRef.current = new window.google.maps.places.Autocomplete(
         streetInputRef.current,
         {
           types: ['address'],
-          componentRestrictions: { country: 'us' }
+          componentRestrictions: { country: 'us' },
+          fields: ['address_components', 'geometry', 'formatted_address'] // Optimize by requesting only needed fields
         }
       );
 
       autocompleteRef.current.addListener('place_changed', handlePlaceSelect);
     } catch (err) {
       console.error('Error initializing Google Maps Autocomplete:', err);
+      setError('Error initializing address search. Please enter manually.');
     }
 
     return () => {
@@ -92,10 +101,10 @@ const AddressForm = ({ onAddressChange, onValidAddress, cartTotal }) => {
     });
 
     setAddress(newAddress);
-    validateAndCalculateFee(newAddress);
+    validateAndCalculateFee(newAddress, place.place_id);
   };
 
-  const validateAndCalculateFee = async (addr) => {
+  const validateAndCalculateFee = async (addr, placeId = null) => {
     if (!addr.street || !addr.city || !addr.state || !addr.zip) {
       return;
     }
@@ -104,18 +113,109 @@ const AddressForm = ({ onAddressChange, onValidAddress, cartTotal }) => {
     setError(null);
 
     try {
-      // Calculate delivery fee
-      const feeResponse = await fetch('/api/delivery/calculate-fee', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          lat: addr.lat,
-          lng: addr.lng,
-          orderTotal: cartTotal
-        })
+      let currentLat = addr.lat;
+      let currentLng = addr.lng;
+
+      // If we have a Place ID, use the robust backend validation (The "Right Way")
+      if (placeId) {
+        try {
+          const response = await api.post('/delivery/validate-place', { placeId });
+          const data = response.data;
+
+          if (!data.success) {
+            throw new Error(data.message || 'Invalid address');
+          }
+
+          currentLat = data.address.lat;
+          currentLng = data.address.lng;
+
+          // Update address with precise coordinates from backend
+          const updatedAddress = {
+            ...addr,
+            lat: currentLat,
+            lng: currentLng
+          };
+          setAddress(updatedAddress);
+        } catch (err) {
+          console.error('Place validation failed:', err);
+          // Fallback to client-side geocoding if backend fails (e.g. key restriction)
+          console.warn('Falling back to client-side geocoding...');
+          // Proceed to manual entry logic below (currentLat/Lng will be null/undefined if not set above)
+        }
+      }
+
+      // If we don't have coordinates yet (manual entry or fallback), try to geocode
+      if (!currentLat || !currentLng) {
+        // First try client-side geocoding (more reliable if backend key is restricted)
+        try {
+          const geocoder = new window.google.maps.Geocoder();
+          const result = await new Promise((resolve, reject) => {
+            geocoder.geocode(
+              { address: `${addr.street}, ${addr.city}, ${addr.state} ${addr.zip}` },
+              (results, status) => {
+                if (status === 'OK' && results[0]) {
+                  resolve(results[0]);
+                } else {
+                  reject(new Error('Geocoding failed'));
+                }
+              }
+            );
+          });
+
+          currentLat = result.geometry.location.lat();
+          currentLng = result.geometry.location.lng();
+
+          // Update address with geocoded coordinates
+          const updatedAddress = {
+            ...addr,
+            lat: currentLat,
+            lng: currentLng
+          };
+          setAddress(updatedAddress);
+        } catch (clientError) {
+          console.warn('Client-side geocoding failed, falling back to backend:', clientError);
+
+          // Fallback to backend validation
+          const validateResponse = await api.post('/delivery/validate-address', {
+            street: addr.street,
+            city: addr.city,
+            state: addr.state,
+            zip: addr.zip
+          });
+
+          const validateData = validateResponse.data;
+
+          if (!validateData.success) {
+            throw new Error(validateData.message || 'Invalid address');
+          }
+
+          if (validateData.outOfRange) {
+            throw new Error(validateData.message);
+          }
+
+          if (validateData.address.lat && validateData.address.lng) {
+            currentLat = validateData.address.lat;
+            currentLng = validateData.address.lng;
+
+            setAddress({
+              ...addr,
+              lat: currentLat,
+              lng: currentLng
+            });
+          } else {
+            throw new Error('Unable to determine location coordinates. Please select an address from the suggestions.');
+          }
+        }
+      }
+
+      // Calculate delivery fee using api service
+      const response = await api.post('/delivery/calculate-fee', {
+        lat: currentLat,
+        lng: currentLng,
+        orderTotal: cartTotal
       });
 
-      const feeData = await feeResponse.json();
+      const feeData = response.data;
 
       if (!feeData.success) {
         setError(feeData.message);
@@ -132,6 +232,8 @@ const AddressForm = ({ onAddressChange, onValidAddress, cartTotal }) => {
       // Notify parent component
       onAddressChange({
         ...addr,
+        lat: currentLat,
+        lng: currentLng,
         deliveryFee: feeData.deliveryFee,
         distance: feeData.distance,
         deliveryInstructions
@@ -140,7 +242,7 @@ const AddressForm = ({ onAddressChange, onValidAddress, cartTotal }) => {
 
     } catch (err) {
       console.error('Error validating address:', err);
-      setError('Failed to validate address. Please try again.');
+      setError(err.response?.data?.message || err.message || 'Failed to validate address. Please try again.');
       onValidAddress(false);
     } finally {
       setValidating(false);
@@ -153,11 +255,14 @@ const AddressForm = ({ onAddressChange, onValidAddress, cartTotal }) => {
 
     // If user manually filled all required fields, validate automatically
     if (newAddress.street && newAddress.city && newAddress.state && newAddress.zip) {
-      // Only auto-validate if we have lat/lng (from autocomplete)
-      // or if all fields are filled (manual entry - need to geocode)
-      if (newAddress.lat && newAddress.lng) {
-        validateAndCalculateFee(newAddress);
+      // Debounce validation to avoid hitting rate limits
+      if (window.validationTimeout) {
+        clearTimeout(window.validationTimeout);
       }
+
+      window.validationTimeout = setTimeout(() => {
+        validateAndCalculateFee(newAddress);
+      }, 1000); // Wait 1 second after last keystroke
     } else {
       // Reset validation if fields are incomplete
       onValidAddress(false);

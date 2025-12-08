@@ -6,6 +6,7 @@ import CheckoutForm from '../components/CheckoutForm';
 import AddressForm from '../components/AddressForm';
 import { useCart } from '../contexts/CartContext';
 import api from '../services/api';
+import { retryOperation } from '../utils/retryUtils';
 
 // Initialize Stripe (replace with your publishable key)
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY || 'pk_test_TYooMQauvdEDq54NiTphI7jx');
@@ -66,9 +67,17 @@ const Cart = () => {
     return subtotal + deliveryFee;
   };
 
+  // ... existing imports ...
+
   const initiateCheckout = async (e) => {
     e.preventDefault();
     setError(null);
+
+    // Network Check
+    if (!navigator.onLine) {
+      setError('No internet connection. Please check your network and try again.');
+      return;
+    }
 
     // Validation
     if (!customerInfo.name || !customerInfo.phone) {
@@ -77,20 +86,31 @@ const Cart = () => {
     }
 
     // Validate delivery address if delivery is selected
-    if (orderType === 'DELIVERY' && (!deliveryAddress || !addressValid)) {
-      setError('Please enter and validate your delivery address');
-      return;
+    if (orderType === 'DELIVERY') {
+      if (!deliveryAddress || !deliveryAddress.street || !deliveryAddress.city || !deliveryAddress.state || !deliveryAddress.zip) {
+        setError('Please enter a complete delivery address');
+        return;
+      }
+
+      if (!addressValid) {
+        setError('Please wait for address validation to complete or verify your address is correct');
+        return;
+      }
+
+      // Ensure we have coordinates for delivery
+      if (!deliveryAddress.lat || !deliveryAddress.lng) {
+        setError('Unable to validate delivery address. Please select an address from the autocomplete suggestions.');
+        return;
+      }
     }
-
-
 
     try {
       setSubmitting(true);
 
-      // Create PaymentIntent on backend
-      const response = await api.post('/payments/create-intent', {
+      // Create PaymentIntent on backend with retry
+      const response = await retryOperation(() => api.post('/payments/create-intent', {
         items: cartItems
-      });
+      }));
 
       if (response.data.success) {
         setClientSecret(response.data.clientSecret);
@@ -243,7 +263,7 @@ const Cart = () => {
             {orderType === 'DELIVERY' && deliveryFee === 0 && deliveryAddress && (
               <div style={styles.freeDeliveryRow}>
                 <span style={styles.totalLabel}>Delivery Fee:</span>
-                <span style={{...styles.totalAmount, color: '#10b981'}}>FREE! 🎉</span>
+                <span style={{ ...styles.totalAmount, color: '#10b981' }}>FREE! 🎉</span>
               </div>
             )}
             <div style={styles.grandTotalRow}>
@@ -390,6 +410,7 @@ const Cart = () => {
                     onPaymentSuccess={handlePaymentSuccess}
                     onPaymentError={handlePaymentError}
                     totalAmount={getOrderTotal().toFixed(2)}
+                    isOrderCreating={submitting}
                   />
                 </Elements>
               )}
