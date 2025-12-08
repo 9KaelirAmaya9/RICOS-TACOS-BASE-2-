@@ -130,31 +130,31 @@ echo ""
 # ============================================
 # 3. Update traefik.yml entrypoint key
 # ============================================
-echo "🔍 Checking traefik/traefik.yml entrypoint configuration..."
+echo "🔍 Checking services/traefik/traefik.yml entrypoint configuration..."
 
 # Detect current API entrypoint key (exclude 'web' entrypoint)
-CURRENT_ENTRYPOINT=$(grep -A 10 "^entryPoints:" traefik/traefik.yml | grep -E "^  [a-z]" | grep -v "web:" | head -1 | sed 's/:.*$//' | sed 's/^[[:space:]]*//')
+CURRENT_ENTRYPOINT=$(grep -A 10 "^entryPoints:" services/traefik/traefik.yml | grep -E "^  [a-z]" | grep -v "web:" | head -1 | sed 's/:.*$//' | sed 's/^[[:space:]]*//')
 
 if [ "$CURRENT_ENTRYPOINT" != "$TRAEFIK_API_ENTRYPOINT" ]; then
     echo -e "${YELLOW}⚙️  Updating API entrypoint: $CURRENT_ENTRYPOINT → $TRAEFIK_API_ENTRYPOINT${NC}"
     
     # Create backup
-    cp traefik/traefik.yml traefik/traefik.yml.bak
+    cp services/traefik/traefik.yml services/traefik/traefik.yml.bak
     
     # Update entrypoint definition key (must preserve indentation)
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        sed -i '' "s/^  $CURRENT_ENTRYPOINT:/  $TRAEFIK_API_ENTRYPOINT:/" traefik/traefik.yml
+        sed -i '' "s/^  $CURRENT_ENTRYPOINT:/  $TRAEFIK_API_ENTRYPOINT:/" services/traefik/traefik.yml
     else
-        sed -i "s/^  $CURRENT_ENTRYPOINT:/  $TRAEFIK_API_ENTRYPOINT:/" traefik/traefik.yml
+        sed -i "s/^  $CURRENT_ENTRYPOINT:/  $TRAEFIK_API_ENTRYPOINT:/" services/traefik/traefik.yml
     fi
     
-    echo -e "${GREEN}✅ Updated traefik/traefik.yml${NC}"
+    echo -e "${GREEN}✅ Updated services/traefik/traefik.yml${NC}"
     echo "   - API entrypoint key: $CURRENT_ENTRYPOINT → $TRAEFIK_API_ENTRYPOINT"
     CHANGES_MADE=true
     
-    rm -f traefik/traefik.yml.bak
+    rm -f services/traefik/traefik.yml.bak
 else
-    echo "✓ traefik/traefik.yml entrypoint is correct"
+    echo "✓ services/traefik/traefik.yml entrypoint is correct"
 fi
 echo ""
 
