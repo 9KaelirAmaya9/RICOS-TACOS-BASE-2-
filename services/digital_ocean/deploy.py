@@ -48,8 +48,7 @@ def main():
             "name": "web",
             "git": {
                 "repo_clone_url": DO_GIT_REPO,
-                "branch": "main",  # You can make this configurable
-                "deploy_on_push": True
+                "branch": os.getenv("DO_APP_BRANCH", "main")  # Configurable branch
             },
             "run_command": "",  # Optionally set your run command
             "envs": []
@@ -57,7 +56,9 @@ def main():
     }
     try:
         logger.info(f"Starting App Platform deployment for app: {DO_APP_NAME} from repo: {DO_GIT_REPO}")
-        app = client.apps.create_app(app_spec)
+        # Wrap the spec in a 'spec' key as required by the API
+        req = {"spec": app_spec}
+        app = client.apps.create(req)
         app_id = app['app']['id'] if 'app' in app and 'id' in app['app'] else None
         logger.info(f"App Platform deployment started. App ID: {app_id}")
         print(f"App Platform deployment started. App ID: {app_id}")
